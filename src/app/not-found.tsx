@@ -57,7 +57,7 @@ export default function NotFound() {
 
             {/* -------- body copy -------- */}
             <p className="font-body text-base text-stone-700 text-center max-w-md leading-relaxed mb-2">
-                The page you&apos;re looking for either doesn&apos;t exist yet or hasn&apos;t been created yet.
+                The page you&apos;re looking for either doesn&apos;t exist or hasn&apos;t been created yet.
             </p>
             <p className="font-body text-base text-stone-700 text-center max-w-md leading-relaxed mb-10">
                 This is a work-in-progress prototype, not all pages are included yet.
