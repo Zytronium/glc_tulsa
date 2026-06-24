@@ -30,8 +30,10 @@ const LINKS = [
 
 export function QuickLinks() {
   return (
-    <section className="border-b border-stone-200 bg-stone-50">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-5 py-10 sm:grid-cols-4 sm:gap-4 sm:px-8 sm:py-14">
+    <section className="border-b border-stone-200 bg-stone-50"
+             style={{ backgroundImage: "url('/images/aged_paper.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"  }}>
+
+    <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-5 py-10 sm:grid-cols-4 sm:gap-4 sm:px-8 sm:py-14">
         {LINKS.map(({ label, description, href, Icon }) => (
           <Link
             key={label}

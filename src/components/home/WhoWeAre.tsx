@@ -23,7 +23,8 @@ const MARKS = [
 
 export function WhoWeAre() {
   return (
-    <section className="border-b border-stone-200 bg-white">
+    <section className="border-b border-stone-200 bg-white"
+             style={{ backgroundImage: "url('/images/paper.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"  }}>
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
         <div className="relative aspect-[4/5] overflow-hidden rounded-sm lg:aspect-auto">
           <Image

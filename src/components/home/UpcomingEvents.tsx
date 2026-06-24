@@ -27,7 +27,8 @@ const EVENTS = [
 
 export function UpcomingEvents() {
   return (
-    <section className="border-b border-stone-200 bg-stone-100">
+    <section className="border-b border-stone-200 bg-stone-100"
+             style={{ backgroundImage: "url('/images/aged_paper.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"  }}>
       <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
         <div className="mb-7 flex items-baseline justify-between">
           <h2 className="font-display text-[22px] font-medium text-ink">

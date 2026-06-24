@@ -20,7 +20,8 @@ const MISSION = [
 
 export function Mission() {
   return (
-    <section className="border-b border-stone-200 bg-white">
+    <section className="border-b border-stone-200 bg-white"
+             style={{ backgroundImage: "url('/images/paper.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center"  }}>
       <div className="mx-auto max-w-5xl px-5 py-14 text-center sm:px-8 sm:py-20">
         <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
           Our mission
@@ -29,7 +30,7 @@ export function Mission() {
           {MISSION.map(({ label, description, Icon }) => (
             <div
               key={label}
-              className="flex flex-col items-center rounded-sm bg-stone-50 px-6 py-9"
+              className="flex flex-col items-center rounded-sm bg-stone-50 border-stone-200 border px-6 py-9"
             >
               <ArchTop className="h-6 w-10 text-garnet-200" />
               <Icon className="h-7 w-7 text-garnet-600" />
