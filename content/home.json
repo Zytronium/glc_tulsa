@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "headline": "Ancient faith for today\u2019s Tulsa",
+    "subtext": "A warm, welcoming Lutheran congregation rooted in nearly 2,000 years of historic Christian tradition, gathered around Word and Sacrament since 1922.",
+    "backgroundImage": "/images/chancel.webp",
+    "ctaPrimary": {
+      "label": "Plan your visit",
+      "href": "/visit"
+    },
+    "ctaSecondary": {
+      "label": "Learn more",
+      "href": "/about"
+    }
+  },
+  "serviceBar": {
+    "sundayTimes": "8:00 & 10:30 AM",
+    "wednesdayTimes": "6:15 PM (Sept\u2013May)",
+    "address": "2331 E 5th Pl, Tulsa",
+    "addressUrl": "https://maps.google.com/?q=2331+E+5th+Pl,+Tulsa,+OK+74104"
+  },
+  "mission": {
+    "items": [
+      { "label": "Gather", "description": "Around Word & Sacrament every Sunday" },
+      { "label": "Grow", "description": "In faith through Bible study and discipleship" },
+      { "label": "Go", "description": "Into Tulsa proclaiming the Gospel in word and deed" }
+    ]
+  },
+  "whoWeAre": {
+    "heading": "Evangelical, catholic, biblical, and incarnational",
+    "image": "/images/altar-easter-bw.webp",
+    "imageAlt": "The altar dressed for Easter, lined with candles and lilies",
+    "linkLabel": "About our faith",
+    "linkHref": "/about",
+    "marks": [
+      {
+        "label": "Evangelical",
+        "text": "The Gospel of Jesus Christ is central: forgiveness, life, and salvation through His death and resurrection."
+      },
+      {
+        "label": "Catholic",
+        "text": "Members of the universal church, faithful heirs of nearly 2,000 years of Christian tradition and liturgy."
+      },
+      {
+        "label": "Biblical",
+        "text": "The Holy Scriptures are the Word of God, sufficient for all faith and practice. Our liturgy and preaching are biblical."
+      },
+      {
+        "label": "Incarnational",
+        "text": "God reveals Himself through Word and Sacrament: water, bread, wine, and the preaching of the Holy Gospel."
+      }
+    ]
+  },
+  "quickLinks": [
+    { "label": "Worship", "description": "Services, liturgy, and sacraments", "href": "/worship" },
+    { "label": "Events", "description": "Calendar, Grace Night, VBS", "href": "/events" },
+    { "label": "Ministries", "description": "Youth, music, missions, community", "href": "/ministries" },
+    { "label": "Find us", "description": "Directions, hours, contact", "href": "/contact" }
+  ],
+  "footer": {
+    "addressLine1": "2331 East 5th Place",
+    "addressLine2": "Tulsa, OK 74104",
+    "officeHoursDays": "Monday \u2013 Thursday",
+    "officeHoursTimes": "8:00 AM \u2013 2:00 PM",
+    "email": "secretary@glctulsa.org",
+    "phone": "(918) 592-2999",
+    "facebookUrl": "https://www.facebook.com/gracelutherantulsa",
+    "donationUrl": "https://secure.myvanco.com/L-Z8SV"
+  }
+}
