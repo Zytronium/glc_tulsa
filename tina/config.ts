@@ -119,6 +119,7 @@ export default defineConfig({
                 type: "string",
                 name: "headline",
                 label: "Headline",
+                description: "Use \"|\" to create a line break."
               },
               {
                 type: "string",
@@ -173,7 +174,7 @@ export default defineConfig({
                 type: "string",
                 name: "address",
                 label: "Address",
-                description: 'Short form for the bar, e.g. "2331 E 5th Pl, Tulsa"',
+                description: 'e.g. "2331 E 5th Pl, Tulsa"',
               },
               {
                 type: "string",
