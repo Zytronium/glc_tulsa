@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { tinaField } from "tinacms/dist/react";
 import { ArchTop, IconBook, IconCalendar, IconHeart, IconMapPin } from "./icons";
 import type { ComponentType, SVGProps } from "react";
 
@@ -35,8 +36,16 @@ export function QuickLinks({ quickLinks }: Props) {
             >
               <ArchTop className="h-6 w-10 text-garnet-200 transition group-hover:text-garnet-600" />
               {Icon && <Icon className="ml-2 mt-1 h-6 w-6 text-garnet-600" />}
-              <p className="mt-3 font-display text-[16px] text-ink">{link.label}</p>
-              <p className="mt-1 text-[13px] leading-5 text-stone-700">
+              <p
+                data-tina-field={tinaField(link, "label")}
+                className="mt-3 font-display text-[16px] text-ink"
+              >
+                {link.label}
+              </p>
+              <p
+                data-tina-field={tinaField(link, "description")}
+                className="mt-1 text-[13px] leading-5 text-stone-700"
+              >
                 {link.description}
               </p>
             </Link>

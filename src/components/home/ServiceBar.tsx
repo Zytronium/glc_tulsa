@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { tinaField } from "tinacms/dist/react";
 import { IconSun, IconCalendar, IconMapPin } from "./icons";
 
 import type { HomeData } from "@/app/page";
@@ -12,7 +13,9 @@ export function ServiceBar({ serviceBar }: Props) {
           <IconSun className="h-3.75 w-3.75 text-brass-400" />
           <span className="text-[12.5px]">
             <span className="font-medium">Sundays</span> &middot;{" "}
-            {serviceBar.sundayTimes}
+            <span data-tina-field={tinaField(serviceBar, "sundayTimes")}>
+              {serviceBar.sundayTimes}
+            </span>
           </span>
         </div>
         <span className="hidden h-3.5 w-px bg-stone-50/25 sm:block" aria-hidden="true" />
@@ -20,13 +23,16 @@ export function ServiceBar({ serviceBar }: Props) {
           <IconCalendar className="h-3.75 w-3.75 text-brass-400" />
           <span className="text-[12.5px]">
             <span className="font-medium">Wednesdays</span> &middot;{" "}
-            {serviceBar.wednesdayTimes}
+            <span data-tina-field={tinaField(serviceBar, "wednesdayTimes")}>
+              {serviceBar.wednesdayTimes}
+            </span>
           </span>
         </div>
         <span className="hidden h-3.5 w-px bg-stone-50/25 sm:block" aria-hidden="true" />
         {serviceBar.addressUrl && (
           <Link
             href={serviceBar.addressUrl}
+            data-tina-field={tinaField(serviceBar, "address")}
             className="flex items-center gap-1.5 text-stone-50/95 underline-offset-2 hover:underline"
           >
             <IconMapPin className="h-3.75 w-3.75 text-brass-400" />

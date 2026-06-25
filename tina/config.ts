@@ -38,6 +38,7 @@ export default defineConfig({
             create: false,
             delete: false,
           },
+          router: () => "/",
         },
         fields: [
           // -------- navbar --------
@@ -64,6 +65,11 @@ export default defineConfig({
             name: "hero",
             label: "Hero",
             fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
               {
                 type: "string",
                 name: "headline",

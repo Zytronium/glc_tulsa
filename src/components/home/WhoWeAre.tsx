@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { tinaField } from "tinacms/dist/react";
 import { IconArrowRight } from "./icons";
 
 import type { HomeData } from "@/app/page";
@@ -26,6 +27,7 @@ export function WhoWeAre({ whoWeAre }: Props) {
             fill
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="object-cover grayscale"
+            data-tina-field={tinaField(whoWeAre, "image")}
           />
         </div>
 
@@ -33,7 +35,10 @@ export function WhoWeAre({ whoWeAre }: Props) {
           <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
             Who we are
           </p>
-          <h2 className="mt-3 max-w-md font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]">
+          <h2
+            data-tina-field={tinaField(whoWeAre, "heading")}
+            className="mt-3 max-w-md font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]"
+          >
             {whoWeAre.heading}
           </h2>
 
@@ -43,10 +48,16 @@ export function WhoWeAre({ whoWeAre }: Props) {
                 key={mark.label}
                 className="border-l-2 border-brass-500 bg-stone-50 py-3 pl-4 pr-3"
               >
-                <dt className="font-display text-[15px] text-ink">
+                <dt
+                  data-tina-field={tinaField(mark, "label")}
+                  className="font-display text-[15px] text-ink"
+                >
                   {mark.label}
                 </dt>
-                <dd className="mt-1 text-[13px] leading-6 text-stone-700">
+                <dd
+                  data-tina-field={tinaField(mark, "text")}
+                  className="mt-1 text-[13px] leading-6 text-stone-700"
+                >
                   {mark.text}
                 </dd>
               </div>
@@ -56,6 +67,7 @@ export function WhoWeAre({ whoWeAre }: Props) {
           {whoWeAre.linkHref && (
             <Link
               href={whoWeAre.linkHref}
+              data-tina-field={tinaField(whoWeAre, "linkLabel")}
               className="mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-garnet-700 hover:text-garnet-600"
             >
               {whoWeAre.linkLabel}

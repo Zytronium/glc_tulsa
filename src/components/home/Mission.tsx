@@ -1,3 +1,4 @@
+import { tinaField } from "tinacms/dist/react";
 import { ArchTop, IconBookOpen, IconUsers, IconWorld } from "./icons";
 import type { ComponentType, SVGProps } from "react";
 
@@ -38,10 +39,16 @@ export function Mission({ mission }: Props) {
               >
                 <ArchTop className="h-6 w-10 text-garnet-200" />
                 {Icon && <Icon className="h-7 w-7 text-garnet-600" />}
-                <p className="mt-3 font-display text-[18px] text-ink">
+                <p
+                  data-tina-field={tinaField(items[i], "label")}
+                  className="mt-3 font-display text-[18px] text-ink"
+                >
                   {label}
                 </p>
-                <p className="mt-1.5 max-w-[14rem] text-[13px] leading-6 text-stone-700">
+                <p
+                  data-tina-field={tinaField(items[i], "description")}
+                  className="mt-1.5 max-w-[14rem] text-[13px] leading-6 text-stone-700"
+                >
                   {description}
                 </p>
               </div>

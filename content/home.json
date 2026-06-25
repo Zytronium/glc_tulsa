@@ -4,7 +4,8 @@
     "facebookUrl": "https://www.facebook.com/gracelutherantulsa"
   },
   "hero": {
-    "headline": "Ancient faith | for today\u2019s Tulsa",
+    "title": "Grace Lutheran Church",
+    "headline": "Ancient faith | for today’s Tulsa",
     "subtext": "A warm, welcoming Lutheran congregation rooted in nearly 2,000 years of historic Christian tradition, gathered around Word and Sacrament since 1922.",
     "backgroundImage": "/images/chancel.webp",
     "ctaPrimary": {
@@ -18,15 +19,24 @@
   },
   "serviceBar": {
     "sundayTimes": "8:00 & 10:30 AM",
-    "wednesdayTimes": "6:15 PM (Sept\u2013May)",
+    "wednesdayTimes": "6:15 PM (Sept–May)",
     "address": "2331 E 5th Pl, Tulsa",
     "addressUrl": "https://maps.google.com/?q=2331+E+5th+Pl,+Tulsa,+OK+74104"
   },
   "mission": {
     "items": [
-      { "label": "Gather", "description": "Around Word & Sacrament every Sunday" },
-      { "label": "Grow", "description": "In faith through Bible study and discipleship" },
-      { "label": "Go", "description": "Into Tulsa proclaiming the Gospel in word and deed" }
+      {
+        "label": "Gather",
+        "description": "Around Word & Sacrament every Sunday"
+      },
+      {
+        "label": "Grow",
+        "description": "In faith through Bible study and discipleship"
+      },
+      {
+        "label": "Go",
+        "description": "Into Tulsa proclaiming the Gospel in word and deed"
+      }
     ]
   },
   "whoWeAre": {
@@ -55,16 +65,32 @@
     ]
   },
   "quickLinks": [
-    { "label": "Worship", "description": "Services, liturgy, and sacraments", "href": "/worship" },
-    { "label": "Events", "description": "Calendar, Grace Night, VBS", "href": "/events" },
-    { "label": "Ministries", "description": "Youth, music, missions, community", "href": "/ministries" },
-    { "label": "Find us", "description": "Directions, hours, contact", "href": "/contact" }
+    {
+      "label": "Worship",
+      "description": "Services, liturgy, and sacraments",
+      "href": "/worship"
+    },
+    {
+      "label": "Events",
+      "description": "Calendar, Grace Night, VBS",
+      "href": "/events"
+    },
+    {
+      "label": "Ministries",
+      "description": "Youth, music, missions, community",
+      "href": "/ministries"
+    },
+    {
+      "label": "Find us",
+      "description": "Directions, hours, contact",
+      "href": "/contact"
+    }
   ],
   "footer": {
     "addressLine1": "2331 East 5th Place",
     "addressLine2": "Tulsa, OK 74104",
-    "officeHoursDays": "Monday \u2013 Thursday",
-    "officeHoursTimes": "8:00 AM \u2013 2:00 PM",
+    "officeHoursDays": "Monday – Thursday",
+    "officeHoursTimes": "8:00 AM – 2:00 PM",
     "email": "secretary@glctulsa.org",
     "phone": "(918) 592-2999",
     "facebookUrl": "https://www.facebook.com/gracelutherantulsa",
