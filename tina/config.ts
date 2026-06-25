@@ -40,6 +40,24 @@ export default defineConfig({
           },
         },
         fields: [
+          // -------- navbar --------
+          {
+            type: "object",
+            name: "navbar",
+            label: "Navbar",
+            fields: [
+              {
+                type: "string",
+                name: "donationUrl",
+                label: "Donation Button URL",
+              },
+              {
+                type: "string",
+                name: "facebookUrl",
+                label: "Facebook URL",
+              },
+            ],
+          },
           // -------- hero --------
           {
             type: "object",
