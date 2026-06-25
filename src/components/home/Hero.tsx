@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 
-import type { HomeData } from "@/app/page";
+import type { HomeData } from "@/app/(main)/page";
 type Props = { hero: NonNullable<HomeData["hero"]> };
 
 export function Hero({ hero }: Props) {

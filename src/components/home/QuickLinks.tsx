@@ -11,7 +11,7 @@ const ICONS: ComponentType<SVGProps<SVGSVGElement>>[] = [
   IconMapPin,
 ];
 
-import type { HomeData } from "@/app/page";
+import type { HomeData } from "@/app/(main)/page";
 type Props = { quickLinks: NonNullable<HomeData["quickLinks"]> };
 
 export function QuickLinks({ quickLinks }: Props) {

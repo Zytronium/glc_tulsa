@@ -2,7 +2,7 @@ import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { IconSun, IconCalendar, IconMapPin } from "./icons";
 
-import type { HomeData } from "@/app/page";
+import type { HomeData } from "@/app/(main)/page";
 type Props = { serviceBar: NonNullable<HomeData["serviceBar"]> };
 
 export function ServiceBar({ serviceBar }: Props) {

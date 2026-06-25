@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IconArrowRight, IconChevronRight } from "./icons";
 
-import type { EventNode } from "@/app/page";
+import type { EventNode } from "@/app/(main)/page";
 type Props = { events: EventNode[] };
 
 export function UpcomingEvents({ events }: Props) {

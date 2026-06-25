@@ -9,7 +9,7 @@ const ICONS: ComponentType<SVGProps<SVGSVGElement>>[] = [
   IconWorld,
 ];
 
-import type { HomeData } from "@/app/page";
+import type { HomeData } from "@/app/(main)/page";
 type Props = { mission: NonNullable<HomeData["mission"]> };
 
 export function Mission({ mission }: Props) {

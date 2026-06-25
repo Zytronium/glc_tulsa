@@ -3,7 +3,7 @@ import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { IconArrowRight } from "./icons";
 
-import type { HomeData } from "@/app/page";
+import type { HomeData } from "@/app/(main)/page";
 type Props = { whoWeAre: NonNullable<HomeData["whoWeAre"]> };
 
 export function WhoWeAre({ whoWeAre }: Props) {
