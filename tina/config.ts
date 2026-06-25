@@ -24,21 +24,21 @@ export default defineConfig({
 
   schema: {
     collections: [
-      // -------- home page --------
+      // -------- layout (navbar + footer) --------
       {
-        name: "homePage",
-        label: "Home Page",
+        name: "layout",
+        label: "Layout",
         path: "content",
         format: "json",
         match: {
-          include: "home",
+          include: "layout",
         },
         ui: {
           allowedActions: {
             create: false,
             delete: false,
           },
-          router: () => "/",
+          router: () => "/layout-preview",
         },
         fields: [
           // -------- navbar --------
@@ -59,6 +59,51 @@ export default defineConfig({
               },
             ],
           },
+          // -------- footer --------
+          {
+            type: "object",
+            name: "footer",
+            label: "Footer",
+            fields: [
+              { type: "string", name: "addressLine1", label: "Address Line 1" },
+              { type: "string", name: "addressLine2", label: "Address Line 2" },
+              {
+                type: "string",
+                name: "officeHoursDays",
+                label: "Office Hours Days",
+                description: 'e.g. "Monday - Thursday"',
+              },
+              {
+                type: "string",
+                name: "officeHoursTimes",
+                label: "Office Hours Times",
+                description: 'e.g. "8:00 AM - 2:00 PM"',
+              },
+              { type: "string", name: "email", label: "Email" },
+              { type: "string", name: "phone", label: "Phone" },
+              { type: "string", name: "facebookUrl", label: "Facebook URL" },
+              { type: "string", name: "donationUrl", label: "Donation URL" },
+            ],
+          },
+        ],
+      },
+      // -------- home page --------
+      {
+        name: "homePage",
+        label: "Home Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "home",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/",
+        },
+        fields: [
           // -------- hero --------
           {
             type: "object",
@@ -202,32 +247,6 @@ export default defineConfig({
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "description", label: "Description" },
               { type: "string", name: "href", label: "Link URL" },
-            ],
-          },
-          // -------- footer --------
-          {
-            type: "object",
-            name: "footer",
-            label: "Footer",
-            fields: [
-              { type: "string", name: "addressLine1", label: "Address Line 1" },
-              { type: "string", name: "addressLine2", label: "Address Line 2" },
-              {
-                type: "string",
-                name: "officeHoursDays",
-                label: "Office Hours Days",
-                description: 'e.g. "Monday - Thursday"',
-              },
-              {
-                type: "string",
-                name: "officeHoursTimes",
-                label: "Office Hours Times",
-                description: 'e.g. "8:00 AM - 2:00 PM"',
-              },
-              { type: "string", name: "email", label: "Email" },
-              { type: "string", name: "phone", label: "Phone" },
-              { type: "string", name: "facebookUrl", label: "Facebook URL" },
-              { type: "string", name: "donationUrl", label: "Donation URL" },
             ],
           },
         ],

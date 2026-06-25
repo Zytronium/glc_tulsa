@@ -1,5 +1,5 @@
-import { client } from "../../tina/__generated__/client";
-import type { HomePageQuery, EventConnectionQuery } from "../../tina/__generated__/types";
+import { client } from "../../../tina/__generated__/client";
+import type { HomePageQuery, EventConnectionQuery } from "../../../tina/__generated__/types";
 import { ClientPage } from "./client-page";
 
 export type HomeData = NonNullable<HomePageQuery["homePage"]>;

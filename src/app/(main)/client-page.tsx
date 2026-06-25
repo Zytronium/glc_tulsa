@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { HomePageQuery } from "../../tina/__generated__/types";
+import type { HomePageQuery } from "../../../tina/__generated__/types";
 import type { EventNode } from "./page";
 import { Hero } from "@/components/home/Hero";
 import { ServiceBar } from "@/components/home/ServiceBar";

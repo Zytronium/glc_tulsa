@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { IconCoin, IconFacebook, IconMail, IconPhone } from "./icons";
-import type { FooterData } from "@/app/layout";
+import { tinaField } from "tinacms/dist/react";
+import { IconCoin, IconFacebook, IconMail, IconPhone } from "../home/icons";
+import type { FooterData } from "@/app/(main)/layout";
 
 export function Footer({ footer }: { footer: FooterData }) {
   return (
@@ -19,20 +22,26 @@ export function Footer({ footer }: { footer: FooterData }) {
             Grace Evangelical Lutheran Church (LCMS)
           </p>
           <p className="mt-2 text-[13px] leading-7 text-stone-300">
+            <span data-tina-field={tinaField(footer, "addressLine1")}>
             {footer.addressLine1}
+            </span>
             <br />
+            <span data-tina-field={tinaField(footer, "addressLine2")}>
             {footer.addressLine2}
+            </span>
           </p>
         </div>
 
         <div>
-          <p className="font-display text-[14px] text-stone-50">
-            Office hours
-          </p>
+          <p className="font-display text-[14px] text-stone-50">Office hours</p>
           <p className="mt-2 text-[13px] leading-7 text-stone-300">
+            <span data-tina-field={tinaField(footer, "officeHoursDays")}>
             {footer.officeHoursDays}
+            </span>
             <br />
+            <span data-tina-field={tinaField(footer, "officeHoursTimes")}>
             {footer.officeHoursTimes}
+            </span>
           </p>
         </div>
 
@@ -42,6 +51,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             {footer.email && (
               <Link
                 href={`mailto:${footer.email}`}
+                data-tina-field={tinaField(footer, "email")}
                 className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
               >
                 <IconMail className="h-4 w-4" />
@@ -49,7 +59,10 @@ export function Footer({ footer }: { footer: FooterData }) {
               </Link>
             )}
             {footer.phone && (
-              <p className="flex items-center gap-2 text-[13px] text-stone-300">
+              <p
+                data-tina-field={tinaField(footer, "phone")}
+                className="flex items-center gap-2 text-[13px] text-stone-300"
+              >
                 <IconPhone className="h-4 w-4" />
                 {footer.phone}
               </p>
@@ -57,6 +70,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             {footer.facebookUrl && (
               <Link
                 href={footer.facebookUrl}
+                data-tina-field={tinaField(footer, "facebookUrl")}
                 className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
               >
                 <IconFacebook className="h-4 w-4" />
@@ -66,6 +80,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             {footer.donationUrl && (
               <Link
                 href={footer.donationUrl}
+                data-tina-field={tinaField(footer, "donationUrl")}
                 className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
               >
                 <IconCoin className="h-4 w-4" />

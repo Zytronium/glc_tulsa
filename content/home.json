@@ -1,11 +1,7 @@
 {
-  "navbar": {
-    "donationUrl": "https://secure.myvanco.com/L-Z8SV",
-    "facebookUrl": "https://www.facebook.com/gracelutherantulsa"
-  },
   "hero": {
     "title": "Grace Lutheran Church",
-    "headline": "Ancient faith | for today’s Tulsa",
+    "headline": "Ancient faith | for today's Tulsa",
     "subtext": "A warm, welcoming Lutheran congregation rooted in nearly 2,000 years of historic Christian tradition, gathered around Word and Sacrament since 1922.",
     "backgroundImage": "/images/chancel.webp",
     "ctaPrimary": {
@@ -19,7 +15,7 @@
   },
   "serviceBar": {
     "sundayTimes": "8:00 & 10:30 AM",
-    "wednesdayTimes": "6:15 PM (Sept–May)",
+    "wednesdayTimes": "6:15 PM (Sept-May)",
     "address": "2331 E 5th Pl, Tulsa",
     "addressUrl": "https://maps.google.com/?q=2331+E+5th+Pl,+Tulsa,+OK+74104"
   },
@@ -85,15 +81,5 @@
       "description": "Directions, hours, contact",
       "href": "/contact"
     }
-  ],
-  "footer": {
-    "addressLine1": "2331 East 5th Place",
-    "addressLine2": "Tulsa, OK 74104",
-    "officeHoursDays": "Monday – Thursday",
-    "officeHoursTimes": "8:00 AM – 2:00 PM",
-    "email": "secretary@glctulsa.org",
-    "phone": "(918) 592-2999",
-    "facebookUrl": "https://www.facebook.com/gracelutherantulsa",
-    "donationUrl": "https://secure.myvanco.com/L-Z8SV"
-  }
+  ]
 }

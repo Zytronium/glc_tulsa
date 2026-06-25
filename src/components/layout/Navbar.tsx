@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { NavbarData } from "@/app/layout";
+import { tinaField } from "tinacms/dist/react";
+import type { NavbarData } from "@/app/(main)/layout";
 
 const NAV_LINKS = [
   { label: "Worship", href: "/worship" },
@@ -50,6 +53,7 @@ export function Navbar({ navbar }: { navbar: NavbarData }) {
           {navbar.facebookUrl && (
             <Link
               href={navbar.facebookUrl}
+              data-tina-field={tinaField(navbar, "facebookUrl")}
               aria-label="Grace Lutheran on Facebook"
               className="hidden text-stone-300 transition hover:text-brass-400 sm:block"
             >
@@ -66,6 +70,7 @@ export function Navbar({ navbar }: { navbar: NavbarData }) {
           {navbar.donationUrl && (
             <Link
               href={navbar.donationUrl}
+              data-tina-field={tinaField(navbar, "donationUrl")}
               className="rounded-sm bg-brass-300 px-3.5 py-1.75 font-meta text-[12px] uppercase tracking-[0.08em] text-vestment-900 transition hover:bg-brass-400"
             >
               Donate

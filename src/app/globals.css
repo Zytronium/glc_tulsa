@@ -87,6 +87,13 @@ html {
 body {
   background-color: var(--color-stone-100);
   color: var(--color-ink);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main, [data-layout-content] {
+  flex: 1;
 }
 
 /* -------- signature element: lancet arch top, echoing the chancel's triple windows -------- */
