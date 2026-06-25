@@ -34,7 +34,11 @@ export function Hero({ hero }: Props) {
           LCMS
         </p>
         <h1 className="mt-5 font-display text-[clamp(2rem,4.8vw,3.4rem)] font-medium leading-[1.05] text-stone-50">
-          {hero.headline}
+          {hero.headline?.split("|").map((line, i) => (
+            <span key={i} className="block">
+              {line.trim()}
+            </span>
+          ))}
         </h1>
         <p className="mt-6 max-w-xl text-[15px] leading-7 text-stone-200/90">
           {hero.subtext}
