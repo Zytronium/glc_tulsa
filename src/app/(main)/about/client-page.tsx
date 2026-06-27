@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { AboutPageQuery } from "../../../../tina/__generated__/types";
+import type { AboutPageQuery, LayoutQuery } from "../../../../tina/__generated__/types";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutIntro } from "@/components/about/AboutIntro";
 import { AboutMission } from "@/components/about/AboutMission";
@@ -9,20 +9,19 @@ import { AboutDoctrine } from "@/components/about/AboutDoctrine";
 import { FourMarks } from "@/components/about/FourMarks";
 import { AboutMap } from "@/components/about/AboutMap";
 
+type TinaQuery<T> = { query: string; variables: object; data: T };
+
 type Props = {
-  query: string;
-  variables: object;
-  data: AboutPageQuery;
+  aboutQuery: TinaQuery<AboutPageQuery>;
+  layoutQuery: TinaQuery<LayoutQuery>;
 };
 
-export function ClientPage(props: Props) {
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
+export function ClientPage({ aboutQuery, layoutQuery }: Props) {
+  const { data: aboutData } = useTina(aboutQuery);
+  const { data: layoutData } = useTina(layoutQuery);
 
-  const about = data.aboutPage;
+  const about = aboutData.aboutPage;
+  const footer = layoutData.layout.footer!;
 
   return (
     <main>
@@ -31,7 +30,7 @@ export function ClientPage(props: Props) {
       <AboutMission mission={about.mission!} />
       <AboutDoctrine doctrine={about.doctrine!} />
       <FourMarks marks={about.marks!} />
-      <AboutMap />
+      <AboutMap footer={footer} />
     </main>
   );
 }

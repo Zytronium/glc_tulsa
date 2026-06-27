@@ -1,25 +1,20 @@
 import { client } from "../../../tina/__generated__/client";
 import type { LayoutQuery } from "../../../tina/__generated__/types";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { LayoutShell } from "@/components/layout/LayoutShell";
 
 export type FooterData = NonNullable<LayoutQuery["layout"]["footer"]>;
 export type NavbarData = NonNullable<LayoutQuery["layout"]["navbar"]>;
 
-export default async function MainLayout({
-                                           children,
-                                         }: {
-  children: React.ReactNode;
-}) {
-  const layoutData = await client.queries.layout({ relativePath: "layout.json" });
-  const footer = layoutData.data.layout.footer!;
-  const navbar = layoutData.data.layout.navbar!;
+export default async function MainLayout({ children }: { children: React.ReactNode }) {
+  const layoutQuery = await client.queries.layout({ relativePath: "layout.json" });
 
   return (
-    <>
-      <Navbar navbar={navbar} editMode={false} />
+    <LayoutShell
+      query={layoutQuery.query}
+      variables={layoutQuery.variables}
+      data={layoutQuery.data}
+    >
       {children}
-      <Footer footer={footer} editMode={false} />
-    </>
+    </LayoutShell>
   );
 }

@@ -6,6 +6,7 @@
   "footer": {
     "addressLine1": "2331 East 5th Place",
     "addressLine2": "Tulsa, OK 74104",
+    "mapsUrl": "https://maps.google.com/?q=2331+E+5th+Pl+Tulsa+OK",
     "officeHoursDays": "Monday - Thursday",
     "officeHoursTimes": "8:00 AM - 2:00 PM",
     "email": "secretary@glctulsa.org",

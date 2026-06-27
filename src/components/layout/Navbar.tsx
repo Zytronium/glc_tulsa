@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
 ];
 
-export function Navbar({ navbar, editMode }: { navbar: NavbarData, editMode: boolean }) {
+export function Navbar({ navbar }: { navbar: NavbarData }) {
   return (
     <header className="sticky top-0 z-30 border-b border-stone-900/15 bg-vestment-700">
       <nav
@@ -53,7 +53,7 @@ export function Navbar({ navbar, editMode }: { navbar: NavbarData, editMode: boo
           {navbar.facebookUrl && (
             <Link
               href={navbar.facebookUrl}
-              {...(editMode ? { 'data-tina-field': tinaField(navbar, "facebookUrl") } : {})}
+              data-tina-field={tinaField(navbar, "facebookUrl")}
               aria-label="Grace Lutheran on Facebook"
               className="hidden text-stone-300 transition hover:text-brass-400 sm:block"
             >
@@ -70,7 +70,7 @@ export function Navbar({ navbar, editMode }: { navbar: NavbarData, editMode: boo
           {navbar.donationUrl && (
             <Link
               href={navbar.donationUrl}
-              {...(editMode ? { 'data-tina-field': tinaField(navbar, "donationUrl") } : {})}
+              data-tina-field={tinaField(navbar, "donationUrl")}
               className="rounded-sm bg-brass-300 px-3.5 py-1.75 font-meta text-[12px] uppercase tracking-[0.08em] text-vestment-900 transition hover:bg-brass-400"
             >
               Donate

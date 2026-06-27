@@ -34,6 +34,7 @@ export default defineConfig({
           include: "layout",
         },
         ui: {
+          global: true,
           allowedActions: {
             create: false,
             delete: false,
@@ -67,6 +68,8 @@ export default defineConfig({
             fields: [
               { type: "string", name: "addressLine1", label: "Address Line 1" },
               { type: "string", name: "addressLine2", label: "Address Line 2" },
+              { type: "string", name: "mapsUrl", label: "Google Maps URL",
+                description: 'e.g. "https://maps.google.com/?q=2331+E+5th+Pl+Tulsa+OK"' },
               {
                 type: "string",
                 name: "officeHoursDays",
@@ -171,12 +174,6 @@ export default defineConfig({
                 name: "wednesdayTimes",
                 label: "Wednesday Times",
                 description: 'e.g. "6:15 PM (Sept-May)"',
-              },
-              {
-                type: "string",
-                name: "address",
-                label: "Address",
-                description: 'e.g. "2331 E 5th Pl, Tulsa"',
               },
               {
                 type: "string",

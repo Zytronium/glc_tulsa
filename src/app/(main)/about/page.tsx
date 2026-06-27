@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { client } from "../../../../tina/__generated__/client";
-import type { AboutPageQuery } from "../../../../tina/__generated__/types";
+import type { AboutPageQuery, LayoutQuery } from "../../../../tina/__generated__/types";
 import { ClientPage } from "./client-page";
 
 export const metadata: Metadata = {
@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export type AboutData = NonNullable<AboutPageQuery["aboutPage"]>;
 
 export default async function AboutPage() {
-  const aboutData = await client.queries.aboutPage({ relativePath: "about.json" });
-  return <ClientPage {...aboutData} />;
+  const [aboutData, layoutData] = await Promise.all([
+    client.queries.aboutPage({ relativePath: "about.json" }),
+    client.queries.layout({ relativePath: "layout.json" }),
+  ]);
+
+  return <ClientPage aboutQuery={aboutData} layoutQuery={layoutData} />;
 }

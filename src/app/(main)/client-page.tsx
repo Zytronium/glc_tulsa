@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { HomePageQuery } from "../../../tina/__generated__/types";
+import type { HomePageQuery, LayoutQuery } from "../../../tina/__generated__/types";
 import type { EventNode } from "./page";
 import { Hero } from "@/components/home/Hero";
 import { ServiceBar } from "@/components/home/ServiceBar";
@@ -10,30 +10,29 @@ import { WhoWeAre } from "@/components/home/WhoWeAre";
 import { UpcomingEvents } from "@/components/home/UpcomingEvents";
 import { Mission } from "@/components/home/Mission";
 
+type TinaQuery<T> = { query: string; variables: object; data: T };
+
 type Props = {
-  query: string;
-  variables: object;
-  data: HomePageQuery;
+  homeQuery: TinaQuery<HomePageQuery>;
+  layoutQuery: TinaQuery<LayoutQuery>;
   events: EventNode[];
 };
 
-export function ClientPage(props: Props) {
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
+export function ClientPage({ homeQuery, layoutQuery, events }: Props) {
+  const { data: homeData } = useTina(homeQuery);
+  const { data: layoutData } = useTina(layoutQuery);
 
-  const home = data.homePage;
+  const home = homeData.homePage;
+  const footer = layoutData.layout.footer!;
 
   return (
     <main>
       <Hero hero={home.hero!} />
-      <ServiceBar serviceBar={home.serviceBar!} />
+      <ServiceBar serviceBar={home.serviceBar!} footer={footer} />
       <QuickLinks quickLinks={home.quickLinks!} />
       <WhoWeAre whoWeAre={home.whoWeAre!} />
       <Mission mission={home.mission!} />
-      <UpcomingEvents events={props.events} />
+      <UpcomingEvents events={events} />
     </main>
   );
 }
