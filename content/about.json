@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "headline": "Who We Are",
+    "subtext": "Grace Lutheran Church is a member congregation of the Lutheran Church-Missouri Synod, committed to the historic Christian faith and rooted in nearly 2,000 years of Western Catholic Christianity.",
+    "backgroundImage": "/images/church-front-view-bw.webp"
+  },
+  "intro": {
+    "heading": "Evangelical, catholic, biblical, and incarnational",
+    "body": "Grace Lutheran Church is a member congregation of the Lutheran Church-Missouri Synod (LCMS) committed to the historic Christian faith. As Lutherans, we are heirs of the Great Tradition of Western Catholic Christianity. As such, Lutherans are evangelical, catholic, biblical, and incarnational Christians.",
+    "image": "/images/church-aerial-view.webp",
+    "imageAlt": "Aerial view of the church"
+  },
+  "mission": {
+    "heading": "Our Mission",
+    "body": "As God's people at Grace Evangelical Lutheran Church, we are called to faithfully gather around Christ in word and sacrament, grow in our faith through study of God's word, and go into our community proclaiming the Gospel in both word and deed.",
+    "pillars": [
+      {
+        "label": "Gather",
+        "summary": "Around Word & Sacrament",
+        "details": [
+          "Divine Service every Sunday at 8:00 & 10:30 AM",
+          "Wednesday services throughout the school year at 6:15 PM",
+          "Feasts and festivals of the church year"
+        ]
+      },
+      {
+        "label": "Grow",
+        "summary": "In faith through God's Word",
+        "details": [
+          "Children's Sunday School, offered year-round",
+          "Adult Bible Study on Sundays",
+          "Women's Bible Study",
+          "Men's Bible Study",
+          "Wednesday night classes for all ages"
+        ]
+      },
+      {
+        "label": "Go",
+        "summary": "Into Tulsa with the Gospel",
+        "details": [
+          "Meals On Wheels",
+          "Kendall Whittier Inc.",
+          "Kendall Whittier Elementary School",
+          "Thanksgiving, Christmas, and Easter food baskets for families in need",
+          "Christmas gifts for KW Elementary students",
+          "Weekly food assistance in the neighborhood"
+        ]
+      }
+    ]
+  },
+  "doctrine": {
+    "heading": "Our Doctrine",
+    "body": "Grace Lutheran Church stands firmly in the Lutheran tradition of orthodox Christianity. We worship the Triune God - Father, Son and Holy Spirit - and affirm the ancient doctrines and practices of Christians throughout all times and places.\n\nIn particular, Grace Lutheran follows the work of the Lutheran Reformers, holding to their confession of faith as found in The Book of Concord.",
+    "link1Label": "More about the LCMS",
+    "link1Href": "https://lcms.org",
+    "link2Label": "Lutheran beliefs and practice",
+    "link2Href": "https://www.lcms.org/about/beliefs"
+  },
+  "marks": [
+    {
+      "label": "Evangelical",
+      "body": "We are evangelical because the Gospel, or good news (evangel), of Jesus Christ is central to our confession. We believe that forgiveness of sins, eternal life and salvation are found exclusively in the death and resurrection of Jesus Christ. Our personal faith and public confession focus on Christ crucified for sinners.",
+      "image": "/images/devotionals.webp",
+      "imageAlt": "Rows of lit prayer candles"
+    },
+    {
+      "label": "Biblical",
+      "body": "We believe that the Holy Scriptures are the Word of God, entirely sufficient for Christian faith and practice. Our liturgy is biblical. Our preaching is biblical. Our study is biblical. Even more, we believe that life and reality are defined by these Holy Scriptures.",
+      "image": "/images/bible.webp",
+      "imageAlt": "An open Bible on a table"
+    },
+    {
+      "label": "Catholic",
+      "body": "This means that we are members of the universal church with Christ as our head. “Catholic” (Greek: “according to the whole” or “universal”) refers to the presence of Jesus Christ and is not limited by any particular polity or tradition. It means that Jesus is present where His faithful are gathered around His Word. It also means that we are faithful recipients of the Gospel-centered Christian tradition of nearly 2,000 years. We retain the ancient liturgy. We sing the songs of the church. We adhere to the Holy Scriptures. We are not innovators. Rather, we believe that the ancient path of Christian faith is true and relevant for today.",
+      "image": "/images/easter-cropped.webp",
+      "imageAlt": "The sanctuary during Easter service"
+    },
+    {
+      "label": "Incarnational",
+      "body": "This means “becoming flesh.” We believe God reveals or unveils Himself to us through Jesus Christ. This took place in history, some 2,000 years ago, through the incarnation, life, crucifixion, death, and resurrection of Jesus Christ. This takes place in history, today, through the preaching of the Holy Gospel and the administration of the mysteries of the faith, the Holy Sacraments instituted by Christ. In Word and Sacrament, God reveals His forgiveness, life, and salvation through His Son, Jesus Christ, and delivers these precious gifts to His people. In other words, God reveals or apocalypses Himself through His Word joined to the lips of sinful men, water, bread, and wine.",
+      "image": "/images/window.webp",
+      "imageAlt": "The stained-glass window at the front of the church"
+    }
+  ]
+}

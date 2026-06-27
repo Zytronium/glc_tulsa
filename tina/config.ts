@@ -289,6 +289,128 @@ export default defineConfig({
           },
         ],
       },
+      // -------- about page --------
+      {
+        name: "aboutPage",
+        label: "About Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "about",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/about",
+        },
+        fields: [
+          // -------- hero --------
+          {
+            type: "object",
+            name: "hero",
+            label: "Hero",
+            fields: [
+              { type: "string", name: "headline", label: "Headline" },
+              {
+                type: "string",
+                name: "subtext",
+                label: "Subtext",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "backgroundImage", label: "Background Image" },
+            ],
+          },
+          // -------- intro --------
+          {
+            type: "object",
+            name: "intro",
+            label: "Introduction",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "imageAlt", label: "Image Alt Text" },
+            ],
+          },
+          // -------- mission --------
+          {
+            type: "object",
+            name: "mission",
+            label: "Mission",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "pillars",
+                label: "Pillars",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label }),
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "summary", label: "Summary" },
+                  { type: "string", name: "details", label: "Details", list: true },
+                ],
+              },
+            ],
+          },
+          // -------- doctrine --------
+          {
+            type: "object",
+            name: "doctrine",
+            label: "Doctrine",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "link1Label", label: "Link 1 Label" },
+              { type: "string", name: "link1Href", label: "Link 1 URL" },
+              { type: "string", name: "link2Label", label: "Link 2 Label" },
+              { type: "string", name: "link2Href", label: "Link 2 URL" },
+            ],
+          },
+          // -------- marks --------
+          {
+            type: "object",
+            name: "marks",
+            label: "Four Marks",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.label }),
+            },
+            fields: [
+              { type: "string", name: "label", label: "Label" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "imageAlt", label: "Image Alt Text" },
+            ],
+          },
+        ],
+      },
     ],
   },
 });
