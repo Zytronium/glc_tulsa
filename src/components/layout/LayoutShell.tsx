@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { LayoutQuery } from "@/tina/__generated__/types";
+import type { LayoutQuery } from "@/../tina/__generated__/types";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
