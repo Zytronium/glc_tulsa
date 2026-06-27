@@ -17,9 +17,9 @@ export default async function MainLayout({
 
   return (
     <>
-      <Navbar navbar={navbar} />
+      <Navbar navbar={navbar} editMode={false} />
       {children}
-      <Footer footer={footer} />
+      <Footer footer={footer} editMode={false} />
     </>
   );
 }

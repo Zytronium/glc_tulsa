@@ -6,7 +6,7 @@ import { tinaField } from "tinacms/dist/react";
 import { IconCoin, IconFacebook, IconMail, IconPhone } from "../home/icons";
 import type { FooterData } from "@/app/(main)/layout";
 
-export function Footer({ footer }: { footer: FooterData }) {
+export function Footer({ footer, editMode }: { footer: FooterData, editMode: boolean }) {
   return (
     <footer className="bg-vestment-900">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-3 sm:gap-8 sm:px-8">
@@ -22,11 +22,11 @@ export function Footer({ footer }: { footer: FooterData }) {
             Grace Evangelical Lutheran Church (LCMS)
           </p>
           <p className="mt-2 text-[13px] leading-7 text-stone-300">
-            <span data-tina-field={tinaField(footer, "addressLine1")}>
+            <span {...(editMode ? { 'data-tina-field': tinaField(footer, "addressLine1") } : {})}>
             {footer.addressLine1}
             </span>
             <br />
-            <span data-tina-field={tinaField(footer, "addressLine2")}>
+            <span {...(editMode ? { 'data-tina-field': tinaField(footer, "addressLine2") } : {})}>
             {footer.addressLine2}
             </span>
           </p>
@@ -35,11 +35,11 @@ export function Footer({ footer }: { footer: FooterData }) {
         <div>
           <p className="font-display text-[14px] text-stone-50">Office hours</p>
           <p className="mt-2 text-[13px] leading-7 text-stone-300">
-            <span data-tina-field={tinaField(footer, "officeHoursDays")}>
+            <span {...(editMode ? { 'data-tina-field': tinaField(footer, "officeHoursDays") } : {})}>
             {footer.officeHoursDays}
             </span>
             <br />
-            <span data-tina-field={tinaField(footer, "officeHoursTimes")}>
+            <span {...(editMode ? { 'data-tina-field': tinaField(footer, "officeHoursTimes") } : {})}>
             {footer.officeHoursTimes}
             </span>
           </p>
@@ -64,7 +64,7 @@ export function Footer({ footer }: { footer: FooterData }) {
               return (
                 <Link
                   href={href}
-                  data-tina-field={tinaField(footer, "email")}
+                  {...(editMode ? { 'data-tina-field': tinaField(footer, "email") } : {})}
                   className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
                 >
                   <IconMail className="h-4 w-4" />
@@ -74,7 +74,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             })()}
             {footer.phone && (
               <p
-                data-tina-field={tinaField(footer, "phone")}
+                {...(editMode ? { 'data-tina-field': tinaField(footer, "phone") } : {})}
                 className="flex items-center gap-2 text-[13px] text-stone-300"
               >
                 <IconPhone className="h-4 w-4" />
@@ -84,7 +84,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             {footer.facebookUrl && (
               <Link
                 href={footer.facebookUrl}
-                data-tina-field={tinaField(footer, "facebookUrl")}
+                {...(editMode ? { 'data-tina-field': tinaField(footer, "facebookUrl") } : {})}
                 className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
               >
                 <IconFacebook className="h-4 w-4" />
@@ -94,7 +94,7 @@ export function Footer({ footer }: { footer: FooterData }) {
             {footer.donationUrl && (
               <Link
                 href={footer.donationUrl}
-                data-tina-field={tinaField(footer, "donationUrl")}
+                {...(editMode ? { 'data-tina-field': tinaField(footer, "donationUrl") } : {})}
                 className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
               >
                 <IconCoin className="h-4 w-4" />
