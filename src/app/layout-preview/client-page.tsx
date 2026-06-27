@@ -21,13 +21,13 @@ export function LayoutPreviewClient(props: Props) {
   /* Navbar and Footer render in layout.tsx, no need to add here too, or they'll duplicate. */
   return (
     <>
-      <Navbar navbar={data.layout.navbar!} editMode={true} />
+      <Navbar navbar={data.layout.navbar!} />
       <p className="flex w-full items-center justify-center text-stone-400 italic"
          style={{minHeight: "calc(100dvh - 64px - 335px)"}}
       >
         [Page content goes here]
       </p>
-      <Footer footer={data.layout.footer!} editMode={true} />
+      <Footer footer={data.layout.footer!} />
     </>
   );
 }
