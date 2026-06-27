@@ -48,16 +48,30 @@ export function Footer({ footer }: { footer: FooterData }) {
         <div>
           <p className="font-display text-[14px] text-stone-50">Connect</p>
           <div className="mt-3 flex flex-col gap-2.5">
-            {footer.email && (
-              <Link
-                href={`mailto:${footer.email}`}
-                data-tina-field={tinaField(footer, "email")}
-                className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
-              >
-                <IconMail className="h-4 w-4" />
-                {footer.email}
-              </Link>
-            )}
+            {footer.email && (() => {
+              const query: string[] = [];
+
+              if (footer.emailSubject) {
+                query.push(`subject=${encodeURIComponent(footer.emailSubject)}`);
+              }
+
+              if (footer.emailBcc) {
+                query.push(`bcc=${encodeURIComponent(footer.emailBcc)}`);
+              }
+
+              const href = `mailto:${footer.email}${query.length ? `?${query.join("&")}` : ""}`;
+
+              return (
+                <Link
+                  href={href}
+                  data-tina-field={tinaField(footer, "email")}
+                  className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
+                >
+                  <IconMail className="h-4 w-4" />
+                  {footer.email}
+                </Link>
+              );
+            })()}
             {footer.phone && (
               <p
                 data-tina-field={tinaField(footer, "phone")}

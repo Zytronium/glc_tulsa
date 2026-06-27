@@ -9,6 +9,8 @@
     "officeHoursDays": "Monday - Thursday",
     "officeHoursTimes": "8:00 AM - 2:00 PM",
     "email": "secretary@glctulsa.org",
+    "emailBcc": "srpastor@glctulsa.org",
+    "emailSubject": "From Website",
     "phone": "(918) 592-2999",
     "facebookUrl": "https://www.facebook.com/gracelutherantulsa",
     "donationUrl": "https://secure.myvanco.com/L-Z8SV"
