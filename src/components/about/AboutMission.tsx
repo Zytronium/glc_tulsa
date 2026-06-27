@@ -45,7 +45,7 @@ export function AboutMission({ mission }: Props) {
               >
                 <p
                   data-tina-field={tinaField(pillar, "label")}
-                  className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600"
+                  className="font-meta text-[11px] uppercase font-bold tracking-[0.18em] text-garnet-600"
                 >
                   {pillar.label}
                 </p>
@@ -56,7 +56,10 @@ export function AboutMission({ mission }: Props) {
                   {pillar.summary}
                 </p>
                 {details.length > 0 && (
-                  <ul className="mt-4 space-y-2">
+                  <ul
+                    data-tina-field={tinaField(pillar, "details")}
+                    className="mt-4 space-y-2"
+                  >
                     {details.map((detail, i) => (
                       <li
                         key={i}
@@ -75,6 +78,19 @@ export function AboutMission({ mission }: Props) {
             );
           })}
         </div>
+
+        {mission.videoURL && (
+          <div className="flex items-center justify-center">
+            <iframe
+              src={mission.videoURL}
+              className="mt-8 h-auto w-full md:w-[80vw] lg:w-[60vw] aspect-video rounded-lg"
+              allowFullScreen
+              scrolling="no"
+              allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+              referrerPolicy="strict-origin"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

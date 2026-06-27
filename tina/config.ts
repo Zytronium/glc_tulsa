@@ -366,6 +366,7 @@ export default defineConfig({
                   { type: "string", name: "details", label: "Details", list: true },
                 ],
               },
+              { type: "string", name: "videoURL", label: "YouTube Video Embed", description: "e.g. \"https://www.youtube.com/embed/nhtL8KEsdg8\"" },
             ],
           },
           // -------- doctrine --------
