@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { AboutPageQuery, LayoutQuery } from "../../../../tina/__generated__/types";
+import type { AboutPageQuery, Global_VariablesQuery } from "../../../../tina/__generated__/types";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutIntro } from "@/components/about/AboutIntro";
 import { AboutMission } from "@/components/about/AboutMission";
@@ -13,15 +13,15 @@ type TinaQuery<T> = { query: string; variables: object; data: T };
 
 type Props = {
   aboutQuery: TinaQuery<AboutPageQuery>;
-  layoutQuery: TinaQuery<LayoutQuery>;
+  globalVariablesQuery: TinaQuery<Global_VariablesQuery>;
 };
 
-export function ClientPage({ aboutQuery, layoutQuery }: Props) {
+export function ClientPage({ aboutQuery, globalVariablesQuery }: Props) {
   const { data: aboutData } = useTina(aboutQuery);
-  const { data: layoutData } = useTina(layoutQuery);
+  const { data: globalVariablesData } = useTina(globalVariablesQuery);
 
   const about = aboutData.aboutPage;
-  const footer = layoutData.layout.footer!;
+  const globalVars = globalVariablesData.global_variables!;
 
   return (
     <main>
@@ -30,7 +30,7 @@ export function ClientPage({ aboutQuery, layoutQuery }: Props) {
       <AboutMission mission={about.mission!} />
       <AboutDoctrine doctrine={about.doctrine!} />
       <FourMarks marks={about.marks!} />
-      <AboutMap footer={footer} />
+      <AboutMap globalVars={globalVars} />
     </main>
   );
 }

@@ -24,6 +24,55 @@ export default defineConfig({
 
   schema: {
     collections: [
+      // -------- global variables --------
+      {
+        name: "global_variables",
+        label: "Global Variables",
+        path: "content",
+        format: "json",
+        match: {
+          include: "global_variables",
+        },
+        ui: {
+          global: true,
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "donationUrl",
+            label: "Donation URL",
+          },
+          {
+            type: "string",
+            name: "facebookUrl",
+            label: "Facebook URL",
+          },
+          {
+            type: "string",
+            name: "mapsUrl",
+            label: "Google Maps URL",
+            description: 'e.g. "https://maps.google.com/?q=2331+E+5th+Pl+Tulsa+OK"',
+          },
+          { type: "string", name: "addressLine1", label: "Address Line 1", description: "Also affects embedded map on about page" },
+          { type: "string", name: "addressLine2", label: "Address Line 2", description: "Also affects embedded map on about page" },
+          {
+            type: "string",
+            name: "officeHoursDays",
+            label: "Office Hours Days",
+            description: 'e.g. "Monday - Thursday"',
+          },
+          {
+            type: "string",
+            name: "officeHoursTimes",
+            label: "Office Hours Times",
+            description: 'e.g. "8:00 AM - 2:00 PM"',
+          },
+        ]
+      },
       // -------- layout (navbar + footer) --------
       {
         name: "layout",
@@ -42,54 +91,12 @@ export default defineConfig({
           router: () => "/layout-preview",
         },
         fields: [
-          // -------- navbar --------
-          {
-            type: "object",
-            name: "navbar",
-            label: "Navbar",
-            fields: [
-              {
-                type: "string",
-                name: "donationUrl",
-                label: "Donation Button URL",
-              },
-              {
-                type: "string",
-                name: "facebookUrl",
-                label: "Facebook URL",
-              },
-            ],
-          },
-          // -------- footer --------
-          {
-            type: "object",
-            name: "footer",
-            label: "Footer",
-            fields: [
-              { type: "string", name: "addressLine1", label: "Address Line 1" },
-              { type: "string", name: "addressLine2", label: "Address Line 2" },
-              { type: "string", name: "mapsUrl", label: "Google Maps URL",
-                description: 'e.g. "https://maps.google.com/?q=2331+E+5th+Pl+Tulsa+OK"' },
-              {
-                type: "string",
-                name: "officeHoursDays",
-                label: "Office Hours Days",
-                description: 'e.g. "Monday - Thursday"',
-              },
-              {
-                type: "string",
-                name: "officeHoursTimes",
-                label: "Office Hours Times",
-                description: 'e.g. "8:00 AM - 2:00 PM"',
-              },
-              { type: "string", name: "email", label: "Email" },
-              { type: "string", name: "emailBcc", label: "Email BCC" },
-              { type: "string", name: "emailSubject", label: "Email Subject Autofill" },
-              { type: "string", name: "phone", label: "Phone" },
-              { type: "string", name: "facebookUrl", label: "Facebook URL" },
-              { type: "string", name: "donationUrl", label: "Donation URL" },
-            ],
-          },
+          { type: "string", name: "email", label: "Email" },
+          { type: "string", name: "emailBcc", label: "Email BCC" },
+          { type: "string", name: "emailSubject", label: "Email Subject Autofill" },
+          { type: "string", name: "phone", label: "Phone" },
+          { type: "string", name: "churchName", label: "Church Name" },
+          { type: "string", name: "copyright", label: "Copyright", description: "Note: copyright symbol and year automatically prefix this text. The year updates automatically." },
         ],
       },
       // -------- home page --------
@@ -251,41 +258,6 @@ export default defineConfig({
           },
         ],
       },
-      // -------- events --------
-      {
-        name: "event",
-        label: "Events",
-        path: "content/events",
-        format: "json",
-        defaultItem: () => ({ featured: false }),
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "datetime",
-            name: "date",
-            label: "Date",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "detail",
-            label: "Detail",
-            description: 'e.g. "Divine Service with Holy Communion · 8:00 AM & 10:30 AM"',
-          },
-          {
-            type: "boolean",
-            name: "featured",
-            label: "Featured",
-            description: "Shows a highlighted date badge on this event",
-          },
-        ],
-      },
       // -------- about page --------
       {
         name: "aboutPage",
@@ -406,6 +378,41 @@ export default defineConfig({
               { type: "image", name: "image", label: "Image" },
               { type: "string", name: "imageAlt", label: "Image Alt Text" },
             ],
+          },
+        ],
+      },
+      // -------- events --------
+      {
+        name: "event",
+        label: "Events",
+        path: "content/events",
+        format: "json",
+        defaultItem: () => ({ featured: false }),
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "detail",
+            label: "Detail",
+            description: 'e.g. "Divine Service with Holy Communion · 8:00 AM & 10:30 AM"',
+          },
+          {
+            type: "boolean",
+            name: "featured",
+            label: "Featured",
+            description: "Shows a highlighted date badge on this event",
           },
         ],
       },

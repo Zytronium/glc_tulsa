@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
-import type { NavbarData } from "@/app/(main)/layout";
+import type { GlobalVariablesData } from "@/app/(main)/layout";
 
 const NAV_LINKS = [
   { label: "Worship", href: "/worship" },
@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
 ];
 
-export function Navbar({ navbar }: { navbar: NavbarData }) {
+export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
   return (
     <header className="sticky top-0 z-30 border-b border-stone-900/15 bg-vestment-700">
       <nav
@@ -50,10 +50,10 @@ export function Navbar({ navbar }: { navbar: NavbarData }) {
         </ul>
 
         <div className="flex items-center gap-4">
-          {navbar.facebookUrl && (
+          {globalVars.facebookUrl && (
             <Link
-              href={navbar.facebookUrl}
-              data-tina-field={tinaField(navbar, "facebookUrl")}
+              href={globalVars.facebookUrl}
+              data-tina-field={tinaField(globalVars, "facebookUrl")}
               aria-label="Grace Lutheran on Facebook"
               className="hidden text-stone-300 transition hover:text-brass-400 sm:block"
             >
@@ -67,10 +67,10 @@ export function Navbar({ navbar }: { navbar: NavbarData }) {
               </svg>
             </Link>
           )}
-          {navbar.donationUrl && (
+          {globalVars.donationUrl && (
             <Link
-              href={navbar.donationUrl}
-              data-tina-field={tinaField(navbar, "donationUrl")}
+              href={globalVars.donationUrl}
+              data-tina-field={tinaField(globalVars, "donationUrl")}
               className="rounded-sm bg-brass-300 px-3.5 py-1.75 font-meta text-[12px] uppercase tracking-[0.08em] text-vestment-900 transition hover:bg-brass-400"
             >
               Donate

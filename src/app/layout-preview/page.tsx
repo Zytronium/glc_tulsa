@@ -8,6 +8,15 @@ export const metadata: Metadata = {
 };
 
 export default async function LayoutPreviewPage() {
-  const data = await client.queries.layout({ relativePath: "layout.json" });
-  return <LayoutPreviewClient {...data} />;
+  const [layoutData, globalVariablesData] = await Promise.all([
+    client.queries.layout({ relativePath: "layout.json" }),
+    client.queries.global_variables({ relativePath: "global_variables.json" }),
+  ]);
+
+  return (
+    <LayoutPreviewClient
+      layoutQuery={layoutData}
+      globalVariablesQuery={globalVariablesData}
+    />
+  );
 }

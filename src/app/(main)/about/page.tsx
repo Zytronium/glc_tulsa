@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { client } from "../../../../tina/__generated__/client";
-import type { AboutPageQuery, LayoutQuery } from "../../../../tina/__generated__/types";
+import type { AboutPageQuery, Global_VariablesQuery } from "../../../../tina/__generated__/types";
 import { ClientPage } from "./client-page";
 
 export const metadata: Metadata = {
@@ -12,10 +12,15 @@ export const metadata: Metadata = {
 export type AboutData = NonNullable<AboutPageQuery["aboutPage"]>;
 
 export default async function AboutPage() {
-  const [aboutData, layoutData] = await Promise.all([
+  const [aboutData, globalVariablesData] = await Promise.all([
     client.queries.aboutPage({ relativePath: "about.json" }),
-    client.queries.layout({ relativePath: "layout.json" }),
+    client.queries.global_variables({ relativePath: "global_variables.json" }),
   ]);
 
-  return <ClientPage aboutQuery={aboutData} layoutQuery={layoutData} />;
+  return (
+    <ClientPage
+      aboutQuery={aboutData}
+      globalVariablesQuery={globalVariablesData}
+    />
+  );
 }

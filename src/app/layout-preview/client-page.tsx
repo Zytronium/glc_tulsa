@@ -1,33 +1,33 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { LayoutQuery } from "../../../tina/__generated__/types";
+import type { LayoutQuery, Global_VariablesQuery } from "../../../tina/__generated__/types";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
+type TinaQuery<T> = { query: string; variables: object; data: T };
+
 type Props = {
-  query: string;
-  variables: object;
-  data: LayoutQuery;
+  layoutQuery: TinaQuery<LayoutQuery>;
+  globalVariablesQuery: TinaQuery<Global_VariablesQuery>;
 };
 
-export function LayoutPreviewClient(props: Props) {
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
+export function LayoutPreviewClient({ layoutQuery, globalVariablesQuery }: Props) {
+  const { data: layoutData } = useTina(layoutQuery);
+  const { data: globalVariablesData } = useTina(globalVariablesQuery);
 
-  /* Navbar and Footer render in layout.tsx, no need to add here too, or they'll duplicate. */
+  const globalVars = globalVariablesData.global_variables!;
+
   return (
     <>
-      <Navbar navbar={data.layout.navbar!} />
-      <p className="flex w-full items-center justify-center text-stone-400 italic"
-         style={{minHeight: "calc(100dvh - 64px - 335px)"}}
+      <Navbar globalVars={globalVars} />
+      <p
+        className="flex w-full items-center justify-center text-stone-400 italic"
+        style={{ minHeight: "calc(100vh - 64px - 335px)" }}
       >
         [Page content goes here]
       </p>
-      <Footer footer={data.layout.footer!} />
+      <Footer layout={layoutData.layout!} globalVars={globalVars} />
     </>
   );
 }

@@ -2,14 +2,14 @@ import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { IconSun, IconCalendar, IconMapPin } from "./icons";
 import type { HomeData } from "@/app/(main)/page";
-import type { FooterData } from "@/app/(main)/layout";
+import type { GlobalVariablesData } from "@/app/(main)/layout";
 
 type Props = {
   serviceBar: NonNullable<HomeData["serviceBar"]>;
-  footer: FooterData;
+  globalVars: GlobalVariablesData;
 };
 
-export function ServiceBar({ serviceBar, footer }: Props) {
+export function ServiceBar({ serviceBar, globalVars }: Props) {
   return (
     <div className="border-b border-garnet-900/15 bg-garnet-700">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-7 gap-y-2 px-5 py-3 sm:gap-x-9">
@@ -33,14 +33,14 @@ export function ServiceBar({ serviceBar, footer }: Props) {
           </span>
         </div>
         <span className="hidden h-3.5 w-px bg-stone-50/25 sm:block" aria-hidden="true" />
-        {serviceBar.addressUrl && footer.addressLine1 && (
+        {serviceBar.addressUrl && globalVars.addressLine1 && (
           <Link
             href={serviceBar.addressUrl}
-            data-tina-field={tinaField(footer, "addressLine1")}
+            data-tina-field={tinaField(globalVars, "addressLine1")}
             className="flex items-center gap-1.5 text-stone-50/95 underline-offset-2 hover:underline"
           >
             <IconMapPin className="h-3.75 w-3.75 text-brass-400" />
-            <span className="text-[12.5px]">{footer.addressLine1}</span>
+            <span className="text-[12.5px]">{globalVars.addressLine1}</span>
           </Link>
         )}
       </div>

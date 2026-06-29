@@ -1,18 +1,20 @@
 import { client } from "../../../tina/__generated__/client";
-import type { LayoutQuery } from "../../../tina/__generated__/types";
+import type { Global_VariablesQuery, LayoutQuery } from "../../../tina/__generated__/types";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 
-export type FooterData = NonNullable<LayoutQuery["layout"]["footer"]>;
-export type NavbarData = NonNullable<LayoutQuery["layout"]["navbar"]>;
+export type LayoutData = NonNullable<LayoutQuery["layout"]>;
+export type GlobalVariablesData = NonNullable<Global_VariablesQuery["global_variables"]>;
 
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
-  const layoutQuery = await client.queries.layout({ relativePath: "layout.json" });
+  const [layoutQuery, globalVariablesQuery] = await Promise.all([
+    client.queries.layout({ relativePath: "layout.json" }),
+    client.queries.global_variables({ relativePath: "global_variables.json" }),
+  ]);
 
   return (
     <LayoutShell
-      query={layoutQuery.query}
-      variables={layoutQuery.variables}
-      data={layoutQuery.data}
+      layoutQuery={layoutQuery}
+      globalVariablesQuery={globalVariablesQuery}
     >
       {children}
     </LayoutShell>

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { IconArrowRight } from "@/components/home/icons";
-import type { FooterData } from "@/app/(main)/layout";
+import type { GlobalVariablesData } from "@/app/(main)/layout";
 
-export function AboutMap({ footer }: { footer: FooterData }) {
+export function AboutMap({ globalVars }: { globalVars: GlobalVariablesData }) {
   // Construct Maps URLs from address fields so there's one source of truth
   const addressQuery = encodeURIComponent(
-    [footer.addressLine1, footer.addressLine2].filter(Boolean).join(", ")
+    [globalVars.addressLine1, globalVars.addressLine2].filter(Boolean).join(", ")
   );
-  const directionsUrl = footer.mapsUrl ?? `https://maps.google.com/?q=${addressQuery}`;
+  const directionsUrl = globalVars.mapsUrl ?? `https://maps.google.com/?q=${addressQuery}`;
   const embedSrc = `https://maps.google.com/maps?q=${addressQuery}&output=embed`;
 
   return (
@@ -20,23 +20,23 @@ export function AboutMap({ footer }: { footer: FooterData }) {
           </p>
           <address className="mt-3 not-italic">
             <p className="font-display text-[22px] font-medium leading-snug text-ink">
-              <span data-tina-field={tinaField(footer, "addressLine1")}>
-                {footer.addressLine1}
+              <span data-tina-field={tinaField(globalVars, "addressLine1")}>
+                {globalVars.addressLine1}
               </span>
               <br />
-              <span data-tina-field={tinaField(footer, "addressLine2")}>
-                {footer.addressLine2}
+              <span data-tina-field={tinaField(globalVars, "addressLine2")}>
+                {globalVars.addressLine2}
               </span>
             </p>
           </address>
           <div className="mt-5 space-y-0.5 text-[14px] text-stone-700">
             <p className="font-display text-[15px] font-medium text-ink">Office Hours</p>
-            <p data-tina-field={tinaField(footer, "officeHoursDays")}>{footer.officeHoursDays}</p>
-            <p data-tina-field={tinaField(footer, "officeHoursTimes")}>{footer.officeHoursTimes}</p>
+            <p data-tina-field={tinaField(globalVars, "officeHoursDays")}>{globalVars.officeHoursDays}</p>
+            <p data-tina-field={tinaField(globalVars, "officeHoursTimes")}>{globalVars.officeHoursTimes}</p>
           </div>
           <Link
             href={directionsUrl}
-            data-tina-field={tinaField(footer, "mapsUrl")}
+            data-tina-field={tinaField(globalVars, "mapsUrl")}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-garnet-700 hover:text-garnet-600"

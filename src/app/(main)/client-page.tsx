@@ -1,7 +1,7 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { HomePageQuery, LayoutQuery } from "../../../tina/__generated__/types";
+import type { HomePageQuery, Global_VariablesQuery } from "../../../tina/__generated__/types";
 import type { EventNode } from "./page";
 import { Hero } from "@/components/home/Hero";
 import { ServiceBar } from "@/components/home/ServiceBar";
@@ -14,21 +14,21 @@ type TinaQuery<T> = { query: string; variables: object; data: T };
 
 type Props = {
   homeQuery: TinaQuery<HomePageQuery>;
-  layoutQuery: TinaQuery<LayoutQuery>;
+  globalVariablesQuery: TinaQuery<Global_VariablesQuery>;
   events: EventNode[];
 };
 
-export function ClientPage({ homeQuery, layoutQuery, events }: Props) {
+export function ClientPage({ homeQuery, globalVariablesQuery, events }: Props) {
   const { data: homeData } = useTina(homeQuery);
-  const { data: layoutData } = useTina(layoutQuery);
+  const { data: globalVariablesData } = useTina(globalVariablesQuery);
 
   const home = homeData.homePage;
-  const footer = layoutData.layout.footer!;
+  const globalVariables = globalVariablesData.global_variables!;
 
   return (
     <main>
       <Hero hero={home.hero!} />
-      <ServiceBar serviceBar={home.serviceBar!} footer={footer} />
+      <ServiceBar serviceBar={home.serviceBar!} globalVars={globalVariables} />
       <QuickLinks quickLinks={home.quickLinks!} />
       <WhoWeAre whoWeAre={home.whoWeAre!} />
       <Mission mission={home.mission!} />
