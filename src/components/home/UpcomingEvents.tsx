@@ -21,7 +21,7 @@ export function UpcomingEvents({ events }: Props) {
             Upcoming services &amp; events
           </h2>
           <Link
-            href="/events"
+            href="/calendar"
             className="flex items-center gap-1 text-[12.5px] text-stone-700 hover:text-garnet-700"
           >
             Full calendar
@@ -38,7 +38,7 @@ export function UpcomingEvents({ events }: Props) {
             return (
               <li key={event.date}>
                 <Link
-                  href="/events"
+                  href={`/calendar?highlight=${event.date}`}
                   className="flex items-center gap-4 rounded-sm border border-stone-200 bg-white px-4 py-3.5 transition hover:border-garnet-600/40"
                 >
                   <div
