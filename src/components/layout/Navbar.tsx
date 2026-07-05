@@ -1,30 +1,27 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { tinaField } from "tinacms/dist/react";
-import type { GlobalVariablesData } from "@/app/(main)/layout";
+import {usePathname} from "next/navigation";
+import {tinaField} from "tinacms/dist/react";
+import type {GlobalVariablesData} from "@/app/(main)/layout";
 
 const NAV_LINKS = [
-  { label: "Worship", href: "/worship" },
-  { label: "Events", href: "/events" },
-  { label: "Ministries", href: "/ministries" },
-  { label: "About", href: "/about" },
+  {label: "Worship", href: "/worship"},
+  {label: "Events", href: "/events"},
+  {label: "Ministries", href: "/ministries"},
+  {label: "About", href: "/about"},
 ];
 
-export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
+export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
-  // Close on navigation
+  // close on navigation
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
-
-
-  // Close on Escape
+  // close on Escape
   useEffect(() => {
     if (!menuOpen) return;
     const handler = (e: KeyboardEvent) => {
@@ -34,30 +31,10 @@ export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
     return () => document.removeEventListener("keydown", handler);
   }, [menuOpen]);
 
-  useEffect(() => {
-    alert("Navbar mounted");
-  }, []);
-
-  useEffect(() => {
-    alert(`menuOpen: ${menuOpen}`);
-  }, [menuOpen]);
-
-  // Native touch listener - bypasses React's synthetic event system,
-  // which doesn't reliably fire on Android browsers.
-  // preventDefault() also suppresses the ghost click that would double-toggle.
-  useEffect(() => {
-    const btn = hamburgerRef.current;
-    if (!btn) return;
-    const handler = (e: TouchEvent) => {
-      e.preventDefault();
-      setMenuOpen((prev) => !prev);
-    };
-    btn.addEventListener("touchend", handler, { passive: false });
-    return () => btn.removeEventListener("touchend", handler);
-  }, []);
-
   return (
     <header className="sticky top-0 z-30 border-b border-stone-900/15 bg-vestment-700">
+
+      {/* main bar */}
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
@@ -99,7 +76,9 @@ export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
           })}
         </ul>
 
+        {/* right cluster */}
         <div className="flex items-center gap-4">
+
           {/* Facebook - desktop only */}
           {globalVars.facebookUrl && (
             <Link
@@ -130,34 +109,32 @@ export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
             </Link>
           )}
 
-          {/* Hamburger menu - mobile only. onClick handles mouse; native touchend listener handles Android. */}
+          {/* hamburger menu - mobile only */}
           <button
-            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 rounded-sm touch-manipulation sm:hidden"
-            ref={hamburgerRef}
-            onClick={() => {
-              alert("click");
-              setMenuOpen(prev => !prev);
-            }}
-            onTouchStart={() => alert("touchstart")}
-            onTouchEnd={() => alert("touchend")}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 rounded-sm sm:hidden"
           >
             <span className={[
-              "block h-px w-5 bg-stone-200 transition-all duration-200",
-              menuOpen ? "translate-y-[7px] rotate-45" : "",
+      "block h-px w-5 bg-stone-200 transition-all duration-200",
+      menuOpen ? "translate-y-[7px] rotate-45" : "",
             ].join(" ")} />
             <span className={[
-              "block h-px w-5 bg-stone-200 transition-all duration-200",
-              menuOpen ? "opacity-0" : "",
+                "block h-px w-5 bg-stone-200 transition-all duration-200",
+                menuOpen ? "opacity-0" : "",
             ].join(" ")} />
             <span className={[
-              "block h-px w-5 bg-stone-200 transition-all duration-200",
-              menuOpen ? "-translate-y-[7px] -rotate-45" : "",
+                "block h-px w-5 bg-stone-200 transition-all duration-200",
+                menuOpen ? "-translate-y-[7px] -rotate-45" : "",
             ].join(" ")} />
           </button>
+
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* mobile menu */}
       <div
         id="mobile-menu"
         aria-hidden={!menuOpen}
@@ -214,6 +191,7 @@ export function Navbar({ globalVars }: { globalVars: GlobalVariablesData }) {
           </div>
         </nav>
       </div>
+
     </header>
   );
 }
