@@ -7,7 +7,14 @@ export function AboutMission({ mission }: Props) {
   const pillars = (mission.pillars ?? []).filter((p) => p !== null);
 
   return (
-    <section className="border-b border-stone-200 bg-stone-100">
+    <section className="border-b border-stone-200 bg-stone-100"
+             style={{
+               backgroundImage: "url('/images/aged_paper.png')",
+               backgroundRepeat: "no-repeat",
+               backgroundSize: "cover",
+               backgroundPosition: "center",
+             }}
+    >
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
         <div className="max-w-2xl">
           <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">

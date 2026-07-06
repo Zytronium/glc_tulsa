@@ -11,7 +11,7 @@ export function WhoWeAre({ whoWeAre }: Props) {
 
   return (
     <section
-      className="border-b border-stone-200 bg-white"
+      className="border-b border-stone-100 bg-white"
       style={{
         backgroundImage: "url('/images/paper.png')",
         backgroundRepeat: "no-repeat",

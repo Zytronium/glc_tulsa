@@ -17,9 +17,9 @@ export function Mission({ mission }: Props) {
 
   return (
     <section
-      className="border-b border-stone-200 bg-white"
+      className="border-b border-stone-200 bg-stone-100"
       style={{
-        backgroundImage: "url('/images/paper.png')",
+        backgroundImage: "url('/images/aged_paper.png')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -35,7 +35,7 @@ export function Mission({ mission }: Props) {
             return (
               <div
                 key={label}
-                className="flex flex-col items-center rounded-sm bg-stone-50 border-stone-200 border px-6 py-9"
+                className="flex flex-col items-center rounded-sm bg-white border-stone-200 border px-6 py-9"
               >
                 <ArchTop className="h-6 w-10 text-garnet-200" />
                 {Icon && <Icon className="h-7 w-7 text-garnet-600" />}

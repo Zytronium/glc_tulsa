@@ -7,9 +7,9 @@ type Props = { events: EventNode[] };
 export function UpcomingEvents({ events }: Props) {
   return (
     <section
-      className="border-b border-stone-200 bg-stone-100"
+      className="border-b border-stone-100 bg-white"
       style={{
-        backgroundImage: "url('/images/aged_paper.png')",
+        backgroundImage: "url('/images/paper.png')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -39,13 +39,13 @@ export function UpcomingEvents({ events }: Props) {
               <li key={event.date}>
                 <Link
                   href={`/calendar?highlight=${event.date}`}
-                  className="flex items-center gap-4 rounded-sm border border-stone-200 bg-white px-4 py-3.5 transition hover:border-garnet-600/40"
+                  className="flex items-center gap-4 rounded-sm border border-stone-200 bg-stone-50 px-4 py-3.5 transition hover:border-garnet-600/40"
                 >
                   <div
                     className={`min-w-[3.25rem] rounded-sm px-2 py-1.5 text-center font-meta ${
                       event.featured
-                        ? "bg-garnet-700 text-stone-50"
-                        : "border border-stone-200 text-stone-700"
+                        ? "bg-garnet-700 text-white"
+                        : "bg-white border border-stone-200 text-stone-700"
                     }`}
                   >
                     <p className="text-[9px] uppercase tracking-[0.06em] opacity-90">

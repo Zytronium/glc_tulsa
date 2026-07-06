@@ -17,7 +17,7 @@ type Props = { quickLinks: NonNullable<HomeData["quickLinks"]> };
 export function QuickLinks({ quickLinks }: Props) {
   return (
     <section
-      className="border-b border-stone-200 bg-stone-50"
+      className="border-b border-stone-200 bg-stone-100"
       style={{
         backgroundImage: "url('/images/aged_paper.png')",
         backgroundRepeat: "no-repeat",

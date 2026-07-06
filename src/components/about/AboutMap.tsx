@@ -12,7 +12,13 @@ export function AboutMap({ globalVars }: { globalVars: GlobalVariablesData }) {
   const embedSrc = `https://maps.google.com/maps?q=${addressQuery}&output=embed`;
 
   return (
-    <section className="bg-stone-100">
+    <section className="bg-stone-100"
+             style={{
+               backgroundImage: "url('/images/aged_paper.png')",
+               backgroundRepeat: "no-repeat",
+               backgroundSize: "cover",
+               backgroundPosition: "center",
+             }}>
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[1fr_1.8fr] lg:items-start">
         <div>
           <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
