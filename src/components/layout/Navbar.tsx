@@ -8,6 +8,7 @@ import {tinaField} from "tinacms/dist/react";
 import type {GlobalVariablesData} from "@/app/(main)/layout";
 
 const NAV_LINKS = [
+  {label: "Home", href: "/"},
   {label: "Worship", href: "/worship"},
   {label: "Events", href: "/events"},
   {label: "Ministries", href: "/ministries"},
@@ -45,19 +46,19 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
             alt="Grace Lutheran Church"
             width={202}
             height={40}
-            className="h-10 w-auto opacity-95 xs:block hidden sm:hidden md:block"
+            className="h-10 w-auto opacity-95 hidden xs:block"
           />
           <Image
             src="/images/cross.webp"
             alt="GLC"
             width={27}
             height={40}
-            className="h-10 w-auto opacity-95 xs:hidden sm:block block md:hidden"
+            className="h-10 w-auto opacity-95 block xs:hidden"
           />
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-8 sm:flex">
+        <ul className="hidden items-center gap-6 lg:gap-8 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -85,7 +86,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
               href={globalVars.facebookUrl}
               data-tina-field={tinaField(globalVars, "facebookUrl")}
               aria-label="Grace Lutheran on Facebook"
-              className="hidden text-stone-300 transition hover:text-brass-400 sm:block"
+              className="hidden text-stone-300 transition hover:text-brass-400 md:block"
             >
               <svg viewBox="0 0 24 24" className="h-4.5 w-4.5" fill="none" aria-hidden="true">
                 <path
@@ -103,7 +104,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
             <Link
               href={globalVars.donationUrl}
               data-tina-field={tinaField(globalVars, "donationUrl")}
-              className="hidden rounded-sm bg-brass-300 px-3.5 py-1.75 font-meta text-[12px] uppercase tracking-[0.08em] text-vestment-900 transition hover:bg-brass-400 sm:block"
+              className="hidden rounded-sm bg-brass-300 px-3.5 py-1.75 font-meta text-[12px] uppercase tracking-[0.08em] text-vestment-900 transition hover:bg-brass-400 md:block"
             >
               Donate
             </Link>
@@ -115,7 +116,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 rounded-sm sm:hidden"
+            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 rounded-sm md:hidden"
           >
             <span className={[
       "block h-px w-5 bg-stone-200 transition-all duration-200",
@@ -139,7 +140,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
         id="mobile-menu"
         aria-hidden={!menuOpen}
         className={[
-          "overflow-hidden transition-all duration-300 ease-in-out sm:hidden",
+          "overflow-hidden transition-all duration-300 ease-in-out md:hidden",
           menuOpen ? "max-h-80" : "max-h-0",
         ].join(" ")}
       >
