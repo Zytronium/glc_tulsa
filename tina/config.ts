@@ -404,9 +404,26 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "time",
+            label: "Time",
+            description: "e.g. 8:00 AM & 10:30 AM",
+          },
+          {
+            type: "string",
             name: "detail",
             label: "Detail",
-            description: 'e.g. "Divine Service with Holy Communion · 8:00 AM & 10:30 AM"',
+            description: 'e.g. "Divine Service with Holy Communion"',
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+          },
+          {
+            type: "rich-text",
+            name: "content",
+            label: "Page Content",
+            description: 'Formatted text to describe the event.',
           },
           {
             type: "boolean",
