@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GLC Tulsa Website
 
-## Getting Started
+[Visit Preview](https://glc-tulsa.vercel.app/)  
+[Visit Current Website](https://glctulsa.org/)
 
-First, run the development server:
+<img src="/public/images/grace-logo.webp" alt="Grace Lutheran Logo" width="240" />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About
+Created in July 2026, this is the new website for Grace Lutheran Church in Tulsa, Oklahoma. As opposed to Squarespace,
+this new website is programmed with Next.js, React, and TailwindCSS. It also features a content management system (CMS), 
+Tina CMS. The CMS allows church staff to update certain content on the website without having to go into the website's
+code. I have also created a full CMS guide for church staff. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This website is hosted with Vercel free tier, a much cheaper option than Squarespace.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This website is a gift to the church, and I will never require payment in return.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Screenshots
+**Home Page Hero Section**
+![Home Page Hero](/readme_assets/home_hero.png)
 
-## Learn More
+**Home Page "Who We Are" Section**
+![Home Page Who We Are](/readme_assets/home_who_we_are.png)
 
-To learn more about Next.js, take a look at the following resources:
+**About Page Hero Section**
+![About Page Hero](/readme_assets/about_hero.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**About Page Map & Footer**
+![About Page Map and Footer](/readme_assets/about_map_footer.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Custom Error 404 Page**
+![Custom Error 404](/readme_assets/404_page.png)
+<small>Slightly edited to fit in one screenshot</small>
 
-## Deploy on Vercel
+**Content Management System Panel**
+![CMS Panel](/readme_assets/tina_cms.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Lifetime Support Policy
+For as long as I am reasonably able, I will provide free technical support and maintenance for this website. This includes:
+- Bug fixes
+- Adding pages
+- Removing pages
+- Updating website structure, layout, or styling
+- Adding more editable content for CMS
+- Adding new website features
+- Providing technical support to church staff (i.e. troubleshooting CMS issues)
+
+However, depending on how busy I am (especially once employed full-time), I cannot guarantee quick response time, though
+I will do my best. As long as I am unemployed, any requests for support or website updates will be top-priority for me.
+
+<small>I reserve the right to cancel this policy with a 30-day notice at any time if I feel unable or, for whatever reason, unwilling to continue support. However, I think the scenario where I would cancel the policy is highly unlikely for many years.</small>
+
+---
+
+## Maintainer Documentation
+
+In the event I am unable to continue support for this website, I have compiled some helpful documentation to at least
+get you started. I will assume whoever is reading this is familiar with web development and my tech stack.
+
+### Tech Stack
+- Next.js 16
+- React 19
+- Tailwind CSS v4
+- TypeScript 5
+- Tina CMS
+- Vercel (for hosting)
+
+I will finish this section soon.
+
+---
+
+## Author
+Daniel Stelljes | [GitHub](https://github.com/zytronium)
+
+### Client
+Grace Lutheran Church, Tulsa | [Website](https://glctulsa.org/) | [Facebook](https://www.facebook.com/gracelutherantulsa)
