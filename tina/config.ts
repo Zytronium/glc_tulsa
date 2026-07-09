@@ -406,7 +406,19 @@ export default defineConfig({
             type: "string",
             name: "time",
             label: "Time",
-            description: "e.g. 8:00 AM & 10:30 AM",
+            description: 'e.g. "8:00 AM & 10:30 AM" or "10:30 AM - 11:45 AM"',
+          },
+          {
+            type: "string",
+            name: "locationLabel",
+            label: "Location Label",
+            description: "e.g. Grace Evangelical Lutheran Church",
+          },
+          {
+            type: "string",
+            name: "location",
+            label: "Location Address",
+            description: "e.g. 2331 East 5th Place, Tulsa, OK",
           },
           {
             type: "string",
