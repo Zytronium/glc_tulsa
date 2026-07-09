@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { IconArrowRight, IconCalendar, IconMapPin, IconSun } from "@/components/home/icons";
+import { IconArrowRight, IconCalendar, IconMapPin, IconClock } from "@/components/home/icons";
 import type { EventQuery } from "@/../tina/__generated__/types";
 
 type Props = { event: EventQuery["event"] };
@@ -83,7 +83,7 @@ export function EventDetail({ event }: Props) {
 
               {event.time && (
                 <div className="flex items-start gap-3">
-                  <IconSun className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500" />
+                  <IconClock className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500" />
                   <p
                     data-tina-field={tinaField(event, "time")}
                     className="text-[14px] leading-6 text-stone-700"

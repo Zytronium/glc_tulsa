@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
-import { IconMapPin, IconSun, IconChevronRight } from "@/components/home/icons";
+import { IconMapPin, IconClock, IconChevronRight } from "@/components/home/icons";
 import type { EventConnectionQuery } from "@/../tina/__generated__/types";
 
 type EventNode = NonNullable<NonNullable<EventConnectionQuery["eventConnection"]["edges"]>[number]>["node"];
@@ -179,7 +179,7 @@ function EventCard({ event, highlighted = false, isPast = false, }: {
                 data-tina-field={tinaField(event, "time")}
                 className="flex items-center gap-1.5 text-[12px] text-stone-700"
               >
-                <IconSun className="h-3.5 w-3.5 shrink-0 text-brass-500" />
+                <IconClock className="h-3.5 w-3.5 shrink-0 text-brass-500" />
                 {event.time}
               </p>
             )}
