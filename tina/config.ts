@@ -387,7 +387,10 @@ export default defineConfig({
         label: "Events",
         path: "content/events",
         format: "json",
-        defaultItem: () => ({ featured: false }),
+        defaultItem: () => ({
+          featured: false,
+          date: new Date().toISOString(),
+        }),
         fields: [
           {
             type: "string",
@@ -400,6 +403,25 @@ export default defineConfig({
             type: "datetime",
             name: "date",
             label: "Date",
+            ui: {
+              dateFormat: "YYYY-MM-DD",
+              timeFormat: false, // just use a string instead in case it's all day or multiple occurrences in one day
+              parse: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                const utcMidnight = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+                return utcMidnight.toISOString();
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+              format: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+            },
             required: true,
           },
           {
@@ -425,6 +447,7 @@ export default defineConfig({
             name: "detail",
             label: "Detail",
             description: 'e.g. "Divine Service with Holy Communion"',
+            required: true,
           },
           {
             type: "image",
@@ -441,7 +464,7 @@ export default defineConfig({
             type: "boolean",
             name: "featured",
             label: "Featured",
-            description: "Shows a highlighted date badge on this event",
+            description: "Displays on home page (limited to 6 events)",
           },
         ],
       },

@@ -1,10 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconArrowRight, IconChevronRight } from "./icons";
 
 import type { EventNode } from "@/app/(main)/page";
 type Props = { events: EventNode[] };
 
+function getFileName(id: string) {
+  const lastSlash = id.lastIndexOf("/");
+  const lastDot = id.lastIndexOf(".json");
+  return id.substring(lastSlash + 1, lastDot);
+}
+
 export function UpcomingEvents({ events }: Props) {
+  const startOfTodayUTC = new Date();
+  startOfTodayUTC.setUTCHours(0, 0, 0, 0);
+
+  // filter out past events but keep today's events
+  events = events.filter((e) => new Date(e.date) >= startOfTodayUTC);
+  // only show featured events
+  events = events.filter((e) => e.featured)
   return (
     <section
       className="border-b border-stone-100 bg-white"
@@ -15,10 +29,10 @@ export function UpcomingEvents({ events }: Props) {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
         <div className="mb-7 flex items-baseline justify-between">
           <h2 className="font-display text-[22px] font-medium text-ink">
-            Upcoming services &amp; events
+            Featured upcoming services &amp; events
           </h2>
           <Link
             href="/calendar"
@@ -29,8 +43,12 @@ export function UpcomingEvents({ events }: Props) {
           </Link>
         </div>
 
-        <ul className="flex flex-col gap-2.5">
-          {events.map((event) => {
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {events.map((event, index) => {
+            // limit to 6 events
+            if (index > 5)
+              return null;
+
             const d = new Date(event.date);
             const month = d.toLocaleString("en-US", { month: "short" });
             const day = String(d.getUTCDate());
@@ -38,30 +56,56 @@ export function UpcomingEvents({ events }: Props) {
             return (
               <li key={event.date}>
                 <Link
-                  href={`/calendar?highlight=${event.date}`}
-                  className="flex items-center gap-4 rounded-sm border border-stone-200 bg-stone-50 px-4 py-3.5 transition hover:border-garnet-600/40"
+                  href={`/events/${getFileName(event.id)}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-card border border-stone-200 bg-stone-50 transition hover:border-garnet-600/40 hover:shadow-sm"
                 >
+                  {/* image */}
+                  <div className="relative h-32 w-full shrink-0 overflow-hidden bg-stone-200 sm:h-40">
+                    {event.image ? (
+                      <Image
+                        fill
+                        src={event.image}
+                        alt={event.title}
+                        className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-stone-50"
+                           style={{
+                             backgroundImage: "url('/images/aged_paper.png')",
+                             backgroundRepeat: "no-repeat",
+                             backgroundSize: "cover",
+                             backgroundPosition: "center",
+                           }}
+                      />
+                    )}
+
+                    {/* date badge */}
                   <div
-                    className={`min-w-[3.25rem] rounded-sm px-2 py-1.5 text-center font-meta ${
-                      event.featured
+                      className={`absolute left-3 top-3 min-w-[2.75rem] rounded-sm px-2 py-1 text-center font-meta shadow-sm ${
+                      index === 0
                         ? "bg-garnet-700 text-white"
-                        : "bg-white border border-stone-200 text-stone-700"
+                          : "bg-white/95 text-stone-700"
                     }`}
                   >
-                    <p className="text-[9px] uppercase tracking-[0.06em] opacity-90">
+                      <p className="text-[8px] uppercase tracking-[0.06em] opacity-90">
                       {month}
                     </p>
-                    <p className="text-[17px] leading-none">{day}</p>
+                      <p className="text-[14px] leading-none">{day}</p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-display text-[15px] text-ink">
+
+                  {/* content */}
+                  <div className="flex flex-1 items-start justify-between gap-2 px-4 py-3.5">
+                    <div className="min-w-0">
+                      <p className="font-display text-[15px] leading-snug text-ink">
                       {event.title}
                     </p>
-                    <p className="mt-0.5 text-[12.5px] text-stone-700">
+                      <p className="mt-0.5 truncate text-[12.5px] text-stone-700">
                       {event.detail}
                     </p>
                   </div>
-                  <IconChevronRight className="h-4 w-4 shrink-0 text-stone-300" />
+                    <IconChevronRight className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition group-hover:text-garnet-600" />
+                  </div>
                 </Link>
               </li>
             );
