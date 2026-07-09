@@ -192,14 +192,6 @@ function EventCard({ event, highlighted = false, isPast = false, }: {
                 {event.locationLabel}
               </p>
             )}
-            {event.location && (
-              <p
-                data-tina-field={tinaField(event, "location")}
-                className="pl-5 text-[11.5px] text-stone-500"
-              >
-                {event.location}
-              </p>
-            )}
           </div>
 
           <div className="flex items-center justify-end text-stone-300 transition group-hover:text-garnet-600">
