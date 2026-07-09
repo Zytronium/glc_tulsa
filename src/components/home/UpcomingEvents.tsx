@@ -30,15 +30,18 @@ export function UpcomingEvents({ events }: Props) {
       }}
     >
       <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
+        <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600 mb-4">
+          Events & Services
+        </p>
         <div className="mb-7 flex items-baseline justify-between">
           <h2 className="font-display text-[22px] font-medium text-ink">
             Featured upcoming services &amp; events
           </h2>
           <Link
-            href="/calendar"
-            className="flex items-center gap-1 text-[12.5px] text-stone-700 hover:text-garnet-700"
+            href="/events"
+            className="flex items-center gap-1 text-sm text-stone-700 hover:text-garnet-700"
           >
-            Full calendar
+            View all
             <IconArrowRight className="h-3 w-3" />
           </Link>
         </div>
@@ -84,7 +87,7 @@ export function UpcomingEvents({ events }: Props) {
                       className={`absolute left-3 top-3 min-w-[2.75rem] rounded-sm px-2 py-1 text-center font-meta shadow-sm ${
                       index === 0
                         ? "bg-garnet-700 text-white"
-                          : "bg-white/95 text-stone-700"
+                          : "bg-white/95 text-stone-800"
                     }`}
                   >
                       <p className="text-[8px] uppercase tracking-[0.06em] opacity-90">
@@ -100,7 +103,7 @@ export function UpcomingEvents({ events }: Props) {
                       <p className="font-display text-[15px] leading-snug text-ink">
                       {event.title}
                     </p>
-                      <p className="mt-0.5 truncate text-[12.5px] text-stone-700">
+                      <p className="mt-0.5 truncate text-sm text-stone-700">
                       {event.detail}
                     </p>
                   </div>

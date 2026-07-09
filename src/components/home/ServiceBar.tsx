@@ -15,7 +15,7 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-7 gap-y-2 px-5 py-3 sm:gap-x-9">
         <div className="flex items-center gap-2 text-stone-50/95">
           <IconSun className="h-3.75 w-3.75 text-brass-400" />
-          <span className="text-[12.5px]">
+          <span className="text-sm">
             <span className="font-medium">Sundays</span> &middot;{" "}
             <span data-tina-field={tinaField(serviceBar, "sundayTimes")}>
               {serviceBar.sundayTimes}
@@ -25,7 +25,7 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
         <span className="hidden h-3.5 w-px bg-stone-50/25 sm:block" aria-hidden="true" />
         <div className="flex items-center gap-2 text-stone-50/95">
           <IconCalendar className="h-3.75 w-3.75 text-brass-400" />
-          <span className="text-[12.5px]">
+          <span className="text-sm">
             <span className="font-medium">Wednesdays</span> &middot;{" "}
             <span data-tina-field={tinaField(serviceBar, "wednesdayTimes")}>
               {serviceBar.wednesdayTimes}
@@ -40,7 +40,7 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
             className="flex items-center gap-1.5 text-stone-50/95 underline-offset-2 hover:underline"
           >
             <IconMapPin className="h-3.75 w-3.75 text-brass-400" />
-            <span className="text-[12.5px]">{globalVars.addressLine1}</span>
+            <span className="text-sm">{globalVars.addressLine1}</span>
           </Link>
         )}
       </div>
