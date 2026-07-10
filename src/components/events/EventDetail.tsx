@@ -68,14 +68,7 @@ export function EventDetail({ event }: Props) {
       >
         <div className="mx-auto grid max-w-4xl gap-10 px-5 py-14 sm:px-8 sm:py-20 md:grid-cols-[0.9fr_1.6fr] md:gap-14">
           {/* info card */}
-          <div className="h-fit rounded-card border border-stone-200 bg-stone-50 p-6"
-/*               style={{
-                 backgroundImage: "url('/images/aged_paper.png')",
-                 backgroundRepeat: "no-repeat",
-                 backgroundSize: "cover",
-                 backgroundPosition: "center",
-               }}*/
-          >
+          <div className="h-fit rounded-card border border-stone-200 bg-stone-50 p-6">
             <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
               Details
             </p>
