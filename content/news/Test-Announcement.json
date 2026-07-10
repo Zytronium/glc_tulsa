@@ -1,0 +1,7 @@
+{
+  "title": "Test Announcement",
+  "type": "announcement",
+  "date": "2026-07-09T00:00:00.000Z",
+  "summary": "This is a test.",
+  "content": "This announcement is a test for development purposes. It will be removed before the website goes live.\n"
+}
