@@ -19,9 +19,9 @@ function getHref(item: NonNullable<NewsNode>) {
   return `${base}/${getFileName(item.id)}`;
 }
 
-function sixMonthsAgo() {
+function oneYearAgo() {
   const d = new Date();
-  d.setUTCMonth(d.getUTCMonth() - 6);
+  d.setUTCFullYear(d.getUTCFullYear() - 1);
   return d;
 }
 
@@ -35,7 +35,7 @@ function formatDate(dateStr: string) {
 }
 
 export function RecentNews({ items }: Props) {
-  const cutoff = sixMonthsAgo();
+  const cutoff = oneYearAgo();
 
   const recent = [...items]
     .filter((item) => new Date(item.date) >= cutoff)
