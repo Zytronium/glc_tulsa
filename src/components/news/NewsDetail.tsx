@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { IconArrowRight, IconCalendar } from "@/components/home/icons";
+import { IconArrowLeft, IconCalendar } from "@/components/home/icons";
 import type { NewsItemQuery } from "@/../tina/__generated__/types";
 
 export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
@@ -71,8 +71,8 @@ export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
           href={backHref}
           className="mt-10 flex items-center gap-1 text-sm text-stone-700 hover:text-garnet-700"
         >
+          <IconArrowLeft className="h-3 w-3" />
           {backLabel}
-          <IconArrowRight className="h-3 w-3" />
         </Link>
       </div>
     </section>
