@@ -66,9 +66,16 @@ export function EventDetail({ event }: Props) {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto grid max-w-4xl gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.9fr_1.6fr] lg:gap-14">
+        <div className="mx-auto grid max-w-4xl gap-10 px-5 py-14 sm:px-8 sm:py-20 md:grid-cols-[0.9fr_1.6fr] md:gap-14">
           {/* info card */}
-          <div className="h-fit rounded-card border border-stone-200 bg-stone-50 p-6">
+          <div className="h-fit rounded-card border border-stone-200 bg-stone-50 p-6"
+/*               style={{
+                 backgroundImage: "url('/images/aged_paper.png')",
+                 backgroundRepeat: "no-repeat",
+                 backgroundSize: "cover",
+                 backgroundPosition: "center",
+               }}*/
+          >
             <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
               Details
             </p>
@@ -128,8 +135,10 @@ export function EventDetail({ event }: Props) {
           {event.content && (
             <div
               data-tina-field={tinaField(event, "content")}
-              className="prose prose-stone max-w-none text-[15px] leading-7 text-stone-700 prose-headings:font-display prose-headings:text-ink prose-strong:text-ink"
-            >
+              className="prose prose-stone max-w-none p-4 rounded-card text-base leading-7 text-stone-700 prose-headings:font-display prose-headings:text-ink prose-strong:text-ink border border-stone-100 bg-white">
+              <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
+                Description
+              </p>
               <TinaMarkdown content={event.content} />
             </div>
           )}
