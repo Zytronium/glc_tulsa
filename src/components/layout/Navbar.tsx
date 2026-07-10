@@ -10,6 +10,7 @@ import type {GlobalVariablesData} from "@/app/(main)/layout";
 const NAV_LINKS = [
   {label: "Home", href: "/"},
   {label: "Worship", href: "/worship"},
+  {label: "News", href: "/news"},
   {label: "Events", href: "/events"},
   {label: "Ministries", href: "/ministries"},
   {label: "About", href: "/about"},
@@ -46,19 +47,19 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
             alt="Grace Lutheran Church"
             width={202}
             height={40}
-            className="h-10 w-auto opacity-95 hidden xs:block"
+            className="hidden h-10 w-auto xs:block max-[835px]:md:h-8"
           />
           <Image
             src="/images/cross.webp"
             alt="GLC"
             width={27}
             height={40}
-            className="h-10 w-auto opacity-95 block xs:hidden"
+            className="h-10 w-auto block xs:hidden"
           />
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-6 lg:gap-8 md:flex">
+        <ul className="hidden items-center gap-4 min-[836px]:gap-6 lg:gap-8 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -66,7 +67,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
                 <Link
                   href={link.href}
                   className={[
-                    "font-meta text-[12px] lg:text-[13px] uppercase tracking-[0.08em] transition-all duration-200 hover:text-brass-400 active:text-brass-300",
+                    "font-meta text-[12px] min-[836px]:text-[12.5px] lg:text-[13px] uppercase tracking-[0.08em] transition-all duration-200 hover:text-brass-400 active:text-brass-300",
                     isActive ? "text-brass-300" : "text-stone-200/85",
                   ].join(" ")}
                 >
@@ -141,7 +142,7 @@ export function Navbar({globalVars}: { globalVars: GlobalVariablesData }) {
         aria-hidden={!menuOpen}
         className={[
           "overflow-hidden transition-all duration-300 ease-in-out md:hidden",
-          menuOpen ? "max-h-80" : "max-h-0",
+          menuOpen ? "max-h-100" : "max-h-0",
         ].join(" ")}
       >
         <nav aria-label="Mobile" className="border-t border-vestment-800/60 bg-vestment-800 px-5 pb-6 pt-2">
