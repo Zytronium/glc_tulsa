@@ -50,7 +50,7 @@ export function EventsGrid({ events }: Props) {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h1 className="mt-3 font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]">
-              Services &amp; events
+              Services &amp; Events
             </h1>
           </div>
 

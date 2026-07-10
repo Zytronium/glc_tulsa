@@ -57,7 +57,7 @@ export function NewsGrid({ items }: Props) {
             Stay informed
           </p>
           <h1 className="mt-3 font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]">
-            News &amp; announcements
+            News &amp; Announcements
           </h1>
         </div>
 
