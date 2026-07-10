@@ -35,7 +35,7 @@ export function UpcomingEvents({ events }: Props) {
         </p>
         <div className="mb-7 flex items-baseline justify-between">
           <h2 className="font-display text-[22px] font-medium text-ink">
-            Featured upcoming services &amp; events
+            Featured Upcoming Services &amp; Events
           </h2>
           <Link
             href="/events"

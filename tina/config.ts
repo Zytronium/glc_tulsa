@@ -468,6 +468,84 @@ export default defineConfig({
           },
         ],
       },
+      // -------- news & announcements --------
+      {
+        name: "newsItem",
+        label: "News & Announcements",
+        path: "content/news",
+        format: "json",
+        defaultItem: () => ({
+          type: "news",
+          date: new Date().toISOString(),
+        }),
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "type",
+            label: "Type",
+            options: [
+              { value: "news", label: "News" },
+              { value: "announcement", label: "Announcement" },
+            ],
+            required: true,
+            description: "Is this a news article or an announcement? (Determines where this goes)",
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            ui: {
+              dateFormat: "YYYY-MM-DD",
+              timeFormat: false,
+              parse: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                const utcMidnight = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+                return utcMidnight.toISOString();
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+              format: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "summary",
+            label: "Summary",
+            description: "Short teaser shown in grids and cards.",
+            ui: { component: "textarea" },
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+            description: "Optional thumbnail.",
+          },
+          {
+            type: "rich-text",
+            name: "content",
+            label: "Content",
+            description: "Full body of the news item or announcement.",
+            required: true,
+          },
+        ],
+      },
+
     ],
   },
 });
