@@ -119,3 +119,25 @@ button:focus-visible {
   outline: 2px solid var(--color-brass-500);
   outline-offset: 2px;
 }
+
+/* -------- infinite scrolling marquee -------- */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 180s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

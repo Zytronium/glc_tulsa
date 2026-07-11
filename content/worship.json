@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "eyebrow": "Worship",
+    "headline": "Worship At Grace",
+    "subtitle": "Grace Lutheran's worship is reverent. It is sacramental. It is ancient.",
+    "intro": "Luther and the Reformers would recognize our worship forms. Generations of Christians going back to the martyrs of the Roman Empire would recognize our worship too. When we gather here, we are in the presence of the Triune God. We believe that the Body and Blood of Christ are physically present when we celebrate communion. Our worship is not \"relaxed\" and \"casual,\" for we are in the presence of the Holy and Mighty God.\n\nThis is not to say our worship should be somber. It should be joyful! While we are in the presence of the \"consuming fire\" of God, we are not consumed, for our God has saved us through the death and resurrection of Jesus Christ! We are His people, bought at a price, and have been invited into His Presence now and forever.",
+    "quote": "Therefore let us be grateful for receiving a kingdom that cannot be shaken, and thus let us offer to God acceptable worship, with reverence and awe, for our God is a consuming fire.",
+    "quoteCitation": "Hebrews 12:28-29 (ESV)",
+    "backgroundImage": "/images/altar-easter-bw-2.webp"
+  },
+  "worshipTimes": {
+    "heading": "Regular Worship Times",
+    "sundayTimes": "8:00 & 10:30 AM",
+    "sundaySchoolTime": "9:15 AM",
+    "wednesdayNote": "We also celebrate the Divine Service with Holy Communion on Wednesdays during the school year. See our upcoming services below for details each week.",
+    "livestreamNote": "Grace's Worship Services are livestreamed whenever possible. Join us on Facebook",
+    "facebookUrl": "https://www.facebook.com/GraceLutheranTulsa",
+    "image": ""
+  },
+  "specialServices": {
+    "heading": "Special Services",
+    "body": "Grace celebrates many feasts and festivals falling outside Sundays. Check our upcoming services and events or the church calendar for times and dates.",
+    "linkLabel": "View Upcoming Services",
+    "linkHref": "/events",
+    "image": ""
+  },
+  "lent": {
+    "eyebrow": "A season of preparation",
+    "heading": "Preparing for Lent",
+    "intro": "Lent is the journey to Easter, and is a time to increase your devotion, to prioritize spiritual growth and living, and more. This is traditionally accomplished by focusing on three \"Lenten disciplines\": prayer, almsgiving, and fasting. If Lent is a journey, then every journey needs some time to prepare, and these weeks before we begin in March are perfect. Below are some resources to help you in your preparations.",
+    "fastingLinkLabel": "Click Here for the Fasting Guidelines",
+    "fastingLinkHref": "/fasting",
+    "disciplines": [
+      {
+        "label": "Prayer",
+        "image": "/images/lent-prayer.webp",
+        "questions": [
+          "How can you increase your praying this season?",
+          "How can your prayer life improve?",
+          "Do you pray as you ought? Do you pray intentionally? Deliberately?",
+          "Do you pray believing God will answer your prayer?"
+        ],
+        "actionItems": [
+          "Plan to attend Grace Night Masses through Lent (7:15-7:45 every Wednesday).",
+          "Plan time for personal prayer and devotions. Make it realistic (three days a week for beginners, or add one to two days if you already have the habit).",
+          "Make a prayer list that you can keep handy."
+        ],
+        "closingNote": ""
+      },
+      {
+        "label": "Almsgiving",
+        "image": "/images/lent-almsgiving.webp",
+        "questions": [
+          "Are you offering to God a portion of what He has given you? Have you increased it recently? Are you giving to God only from time, or talent, or treasure?",
+          "Can you broaden your sacrifice of thanksgiving to include more?",
+          "Do you show compassion on the powerless? Are you as helpful to others as you can be?"
+        ],
+        "actionItems": [
+          "Look at your budget with your family; can you give more to God out of thankfulness for His blessings to you?",
+          "Find a regular \"treat yourself\" item, like Starbucks or your favorite snack/drink, and use what you would spend to give to a shelter or other ministry to the poor.",
+          "Challenge yourself to go out of your way to be kind and compassionate to someone every day."
+        ],
+        "closingNote": ""
+      },
+      {
+        "label": "Fasting",
+        "image": "/images/lent-fasting.webp",
+        "questions": [
+          "Do you regularly deny yourself, or are you more prone to indulge yourself?",
+          "How often do you challenge yourself?"
+        ],
+        "actionItems": [
+          "Read the Fasting Guidelines, available online and in the narthex in late February.",
+          "Talk to Pr. Hall about your plan and desires.",
+          "Make a plan with your family as appropriate."
+        ],
+        "closingNote": "If fasting is not appropriate for you due to health or age considerations, try a fast from other things like TV, phone, or \"screen time\"; chocolate or other desserts; or other frequent luxuries."
+      }
+    ]
+  },
+  "holyWeek": {
+    "heading": "Holy Week Worship",
+    "marqueeText": "Holy Week Worship",
+    "image": "/images/holy-week-banner.webp",
+    "services": [
+      {
+        "date": "March 27",
+        "title": "Holy Wednesday",
+        "time": "7:00 PM",
+        "body": "We gather near sunset to begin the first liturgy of Maundy Thursday. The choir leads the congregation in singing Matins a cappella.\n\nAt the conclusion of the liturgy, the pastor blesses the chrism (anointing oil) used in baptism, confirmations, and for anointing the sick. The congregation is invited to come to the altar to be blessed with that oil (see James 5).",
+        "bulletinLabel": "Click here for the bulletin",
+        "bulletinHref": "/s/20240327-Holy-Wednesday-Chrism-2.pdf"
+      },
+      {
+        "date": "March 28",
+        "title": "Maundy Thursday",
+        "time": "7:00 PM",
+        "body": "The liturgy begins in silence with a procession and an exhortation to repent. Following a general confession (said by all), we invite everyone to come to the altar to be forgiven individually, followed by a general absolution. The mass continues like normal until the very end when the Choir begins singing Psalm 22 and the altar and chancel area is stripped and all items are removed, symbolizing the stripping and humiliation of Jesus. The lights are lowered and the congregation leaves in silence.",
+        "bulletinLabel": "Click here for the bulletin",
+        "bulletinHref": "/s/Maundy-Thursday-2024-f7hh.pdf"
+      },
+      {
+        "date": "March 29",
+        "title": "Good Friday Chief Service",
+        "time": "7:00 PM",
+        "body": "The congregation gathers in silence as this liturgy continues from Thursday night.\n\nThe liturgy features the reading of the Passion of Christ according to St. John, interspersed with hymns. Lights are lowered and candles extinguished until the end, when the strepitus symbolizes the tomb of Jesus being sealed. \n\nAfter the homily, we venerate the cross by the pastor processing a rough-hewn cross up the center aisle, followed by chanted Reproaches taken from the Old Testament. But the service ends in hope with the singing of “Sing My Tongue the Glorious Battle (Pange Lingua)",
+        "bulletinLabel": "Click here for the bulletin",
+        "bulletinHref": "/s/Good-Friday-2024.pdf"
+      },
+      {
+        "date": "March 30",
+        "title": "Easter Vigil",
+        "time": "7:00 PM",
+        "body": "Perhaps the most elaborate liturgy we celebrate, the congregation gathers in the courtyard around the “new fire” made earlier. The Paschal Candle is blessed, and everyone lights tapers from it and assembles in the darkened sanctuary while the cantor and pastor sing a beautiful chant about the saving mercy of God and we hear several readings of God’s salvation history. \n\nThen the baptismal font is blessed and baptism administered, first communicants are blessed, and new members are received. Then the lights are raised and we share the Easter acclamation before the altar is prepared and we commune in celebration of our risen Lord Jesus.",
+        "bulletinLabel": "Click here for the bulletin",
+        "bulletinHref": "/s/Easter-Vigil-2024.pdf"
+      }
+    ]
+  }
+}

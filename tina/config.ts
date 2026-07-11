@@ -381,6 +381,174 @@ export default defineConfig({
           },
         ],
       },
+      // -------- worship page --------
+      {
+        name: "worshipPage",
+        label: "Worship Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "worship",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/worship",
+        },
+        fields: [
+          // -------- hero --------
+          {
+            type: "object",
+            name: "hero",
+            label: "Hero",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Worship at Grace"' },
+              { type: "string", name: "headline", label: "Headline" },
+              { type: "string", name: "subtitle", label: "Subtitle" },
+              {
+                type: "string",
+                name: "intro",
+                label: "Intro",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "quote",
+                label: "Scripture Quote",
+                description: "Scripture quote to appear between 1st and 2nd intro paragraphs",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "quoteCitation", label: "Quote Citation", description: 'e.g. "Hebrews 12:28-29 (ESV)"' },
+              { type: "image", name: "backgroundImage", label: "Background Image" },
+            ],
+          },
+          // -------- worship times --------
+          {
+            type: "object",
+            name: "worshipTimes",
+            label: "Worship Times",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "sundayTimes", label: "Sunday Service Times", description: 'e.g. "8:00 & 10:30 AM"' },
+              { type: "string", name: "sundaySchoolTime", label: "Sunday School & Bible Study Time", description: 'e.g. "9:15 AM"' },
+              {
+                type: "string",
+                name: "wednesdayNote",
+                label: "Wednesday Note",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "livestreamNote",
+                label: "Livestream Note",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "facebookUrl", label: "Facebook Livestream URL" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          // -------- special services --------
+          {
+            type: "object",
+            name: "specialServices",
+            label: "Special Services",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "linkLabel", label: "Link Label", description: 'e.g. "View Upcoming Services"' },
+              { type: "string", name: "linkHref", label: "Link URL" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          // -------- preparing for lent --------
+          {
+            type: "object",
+            name: "lent",
+            label: "Preparing for Lent",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "intro",
+                label: "Intro",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "fastingLinkLabel", label: "Fasting Guidelines Link Label" },
+              { type: "string", name: "fastingLinkHref", label: "Fasting Guidelines Link URL" },
+              {
+                type: "object",
+                name: "disciplines",
+                label: "Disciplines",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label }),
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label", description: 'e.g. "Prayer"' },
+                  { type: "image", name: "image", label: "Image" },
+                  { type: "string", name: "questions", label: "Questions", list: true, ui: { component: "textarea" } },
+                  { type: "string", name: "actionItems", label: "Action Items", list: true, ui: { component: "textarea" } },
+                  {
+                    type: "string",
+                    name: "closingNote",
+                    label: "Closing Note",
+                    description: "Optional note shown below the discipline (e.g. alternatives to fasting).",
+                    ui: { component: "textarea" },
+                  },
+                ],
+              },
+            ],
+          },
+          // -------- holy week --------
+          {
+            type: "object",
+            name: "holyWeek",
+            label: "Holy Week",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "marqueeText",
+                label: "Scrolling Banner Text",
+                description: 'Short phrase that repeats infinitely across the banner, e.g. "HOLY WEEK AT GRACE"',
+              },
+              { type: "image", name: "image", label: "Image" },
+              {
+                type: "object",
+                name: "services",
+                label: "Services",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.title }),
+                },
+                fields: [
+                  { type: "string", name: "date", label: "Date", description: 'e.g. "March 27"' },
+                  { type: "string", name: "title", label: "Title", description: 'e.g. "Maundy Thursday"' },
+                  { type: "string", name: "time", label: "Time", description: 'e.g. "7:00 PM"' },
+                  {
+                    type: "string",
+                    name: "body",
+                    label: "Body",
+                    description: "Use a blank line between paragraphs.",
+                    ui: { component: "textarea" },
+                  },
+                  { type: "string", name: "bulletinLabel", label: "Bulletin Link Label" },
+                  { type: "string", name: "bulletinHref", label: "Bulletin Link URL" },
+                ],
+              },
+            ],
+          },
+        ],
+      },
       // -------- events --------
       {
         name: "event",
