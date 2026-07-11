@@ -14,7 +14,7 @@ export function AboutMap({ globalVars }: { globalVars: GlobalVariablesData }) {
   return (
     <section className="bg-stone-100"
              style={{
-               backgroundImage: "url('/images/aged_paper.png')",
+               backgroundImage: "url('/images/paper.png')",
                backgroundRepeat: "no-repeat",
                backgroundSize: "cover",
                backgroundPosition: "center",

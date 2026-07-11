@@ -7,6 +7,7 @@ import { AboutIntro } from "@/components/about/AboutIntro";
 import { AboutMission } from "@/components/about/AboutMission";
 import { AboutDoctrine } from "@/components/about/AboutDoctrine";
 import { FourMarks } from "@/components/about/FourMarks";
+import { AboutPhotoGallery } from "@/components/about/AboutPhotoGallery";
 import { AboutMap } from "@/components/about/AboutMap";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
@@ -30,6 +31,7 @@ export function ClientPage({ aboutQuery, globalVariablesQuery }: Props) {
       <AboutMission mission={about.mission!} />
       <AboutDoctrine doctrine={about.doctrine!} />
       <FourMarks marks={about.marks!} />
+      <AboutPhotoGallery photoGalleryPreview={about.photoGalleryPreview!} />
       <AboutMap globalVars={globalVars} />
     </main>
   );

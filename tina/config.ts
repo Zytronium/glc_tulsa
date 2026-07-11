@@ -379,6 +379,29 @@ export default defineConfig({
               { type: "string", name: "imageAlt", label: "Image Alt Text" },
             ],
           },
+          // -------- photo gallery preview --------
+          {
+            type: "object",
+            name: "photoGalleryPreview",
+            label: "Photo Gallery Preview",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "linkLabel", label: "Link Label", description: 'e.g. "Explore the Full Gallery"' },
+              {
+                type: "image",
+                name: "images",
+                label: "Preview Images",
+                list: true,
+                description: "Pick 6 photos to preview here. The full gallery lives at /photos.",
+              },
+            ],
+          },
         ],
       },
       // -------- photos page --------

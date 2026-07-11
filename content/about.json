@@ -82,5 +82,18 @@
       "image": "/images/window.webp",
       "imageAlt": "The stained-glass window at the front of the church"
     }
-  ]
+  ],
+  "photoGalleryPreview": {
+    "heading": "A glimpse inside Grace",
+    "body": "From the sanctuary's stained glass to the courtyard where our Easter Vigil begins, take a closer look at the space we call home.",
+    "linkLabel": "Explore the Full Gallery",
+    "images": [
+      "/images/photos/exterior/0095.webp",
+      "/images/photos/windows/SKY02578f.webp",
+      "/images/photos/at_the_altar/SKY00707.webp",
+      "/images/photos/exterior/SCP02864.webp",
+      "/images/photos/windows/SKY02564f.webp",
+      "/images/photos/at_the_altar/DJI_20240829130104_0010_D.webp"
+    ]
+  }
 }
