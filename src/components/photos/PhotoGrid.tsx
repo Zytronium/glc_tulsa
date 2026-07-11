@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type {Photo} from "@/lib/photos-server";
 import {getPhotoMetadata} from "@/lib/photos";
-import {IconDownload, IconClose, IconArrowLeft} from "@/components/home/icons";
+import {IconDownload, IconClose, IconArrowLeft, IconArrowRight} from "@/components/home/icons";
 import {TinaMarkdown, type TinaMarkdownContent} from "tinacms/dist/rich-text";
 
 type Props = {
@@ -27,6 +27,25 @@ export default function PhotoGrid({
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const metadata = selected ? getPhotoMetadata(selected, displayName) : null;
+
+  const getCurrentPhotoIndex = () => {
+    if (!selected) return -1;
+    return photos.findIndex((photo) => photo.filename === selected.filename);
+  };
+
+  const navigateToPrevious = () => {
+    const currentIndex = getCurrentPhotoIndex();
+    if (currentIndex > 0) {
+      setSelected(photos[currentIndex - 1]);
+    }
+  };
+
+  const navigateToNext = () => {
+    const currentIndex = getCurrentPhotoIndex();
+    if (currentIndex < photos.length - 1) {
+      setSelected(photos[currentIndex + 1]);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -117,6 +136,32 @@ export default function PhotoGrid({
             >
               <IconDownload className="h-5 w-5"/>
             </a>
+
+            {getCurrentPhotoIndex() > 0 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigateToPrevious();
+                }}
+                aria-label="Previous photo"
+                className="fixed left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/70 text-stone-50 transition hover:bg-garnet-700 sm:left-6"
+              >
+                <IconArrowLeft className="h-6 w-6"/>
+              </button>
+            )}
+
+            {getCurrentPhotoIndex() < photos.length - 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigateToNext();
+                }}
+                aria-label="Next photo"
+                className="fixed right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/70 text-stone-50 transition hover:bg-garnet-700 sm:right-6"
+              >
+                <IconArrowRight className="h-6 w-6"/>
+              </button>
+            )}
           </div>
         )}
 
