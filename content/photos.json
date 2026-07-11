@@ -1,8 +1,28 @@
 {
   "hero": {
     "quote": "It is the glory of God to conceal things, but the glory of kings is to search things out.",
-    "quoteCitation": "Proverbs 25:2 (ESV)",
+    "quoteCitation": "Proverbs 25:2, ESV",
     "body": "Grace is blessed with beautiful and timeless architecture which draws our hearts to God who made all things. All we do glorifies God and directs us to worship Him with faith and reverence.",
     "backgroundImage": "/images/aged_paper.png"
-  }
+  },
+  "categories": [
+    {
+      "folder": "exterior",
+      "displayName": "Exterior Photos",
+      "note": "All photos courtesy **Matt Reinke** - **[SkyCreationPhotos.com](https://skycreationphotos.com/)**\n",
+      "coverImage": "/images/photos/exterior/0095.webp"
+    },
+    {
+      "folder": "windows",
+      "displayName": "Our Windows",
+      "note": "",
+      "coverImage": "/images/photos/windows/SKY02578f.webp"
+    },
+    {
+      "folder": "at_the_altar",
+      "displayName": "At the Altar",
+      "note": "",
+      "coverImage": "/images/photos/at_the_altar/SKY00707.webp"
+    }
+  ]
 }

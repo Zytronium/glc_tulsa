@@ -421,6 +421,44 @@ export default defineConfig({
               { type: "image", name: "backgroundImage", label: "Background Image" },
             ],
           },
+          // categories
+          {
+            type: "object",
+            name: "categories",
+            label: "Photo Categories",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.displayName }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "folder",
+                label: "Folder Name",
+                description: 'Must exactly match a folder name under /images/photos, e.g. "at_the_altar"',
+                required: true,
+              },
+              {
+                type: "string",
+                name: "displayName",
+                label: "Display Name",
+                description: 'How this category appears on the website, e.g. "At the Altar"',
+                required: true,
+              },
+              {
+                type: "rich-text",
+                name: "note",
+                label: "Note",
+                description: 'Optional text to display above photo grid for this category (e.g. photographer credit)',
+              },
+              {
+                type: "image",
+                name: "coverImage",
+                label: "Cover Image",
+                description: "Falls back to the first photo in the folder if left blank.",
+              },
+            ],
+          },
         ],
       },
       // -------- worship page --------

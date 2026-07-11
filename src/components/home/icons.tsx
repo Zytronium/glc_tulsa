@@ -2,6 +2,10 @@
 // Hand-built rather than a generic icon library, so weight and line quality
 // match the display type and the lancet-arch motif used throughout the page.
 
+import {useState} from "react";
+import type {Photo} from "@/lib/photos-server";
+import {getPhotoMetadata} from "@/lib/photos";
+
 type IconProps = {
   className?: string;
 };
@@ -209,6 +213,30 @@ export function IconCoin({ className }: IconProps) {
             />
         </svg>
     );
+}
+
+export function IconDownload({className}: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 4V15M12 15L8 11M12 15L16 11"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M5 17.5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V17.5" stroke="currentColor"
+            strokeWidth="1.6" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+export function IconClose({className}: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+    </svg>
+  );
 }
 
 // -------- the signature lancet arch, used atop cards site-wide --------
