@@ -19,8 +19,8 @@ export default function PhotoCategories({ categories }: Props) {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="mx-auto max-w-8xl">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {categories.map((category) => {
             const cover = category.coverImage ?? category.photos[0]?.src ?? null;
 
