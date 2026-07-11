@@ -381,6 +381,48 @@ export default defineConfig({
           },
         ],
       },
+      // -------- photos page --------
+      {
+        name: "photosPage",
+        label: "Photos Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "photos",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/photos",
+        },
+        fields: [
+          // hero
+          {
+            type: "object",
+            name: "hero",
+            label: "Hero",
+            fields: [
+              {
+                type: "string",
+                name: "quote",
+                label: "Quote",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "quoteCitation", label: "Quote Citation", description: 'e.g. "Proverbs 25:2, ESV"' },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "backgroundImage", label: "Background Image" },
+            ],
+          },
+        ],
+      },
       // -------- worship page --------
       {
         name: "worshipPage",
