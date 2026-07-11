@@ -92,7 +92,7 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "email", label: "Email" },
-          { type: "string", name: "emailBcc", label: "Email BCC" },
+          { type: "string", name: "emailCc", label: "Email CC" },
           { type: "string", name: "emailSubject", label: "Email Subject Autofill" },
           { type: "string", name: "phone", label: "Phone" },
           { type: "string", name: "churchName", label: "Church Name" },

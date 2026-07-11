@@ -61,8 +61,8 @@ export function Footer({ layout, globalVars }: Props) {
               if (layout.emailSubject) {
                 query.push(`subject=${encodeURIComponent(layout.emailSubject)}`);
               }
-              if (layout.emailBcc) {
-                query.push(`bcc=${encodeURIComponent(layout.emailBcc)}`);
+              if (layout.emailCc) {
+                query.push(`cc=${encodeURIComponent(layout.emailCc)}`);
               }
               const href = `mailto:${layout.email}${query.length ? `?${query.join("&")}` : ""}`;
               return (
