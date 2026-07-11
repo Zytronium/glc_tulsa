@@ -52,7 +52,7 @@ export default function PhotoGrid({
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <Link
           href="/photos"
           className="mb-4 inline-flex items-center gap-2 text-sm text-stone-700 hover:text-garnet-700 transition"
