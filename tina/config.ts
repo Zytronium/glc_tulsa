@@ -645,7 +645,12 @@ export default defineConfig({
                     ui: { component: "textarea" },
                   },
                   { type: "string", name: "bulletinLabel", label: "Bulletin Link Label" },
-                  { type: "string", name: "bulletinHref", label: "Bulletin Link URL" },
+                  {
+                    type: "image",
+                    name: "bulletinFile",
+                    label: "Bulletin (PDF)",
+                    description: "Upload the bulletin PDF for this service.",
+                  },
                 ],
               },
             ],

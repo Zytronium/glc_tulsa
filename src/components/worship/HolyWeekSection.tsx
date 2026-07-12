@@ -92,9 +92,9 @@ export function HolyWeekSection({ holyWeek }: Props) {
                     <p key={pi}>{para}</p>
                   ))}
                 </div>
-                {service?.bulletinHref && (
+                {service?.bulletinFile && (
                 <a
-                  href={service.bulletinHref}
+                  href={service.bulletinFile}
                   data-tina-field={tinaField(service, "bulletinLabel")}
                   className="mt-3 inline-flex items-center gap-1 font-meta text-[11px] uppercase tracking-[0.1em] text-garnet-700"
                   >

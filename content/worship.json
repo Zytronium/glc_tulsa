@@ -81,7 +81,7 @@
   "holyWeek": {
     "heading": "Holy Week Worship",
     "marqueeText": "Holy Week Worship",
-    "image": "/images/holy-week-banner.webp",
+    "image": "/images/holy-week.webp",
     "services": [
       {
         "date": "March 27",
@@ -89,7 +89,7 @@
         "time": "7:00 PM",
         "body": "We gather near sunset to begin the first liturgy of Maundy Thursday. The choir leads the congregation in singing Matins a cappella.\n\nAt the conclusion of the liturgy, the pastor blesses the chrism (anointing oil) used in baptism, confirmations, and for anointing the sick. The congregation is invited to come to the altar to be blessed with that oil (see James 5).",
         "bulletinLabel": "Click here for the bulletin",
-        "bulletinHref": "/s/20240327-Holy-Wednesday-Chrism-2.pdf"
+        "bulletinFile": "/images/bulletins/2024.03.27+Holy+Wednesday+Chrism+2.pdf"
       },
       {
         "date": "March 28",
@@ -97,7 +97,7 @@
         "time": "7:00 PM",
         "body": "The liturgy begins in silence with a procession and an exhortation to repent. Following a general confession (said by all), we invite everyone to come to the altar to be forgiven individually, followed by a general absolution. The mass continues like normal until the very end when the Choir begins singing Psalm 22 and the altar and chancel area is stripped and all items are removed, symbolizing the stripping and humiliation of Jesus. The lights are lowered and the congregation leaves in silence.",
         "bulletinLabel": "Click here for the bulletin",
-        "bulletinHref": "/s/Maundy-Thursday-2024-f7hh.pdf"
+        "bulletinFile": "/images/bulletins/Maundy+Thursday+2024.pdf"
       },
       {
         "date": "March 29",
@@ -105,7 +105,7 @@
         "time": "7:00 PM",
         "body": "The congregation gathers in silence as this liturgy continues from Thursday night.\n\nThe liturgy features the reading of the Passion of Christ according to St. John, interspersed with hymns. Lights are lowered and candles extinguished until the end, when the strepitus symbolizes the tomb of Jesus being sealed. \n\nAfter the homily, we venerate the cross by the pastor processing a rough-hewn cross up the center aisle, followed by chanted Reproaches taken from the Old Testament. But the service ends in hope with the singing of “Sing My Tongue the Glorious Battle (Pange Lingua)",
         "bulletinLabel": "Click here for the bulletin",
-        "bulletinHref": "/s/Good-Friday-2024.pdf"
+        "bulletinFile": "/images/bulletins/Good+Friday+2024.pdf"
       },
       {
         "date": "March 30",
@@ -113,7 +113,7 @@
         "time": "7:00 PM",
         "body": "Perhaps the most elaborate liturgy we celebrate, the congregation gathers in the courtyard around the “new fire” made earlier. The Paschal Candle is blessed, and everyone lights tapers from it and assembles in the darkened sanctuary while the cantor and pastor sing a beautiful chant about the saving mercy of God and we hear several readings of God’s salvation history. \n\nThen the baptismal font is blessed and baptism administered, first communicants are blessed, and new members are received. Then the lights are raised and we share the Easter acclamation before the altar is prepared and we commune in celebration of our risen Lord Jesus.",
         "bulletinLabel": "Click here for the bulletin",
-        "bulletinHref": "/s/Easter-Vigil-2024.pdf"
+        "bulletinFile": "/images/bulletins/Easter+Vigil+2024.pdf"
       }
     ]
   }
