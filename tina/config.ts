@@ -897,6 +897,59 @@ export default defineConfig({
           },
         ],
       },
+      // -------- ministries: community involvement --------
+      {
+        name: "communityInvolvementPage",
+        label: "Community Involvement Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "community-involvement",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/ministries/community-involvement",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "Community Involvement"',
+            required: true,
+          },
+          {
+            type: "object",
+            name: "sections",
+            label: "Sections",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.heading }),
+            },
+            fields: [
+              { type: "string", name: "heading", label: "Heading", required: true },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "items",
+                label: "Bullet Points",
+                list: true,
+                description: "Optional. Leave empty for a plain text section.",
+              },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+        ],
+      },
 
     ],
   },
