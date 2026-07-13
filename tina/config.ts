@@ -821,6 +821,82 @@ export default defineConfig({
           },
         ],
       },
+      // -------- ministries page --------
+      {
+        name: "ministriesPage",
+        label: "Ministries Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "ministries",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/ministries",
+        },
+        fields: [
+          // -------- hero --------
+          {
+            type: "object",
+            name: "hero",
+            label: "Hero",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Get Involved"' },
+              { type: "string", name: "headline", label: "Headline" },
+              {
+                type: "string",
+                name: "intro",
+                label: "Intro",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "backgroundImage", label: "Background Image" },
+            ],
+          },
+          // -------- ministry cards --------
+          {
+            type: "object",
+            name: "ministries",
+            label: "Ministries",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.label }),
+            },
+            fields: [
+              { type: "string", name: "label", label: "Label", description: 'e.g. "Missions"', required: true },
+              {
+                type: "string",
+                name: "summary",
+                label: "Summary",
+                description: "1-3 sentences shown on the card.",
+                ui: { component: "textarea" },
+                required: true,
+              },
+              { type: "image", name: "image", label: "Image" },
+              {
+                type: "string",
+                name: "linkLabel",
+                label: "Link Label",
+                description: 'e.g. "Learn More" or "Sign Up"',
+              },
+              {
+                type: "string",
+                name: "linkHref",
+                label: "Link URL",
+                description: "Internal path (e.g. /ministries/missions) or external URL (e.g. a SignUpGenius link).",
+              },
+              {
+                type: "boolean",
+                name: "isExternal",
+                label: "External Link",
+                description: "Turn on if this opens an outside site (e.g. a signup form) rather than a page on our own site.",
+              },
+            ],
+          },
+        ],
+      },
 
     ],
   },

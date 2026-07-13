@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "eyebrow": "Get Involved",
+    "headline": "Serving Christ, Serving Our Neighbors",
+    "intro": "From caring for our Kendall-Whittier neighbors to supporting missionaries around the world, Grace's ministries put faith into action. Find where you fit in below.",
+    "backgroundImage": "/images/chancel.webp"
+  },
+  "ministries": [
+    {
+      "label": "Community Involvement",
+      "summary": "Grace supports Kendall-Whittier Elementary families, operates an emergency clothes closet, and partners with Meals on Wheels, alongside our ongoing ecumenical and campus ministry work.",
+      "image": null,
+      "linkLabel": "Learn More",
+      "linkHref": "/ministries/community-involvement",
+      "isExternal": false
+    },
+    {
+      "label": "Serving at Grace",
+      "summary": "From worship servers and readers to Grace Night cooks and helpers, there's a place for you to put your gifts to use in the life of our congregation.",
+      "image": null,
+      "linkLabel": "Sign Up to Volunteer",
+      "linkHref": "https://www.signupgenius.com/tabs/13574D801A7C8EBC06-graceactivities",
+      "isExternal": true
+    },
+    {
+      "label": "Missions",
+      "summary": "Grace supports missionaries around the world, from church planting in Uruguay to Bible translation in Southern Africa, alongside the ongoing work of Lutheran Women in Mission.",
+      "image": null,
+      "linkLabel": "Learn More",
+      "linkHref": "/ministries/missions",
+      "isExternal": false
+    },
+    {
+      "label": "Music",
+      "summary": "Our Adult Chancel Choir, Handbell Choir, Cantate Children's Choir, and instrumentalists lead worship each week and carry on Tulsa's century-old Handel's Messiah tradition.",
+      "image": null,
+      "linkLabel": "Learn More",
+      "linkHref": "/ministries/music",
+      "isExternal": false
+    },
+    {
+      "label": "The St. Andrew Society",
+      "summary": "Established in 2019, the St. Andrew Society trains committed lay members to serve as crucifers, torch bearers, gospel bearers, and communion assistants in the Divine Service.",
+      "image": null,
+      "linkLabel": "Learn More",
+      "linkHref": "/ministries/st-andrew-society",
+      "isExternal": false
+    },
+    {
+      "label": "Youth Life",
+      "summary": "From Sunday School and Grace Night to Higher Things and the annual Christmas party, our youth grow in faith and fellowship together.",
+      "image": null,
+      "linkLabel": "Learn More",
+      "linkHref": "/youth-life",
+      "isExternal": false
+    },
+    {
+      "label": "Fasting Guidelines",
+      "summary": "Fasting is one of the three traditional Lenten disciplines, alongside prayer and almsgiving. Read our guidelines for how to observe it well.",
+      "image": null,
+      "linkLabel": "Read the Guidelines",
+      "linkHref": "/fasting",
+      "isExternal": false
+    }
+  ]
+}
