@@ -26,7 +26,7 @@ export function CommunityInvolvementSections({ sections }: Props) {
             }}
           >
             <div
-              className={`mx-auto grid max-w-5xl gap-10 px-5 py-14 sm:px-8 sm:py-20 ${
+              className={`mx-auto grid max-w-5xl gap-10 px-5 py-12 sm:px-8 sm:py-18 ${
                 section?.image ? "lg:grid-cols-2 lg:items-center" : ""
               }`}
             >

@@ -922,6 +922,11 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "image",
+            name: "titleBackground",
+            label: "Title Background",
+          },
+          {
             type: "object",
             name: "sections",
             label: "Sections",

@@ -19,7 +19,13 @@ export function ClientPage({ query }: Props) {
 
   return (
     <main>
-      <div className="border-b border-stone-200 bg-stone-100 px-5 pt-10 sm:px-8">
+      <div className="border-b border-stone-200 bg-stone-100 px-5 pt-10 sm:px-8"
+           style={{
+             backgroundImage: `${page.titleBackground ? `url(${page.titleBackground})` : "none"}`,
+             backgroundRepeat: "no-repeat",
+             backgroundSize: "cover",
+             backgroundPosition: "center",
+           }}>
         <div className="mx-auto max-w-5xl">
           <Link
             href="/ministries"
@@ -30,7 +36,7 @@ export function ClientPage({ query }: Props) {
           </Link>
           <h1
             data-tina-field={tinaField(page, "pageTitle")}
-            className="mb-8 mt-4 font-display text-[30px] font-medium text-ink sm:text-[36px]"
+            className="mb-20 mt-8 font-display text-[30px] font-medium text-ink sm:text-[36px]"
           >
             {page.pageTitle}
           </h1>
