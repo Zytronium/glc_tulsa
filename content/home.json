@@ -16,7 +16,6 @@
   "serviceBar": {
     "sundayTimes": "8:00 & 10:30 AM",
     "wednesdayTimes": "6:15 PM (Sept-May)",
-    "address": "2331 E 5th Pl, Tulsa",
     "addressUrl": "https://maps.google.com/?q=2331+E+5th+Pl,+Tulsa,+OK+74104"
   },
   "mission": {
@@ -79,7 +78,7 @@
     {
       "label": "Find us",
       "description": "Directions, hours, contact",
-      "href": "/contact"
+      "href": "/about#find-us"
     }
   ]
 }

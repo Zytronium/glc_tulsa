@@ -12,7 +12,7 @@ export function AboutMap({ globalVars }: { globalVars: GlobalVariablesData }) {
   const embedSrc = `https://maps.google.com/maps?q=${addressQuery}&output=embed`;
 
   return (
-    <section className="bg-stone-100"
+    <section className="bg-stone-100" id="find-us"
              style={{
                backgroundImage: "url('/images/paper.png')",
                backgroundRepeat: "no-repeat",
