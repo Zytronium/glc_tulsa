@@ -955,6 +955,87 @@ export default defineConfig({
           },
         ],
       },
+      // -------- ministries: missions --------
+      {
+        name: "missionsPage",
+        label: "Missions Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "missions",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/ministries/missions",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "Missions and Ministries"',
+            required: true,
+          },
+          {
+            type: "image",
+            name: "headerBackgroundImage",
+            label: "Header Background Image",
+          },
+          {
+            type: "object",
+            name: "lwml",
+            label: "Lutheran Women in Mission",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "image", name: "logo", label: "Logo" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "supports",
+                label: "What LWML Supports",
+                list: true,
+              },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          {
+            type: "string",
+            name: "missionariesHeading",
+            label: "Missionaries Section Heading",
+            required: true,
+          },
+          {
+            type: "object",
+            name: "missionaries",
+            label: "Missionaries We Help Support",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name }),
+            },
+            fields: [
+              { type: "string", name: "name", label: "Name(s)", description: 'e.g. "Rev. James and Angela Sharp"', required: true },
+              { type: "image", name: "photo", label: "Photo" },
+              {
+                type: "string",
+                name: "bio",
+                label: "Bio",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "linkLabel", label: "Link Label", description: 'Optional, e.g. "See their webpage"' },
+              { type: "string", name: "linkHref", label: "Link URL", description: "Optional external link for more info." },
+            ],
+          },
+        ],
+      },
 
     ],
   },

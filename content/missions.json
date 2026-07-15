@@ -1,0 +1,42 @@
+{
+  "pageTitle": "Missions and Ministries",
+  "headerBackgroundImage": "/images/world-map-pictures-aabaetr8eh1w46d1.jpg",
+  "lwml": {
+    "heading": "Lutheran Women in Mission",
+    "logo": "/images/lwml-logo-transparent.webp",
+    "body": "LWML has a focus of loving and helping others in time of need. Also, we give opportunities for women to use their God-given talents and gifts in His service, all the while enjoying the loving sisterhood with women here and around the world. Grace’s LWML calling includes monetary assistance to:",
+    "supports": [
+      "Grace and Oklahoma seminary students",
+      "Lutheran Deaf Foundation",
+      "Kendall-Whittier community Thanksgiving and Christmas food/gifts",
+      "MEND Pregnancy Center in Tulsa",
+      "Lutheran Church-Missouri Synod (LCMS) Mission Outreach",
+      "and many, many more missions and needs!"
+    ],
+    "image": "/images/LWML-Ladies-150x150.webp"
+  },
+  "missionariesHeading": "Missionaries We Help Support",
+  "missionaries": [
+    {
+      "name": "Rev. James and Angela Sharp",
+      "photo": "/images/Sharp_Uruguay_2014-300x163.webp",
+      "bio": "Rev. James and Angela Sharp serve the Lord as career missionaries of The Lutheran Church—Missouri Synod (LCMS) in Uruguay. In this role, James plants new churches and works to support mercy outreach projects around the country. Through Word and Sacrament ministry, he partners with the local church leaders to form and develop groups of believers into mature, self-sustaining and self-replicating congregations. James also teaches courses in Lutheran theology to assist in training individuals in the Lutheran faith. He preaches in local congregations, whenever needed, as well.",
+      "linkLabel": "",
+      "linkHref": ""
+    },
+    {
+      "name": "Rev. Rich and Maya Rudowske",
+      "photo": "/images/Rudowske-2015-for-web-300x213.webp",
+      "bio": "Rev. Rich and Maya Rudowske and their five children recently returned to the States. They are based in the Aurora, Ill. area and work with the team at the LBT Service Center to make God’s Word available in the heart language of people around the world.  The Rudowskes joined LBT in 2008 and served in Botswana, where Rich helped to start a Bible translation project in the Shekgalagari language – spoken by over 200,000 people throughout the remote Kalahari Desert.\n\nIn January, 2014 Rich was named Regional Director for Southern Africa, responsible for oversight and cultivation of projects, personnel, and partner relations with the Lutheran churches and Bible Societies in Botswana, Namibia, South Africa, and Zambia. In August he was further promoted to International Program Ministries Director.",
+      "linkLabel": "",
+      "linkHref": ""
+    },
+    {
+      "name": "Ethan and Amanda Hutton",
+      "photo": "/images/huttons.webp",
+      "bio": "Ethan and Amanda Hutton are missionaries with Missions for Christ Network, serving  Seeds of Hope, a mission in Costa Rica that works with high-risk youth to prevent sex trafficking. From there, the Lord opened doors quickly. They visited the mission and found it to be a perfect combination of all of their passions and gifts. The Lord’s calling had never been so strong and clear.",
+      "linkLabel": "See their webpage",
+      "linkHref": "https://missionofchrist.org/service/Hutton-Ethan-and-Amanda/"
+    }
+  ]
+}
