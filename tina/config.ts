@@ -1036,6 +1036,72 @@ export default defineConfig({
           },
         ],
       },
+      // -------- ministries: music --------
+      {
+        name: "musicPage",
+        label: "Music Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "music",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/ministries/music",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "Music"',
+            required: true,
+          },
+          {
+            type: "image",
+            name: "headerBackgroundImage",
+            label: "Header Background Image",
+          },
+          {
+            type: "object",
+            name: "musicMinistry",
+            label: "Music Ministry",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "contactName", label: "Contact Name", description: 'e.g. "Marjorie Hall, Parish Musician"' },
+              { type: "string", name: "contactEmail", label: "Contact Email" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          {
+            type: "object",
+            name: "messiah",
+            label: "Tulsa Area Lutheran Messiah",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "facebookLabel", label: "Facebook Link Label", description: 'e.g. "Find us on Facebook: @TulsaHandelsMessiah"' },
+              { type: "string", name: "facebookHref", label: "Facebook Link URL" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+        ],
+      },
 
     ],
   },

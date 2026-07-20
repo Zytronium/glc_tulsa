@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Music",
+  "headerBackgroundImage": "/images/piano_banner.webp",
+  "musicMinistry": {
+    "heading": "Music Ministry",
+    "body": "Grace Lutheran Church has a vibrant music ministry with an active Adult Chancel Choir, Handbell Choir, Cantate Children’s Choir, and talented instrumentalists.  All of these musicians rehearse faithfully to serve in traditional roles during our worship services and they do so to the glory of God.  \n\nThe musicians of Grace are people of varying gifts and talents; they come together to offer songs of praise to God. Once you are a part of this ministry, you will find opportunities to give your talents back to God in your own unique way. As we sing and play we also grow in the family of the church, finding friendship, support, musical satisfaction, and fun. \n\nFor more information about rehearsal times and participation, please contact Marjorie Hall.",
+    "contactName": "Marjorie Hall, Parish Musician,",
+    "contactEmail": "mhall@glctulsa.org",
+    "image": ""
+  },
+  "messiah": {
+    "heading": "Tulsa Area Lutheran Messiah",
+    "body": "For over 100 years, Tulsa-area Lutheran churches have participated together in celebrating the birth of Christ in the presentation of Handel's Messiah. ",
+    "facebookLabel": "Find us on Facebook: @TulsaHandelsMessiah",
+    "facebookHref": "https://www.facebook.com/TulsaHandelsMessiah",
+    "image": ""
+  }
+}
