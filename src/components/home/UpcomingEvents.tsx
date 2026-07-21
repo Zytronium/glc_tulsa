@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IconArrowRight, IconChevronRight } from "./icons";
 
 import type { EventNode } from "@/app/(main)/page";
+import {tinaField} from "tinacms/react";
 type Props = { events: EventNode[] };
 
 function getFileName(id: string) {
@@ -106,6 +107,9 @@ export function UpcomingEvents({ events }: Props) {
                       <p className="mt-0.5 truncate text-sm text-stone-700">
                       {event.detail}
                     </p>
+                      <p className="text-sm text-shadow-garnet-700/85">
+                        {event.eventType === "Service" ? "Worship Service" : "Event"}
+                      </p>
                   </div>
                     <IconChevronRight className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition group-hover:text-garnet-600" />
                   </div>
