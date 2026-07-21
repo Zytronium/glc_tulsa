@@ -135,6 +135,24 @@ export function EventDetail({ event }: Props) {
               <TinaMarkdown content={event.content} />
             </div>
           )}
+
+          {/* live stream link */}
+          {event.liveStreamLink && (
+            <div className="h-fit rounded-card border border-stone-200 bg-stone-50 p-6 md:col-span-2">
+              <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600 mb-4">
+                Live Stream
+              </p>
+              <a
+                href={event.liveStreamLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-tina-field={tinaField(event, "liveStreamLink")}
+                className="text-[14px] leading-6 text-vestment-600 hover:text-garnet-700 underline break-all"
+              >
+                {event.liveStreamLink}
+              </a>
+            </div>
+          )}
         </div>
       </section>
     </>

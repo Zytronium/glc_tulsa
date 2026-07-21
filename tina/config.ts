@@ -741,6 +741,12 @@ export default defineConfig({
             label: "Image",
           },
           {
+            type: "string",
+            name: "liveStreamLink",
+            label: "Live Stream Link",
+            description: 'Optional link to service or event live stream',
+          },
+          {
             type: "rich-text",
             name: "content",
             label: "Page Content",
