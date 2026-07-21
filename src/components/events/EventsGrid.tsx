@@ -173,7 +173,16 @@ function EventCard({ event, highlighted = false, isPast = false, }: {
             </p>
           </div>
 
-          <div className="mt-auto flex flex-col gap-1.5 border-t border-stone-200 pt-2.5">
+          <div className="mt-auto">
+            <p
+              data-tina-field={tinaField(event, "eventType")}
+              className="text-[13px] text-shadow-garnet-700/85"
+            >
+              {event.eventType === "Service" ? "Worship Service" : "Event"}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-1.5 border-t border-stone-200 pt-2.5">
             {event.time && (
               <p
                 data-tina-field={tinaField(event, "time")}

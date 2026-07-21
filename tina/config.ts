@@ -726,6 +726,16 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "eventType",
+            label: "Event Type",
+            ui: {
+              component: "select",
+            },
+            options: ["Service", "Event"],
+            required: true,
+          },
+          {
             type: "image",
             name: "image",
             label: "Image",
