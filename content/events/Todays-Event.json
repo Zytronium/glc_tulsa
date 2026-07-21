@@ -1,9 +1,0 @@
-{
-  "title": "Today's Event",
-  "date": "2026-07-09T00:00:00.000Z",
-  "time": "Now",
-  "locationLabel": "Everywhere",
-  "detail": "Test Event",
-  "content": "Hello World!\n",
-  "featured": true
-}
