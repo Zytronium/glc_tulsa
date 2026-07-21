@@ -14,7 +14,7 @@ function NumberedList({
                         fieldSource,
                       }: {
   section: NumberedSection;
-  fieldSource: NonNullable<StAndrewSocietyData["responsibilities"]>;
+  fieldSource: NumberedSection;
 }) {
   const items = (section.items ?? []).filter((i): i is string => !!i);
 
