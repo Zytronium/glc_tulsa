@@ -1102,6 +1102,85 @@ export default defineConfig({
           },
         ],
       },
+      // -------- ministries: st. andrew society --------
+      {
+        name: "stAndrewSocietyPage",
+        label: "St. Andrew Society Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "st-andrew-society",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/ministries/st-andrew-society",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "St. Andrew Society of Grace Lutheran Church"',
+            required: true,
+          },
+          { type: "string", name: "established", label: "Established", description: 'e.g. "Est. 2019"' },
+          { type: "image", name: "headerBackgroundImage", label: "Header Background Image" },
+          {
+            type: "object",
+            name: "intro",
+            label: "Intro",
+            fields: [
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          {
+            type: "object",
+            name: "responsibilities",
+            label: "Responsibilities",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "items", label: "Items", list: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "benefits",
+            label: "Benefits",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "items", label: "Items", list: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "expectations",
+            label: "Behavioral Expectations While Serving",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "items", label: "Items", list: true },
+            ],
+          },
+          {
+            type: "object",
+            name: "application",
+            label: "Application",
+            fields: [
+              { type: "string", name: "linkLabel", label: "Link Label", description: 'e.g. "Application to Join"' },
+              { type: "image", name: "file", label: "Application PDF" },
+            ],
+          },
+        ],
+      },
 
     ],
   },
