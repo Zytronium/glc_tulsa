@@ -740,7 +740,7 @@ export default defineConfig({
             type: "boolean",
             name: "featured",
             label: "Featured",
-            description: "Displays on home page (limited to 6 events)",
+            description: "Displays on home page (limited to 6 events) (recommended for services and major events)",
           },
         ],
       },

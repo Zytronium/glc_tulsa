@@ -57,7 +57,7 @@ export function UpcomingEvents({ events }: Props) {
             const day = String(d.getUTCDate());
 
             return (
-              <li key={event.date}>
+              <li key={event.id}>
                 <Link
                   href={`/events/${getFileName(event.id)}`}
                   className="group flex h-full flex-col overflow-hidden rounded-card border border-stone-200 bg-stone-50 transition hover:border-garnet-600/40 hover:shadow-sm"
