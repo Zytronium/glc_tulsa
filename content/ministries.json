@@ -48,18 +48,10 @@
     },
     {
       "label": "Youth Life",
-      "summary": "From Sunday School and Grace Night to Higher Things and the annual Christmas party, our youth grow in faith and fellowship together.",
+      "summary": "From Sunday School and Grace Night to Higher Things and Vacation Bible School, our youth grow in faith and fellowship together.",
       "image": null,
       "linkLabel": "Learn More",
       "linkHref": "/youth-life",
-      "isExternal": false
-    },
-    {
-      "label": "Fasting Guidelines",
-      "summary": "Fasting is one of the three traditional Lenten disciplines, alongside prayer and almsgiving. Read our guidelines for how to observe it well.",
-      "image": null,
-      "linkLabel": "Read the Guidelines",
-      "linkHref": "/fasting",
       "isExternal": false
     }
   ]

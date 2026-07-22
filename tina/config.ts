@@ -1197,6 +1197,93 @@ export default defineConfig({
           },
         ],
       },
+      // -------- youth life page --------
+      // [todo]
+      // -------- fasting page --------
+      {
+        name: "fastingPage",
+        label: "Fasting Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "fasting",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/fasting",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "Fasting Guidelines"',
+            required: true,
+          },
+          { type: "image", name: "headerBackgroundImage", label: "Header Background Image" },
+          {
+            type: "string",
+            name: "intro",
+            label: "Intro",
+            description: "Use a blank line between paragraphs.",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "object",
+            name: "guideDownload",
+            label: "Full Guide Download",
+            fields: [
+              { type: "string", name: "label", label: "Label", description: 'e.g. "Download the Full Fasting Guide"' },
+              { type: "image", name: "file", label: "Guide PDF" },
+            ],
+          },
+          {
+            type: "object",
+            name: "definitions",
+            label: "Definitions",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "object",
+                name: "terms",
+                label: "Terms",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.term }),
+                },
+                fields: [
+                  { type: "string", name: "term", label: "Term", description: 'e.g. "Fast" or "Abstain"' },
+                  { type: "string", name: "definition", label: "Definition", list: true, description: "One item per line/sub-point." },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "rules",
+            label: "Lenten Fasting Rules",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", description: 'e.g. "Lent"' },
+              {
+                type: "object",
+                name: "rows",
+                label: "Rows",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label }),
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label", description: 'e.g. "Abstinence", "Fasting", "Special", "Exceptions"' },
+                  { type: "string", name: "detail", label: "Detail" },
+                ],
+              },
+            ],
+          },
+        ],
+      },
 
     ],
   },
