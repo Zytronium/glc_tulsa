@@ -1,25 +1,18 @@
 import { client } from "../../../../tina/__generated__/client";
-import type { EventConnectionQuery } from "../../../../tina/__generated__/types";
 import { Calendar } from "@/components/calendar/Calendar";
 
-export type CalendarEvent = NonNullable<NonNullable<NonNullable<EventConnectionQuery["eventConnection"]["edges"]>[number]>["node"]>;
-
 export default async function CalendarPage() {
-  const eventsData = await client.queries.eventConnection();
-
-  const events = (eventsData.data.eventConnection.edges ?? [])
-    .map((e) => e!.node!)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const globalVariablesData = await client.queries.global_variables({
+    relativePath: "global_variables.json",
+  });
+  const googleCalendarId = globalVariablesData.data.global_variables.googleCalendarId || "";
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
-      <p className="text-center font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
-        Parish life
-      </p>
+    <div className="mx-auto max-w-[80vw] px-5 py-14 sm:px-8 sm:py-20">
       <h1 className="mt-3 text-center font-display text-[32px] font-medium text-ink sm:text-[40px]">
         Calendar
       </h1>
-      <Calendar events={events} />
+      <Calendar calendarId={googleCalendarId} />
     </div>
   );
 }

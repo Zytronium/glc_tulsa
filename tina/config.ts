@@ -71,6 +71,13 @@ export default defineConfig({
             label: "Office Hours Times",
             description: 'e.g. "8:00 AM - 2:00 PM"',
           },
+          {
+            type: "string",
+            name: "googleCalendarId",
+            label: "Google Calendar ID",
+            description:
+              "Paste the Google Calendar ID for the master calendar. This will appear on the Calendar page.",
+          },
         ]
       },
       // -------- layout (navbar + footer) --------
