@@ -91,10 +91,37 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  scrollbar-color: var(--color-brass-300) var(--color-vestment-800);
 }
 
 main, [data-layout-content] {
   flex: 1;
+}
+
+/* -------- scrollbar styling -------- */
+/* WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-vestment-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brass-300);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-400);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brass-300) var(--color-vestment-800);
 }
 
 /* -------- signature element: lancet arch top, echoing the chancel's triple windows -------- */
