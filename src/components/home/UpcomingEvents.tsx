@@ -46,78 +46,83 @@ export function UpcomingEvents({ events }: Props) {
             <IconArrowRight className="h-3 w-3" />
           </Link>
         </div>
+        {events.length > 0 ? (
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {events.map((event, index) => {
+              // limit to 6 events
+              if (index > 5)
+                return null;
 
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {events.map((event, index) => {
-            // limit to 6 events
-            if (index > 5)
-              return null;
+              const d = new Date(event.date);
+              const month = d.toLocaleString("en-US", { month: "short" });
+              const day = String(d.getUTCDate());
 
-            const d = new Date(event.date);
-            const month = d.toLocaleString("en-US", { month: "short" });
-            const day = String(d.getUTCDate());
-
-            return (
-              <li key={event.id}>
-                <Link
-                  href={`/events/${getFileName(event.id)}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-card border border-stone-200 bg-stone-50 transition hover:border-garnet-600/40 hover:shadow-sm"
-                >
-                  {/* image */}
-                  <div className="relative h-32 w-full shrink-0 overflow-hidden bg-stone-200 sm:h-40">
-                    {event.image ? (
-                      <Image
-                        fill
-                        src={event.image}
-                        alt={event.title}
-                        className="object-cover transition duration-300 group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-stone-50"
-                           style={{
-                             backgroundImage: "url('/images/aged_paper.png')",
-                             backgroundRepeat: "no-repeat",
-                             backgroundSize: "cover",
-                             backgroundPosition: "center",
-                           }}
-                      />
-                    )}
-
-                    {/* date badge */}
-                  <div
-                      className={`absolute left-3 top-3 min-w-[2.75rem] rounded-sm px-2 py-1 text-center font-meta shadow-sm ${
-                      index === 0
-                        ? "bg-garnet-700 text-white"
-                          : "bg-white/95 text-stone-800"
-                    }`}
+              return (
+                <li key={event.id}>
+                  <Link
+                    href={`/events/${getFileName(event.id)}`}
+                    className="group flex h-full flex-col overflow-hidden rounded-card border border-stone-200 bg-stone-50 transition hover:border-garnet-600/40 hover:shadow-sm"
                   >
-                      <p className="text-[8px] uppercase tracking-[0.06em] opacity-90">
-                      {month}
-                    </p>
-                      <p className="text-[14px] leading-none">{day}</p>
-                    </div>
-                  </div>
+                    {/* image */}
+                    <div className="relative h-32 w-full shrink-0 overflow-hidden bg-stone-200 sm:h-40">
+                      {event.image ? (
+                        <Image
+                          fill
+                          src={event.image}
+                          alt={event.title}
+                          className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-stone-50"
+                             style={{
+                               backgroundImage: "url('/images/aged_paper.png')",
+                               backgroundRepeat: "no-repeat",
+                               backgroundSize: "cover",
+                               backgroundPosition: "center",
+                             }}
+                        />
+                      )}
 
-                  {/* content */}
-                  <div className="flex flex-1 items-start justify-between gap-2 px-4 py-3.5">
-                    <div className="min-w-0">
-                      <p className="font-display text-[15px] leading-snug text-ink">
-                      {event.title}
-                    </p>
-                      <p className="mt-0.5 truncate text-sm text-stone-700">
-                      {event.detail}
-                    </p>
-                      <p className="text-sm text-shadow-garnet-700/85">
-                        {event.eventType === "Service" ? "Worship Service" : "Event"}
-                      </p>
-                  </div>
-                    <IconChevronRight className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition group-hover:text-garnet-600" />
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                      {/* date badge */}
+                      <div
+                        className={`absolute left-3 top-3 min-w-[2.75rem] rounded-sm px-2 py-1 text-center font-meta shadow-sm ${
+                          index === 0
+                            ? "bg-garnet-700 text-white"
+                            : "bg-white/95 text-stone-800"
+                        }`}
+                      >
+                        <p className="text-[8px] uppercase tracking-[0.06em] opacity-90">
+                          {month}
+                        </p>
+                        <p className="text-[14px] leading-none">{day}</p>
+                      </div>
+                    </div>
+
+                    {/* content */}
+                    <div className="flex flex-1 items-start justify-between gap-2 px-4 py-3.5">
+                      <div className="min-w-0">
+                        <p className="font-display text-[15px] leading-snug text-ink">
+                          {event.title}
+                        </p>
+                        <p className="mt-0.5 truncate text-sm text-stone-700">
+                          {event.detail}
+                        </p>
+                        <p className="text-sm text-shadow-garnet-700/85">
+                          {event.eventType === "Service" ? "Worship Service" : "Event"}
+                        </p>
+                      </div>
+                      <IconChevronRight className="mt-1 h-4 w-4 shrink-0 text-stone-300 transition group-hover:text-garnet-600" />
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        )
+        : (
+          <p className="text-[14px] text-stone-700 italic">No featured upcoming services & events right now.</p>
+          )}
+
       </div>
     </section>
   );
