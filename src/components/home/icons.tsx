@@ -2,10 +2,6 @@
 // Hand-built rather than a generic icon library, so weight and line quality
 // match the display type and the lancet-arch motif used throughout the page.
 
-import {useState} from "react";
-import type {Photo} from "@/lib/photos-server";
-import {getPhotoMetadata} from "@/lib/photos";
-
 type IconProps = {
   className?: string;
 };

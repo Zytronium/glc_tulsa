@@ -52,6 +52,13 @@ export function EventsGrid({ events }: Props) {
             <h1 className="mt-3 font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]">
               Services &amp; Events
             </h1>
+            <Link
+              href="/calendar"
+              className="mt-2 inline-flex items-center gap-1.5 text-sm text-stone-700 transition hover:text-garnet-700"
+            >
+              View full calendar
+              <IconChevronRight className="h-3.5 w-3.5"/>
+            </Link>
           </div>
 
           <label className="flex cursor-pointer items-center gap-2.5 text-[13px] text-stone-700">
