@@ -1,5 +1,4 @@
 import { defineConfig } from "tinacms";
-import client from "./__generated__/client";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -7,23 +6,23 @@ const branch =
   process.env.HEAD ||
   "main";
 
-const RESERVED_SLUGS = [
-  "api",
-  "admin",
-  "fonts",
-  "images",
-  "about",
-  "announcements",
-  "calendar",
-  "contact-us",
-  "events",
-  "fasting",
-  "ministries",
-  "news",
-  "photos",
-  "worship"
-  // IMPORTANT: add new slugs here as new pages are added to the codebase
-];
+// const RESERVED_SLUGS = [
+//   "api",
+//   "admin",
+//   "fonts",
+//   "images",
+//   "about",
+//   "announcements",
+//   "calendar",
+//   "contact-us",
+//   "events",
+//   "fasting",
+//   "ministries",
+//   "news",
+//   "photos",
+//   "worship"
+//   // IMPORTANT: add new slugs here as new pages are added to the codebase
+// ];
 
 export default defineConfig({
   branch,
@@ -1311,7 +1310,7 @@ export default defineConfig({
         ],
       },
       // -------- Custom Page Builder --------
-      {
+/*      {
         name: "sitePage",
         label: "Pages",
         path: "content/pages",
@@ -1553,7 +1552,7 @@ export default defineConfig({
             ],
           },
         ],
-      }
+      }*/
 
     ],
   },
