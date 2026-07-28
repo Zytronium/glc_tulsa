@@ -1345,20 +1345,20 @@ export default defineConfig({
             label: "URL Slug",
             description: "e.g. \"higher-things-2026\" becomes /higher-things-2026",
             required: true,
-            ui: {
-              validate: (value) => {
-                if (!value) return;
-
-                const slug = value.trim().toLowerCase();
-                const firstSegment = slug.split("/")[0];
-
-                if (RESERVED_SLUGS.includes(firstSegment)) {
-                  return `"${firstSegment}" is a reserved route and can't be used as a slug.`;
-                }
-
-                return undefined;
-              },
-            },
+            // ui: {
+            //   validate: (value) => {
+            //     if (!value) return;
+            //
+            //     const slug = value.trim().toLowerCase();
+            //     const firstSegment = slug.split("/")[0];
+            //
+            //     if (RESERVED_SLUGS.includes(firstSegment)) {
+            //       return `"${firstSegment}" is a reserved route and can't be used as a slug.`;
+            //     }
+            //
+            //     return undefined;
+            //   },
+            // },
           },
           {
             type: "string",
