@@ -62,21 +62,31 @@
   "quickLinks": [
     {
       "label": "Worship",
+      "icon": "book",
       "description": "Services, liturgy, and sacraments",
       "href": "/worship"
     },
     {
       "label": "Events",
+      "icon": "calendar",
       "description": "Calendar, Grace Night, VBS",
       "href": "/events"
     },
     {
       "label": "Ministries",
+      "icon": "heart",
       "description": "Youth, music, missions, community",
       "href": "/ministries"
     },
     {
+      "label": "Staff",
+      "icon": "users",
+      "description": "Pastor, Administrator, etc.",
+      "href": "/staff"
+    },
+    {
       "label": "Find us",
+      "icon": "mapPin",
       "description": "Directions, hours, contact",
       "href": "/about#find-us"
     }
