@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import client from "./__generated__/client";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -1315,6 +1316,27 @@ export default defineConfig({
         label: "Pages",
         path: "content/pages",
         format: "json",
+        ui: {
+          beforeSubmit: async ({ form, values }) => {
+            const slug = (values.slug ?? "").toString().trim().toLowerCase();
+            if (!slug) return values;
+
+            const result = await client.queries.sitePageConnection({
+              filter: { slug: { eq: slug } },
+            });
+
+            const currentId = form.id;
+            const conflict = result.data.sitePageConnection.edges?.find(
+              (edge) => edge?.node?._sys.path !== currentId
+            );
+
+            if (conflict) {
+              throw new Error(`The slug "${slug}" is already used by another page.`);
+            }
+
+            return values;
+          },
+        },
         fields: [
           { type: "string", name: "title", label: "Title", required: true, isTitle: true },
           {
@@ -1323,37 +1345,19 @@ export default defineConfig({
             label: "URL Slug",
             description: "e.g. \"higher-things-2026\" becomes /higher-things-2026",
             required: true,
-            validate: async (value, allValues, meta, field) => {
-              if (!value) return;
+            ui: {
+              validate: (value) => {
+                if (!value) return;
 
-              const slug = value.trim().toLowerCase();
+                const slug = value.trim().toLowerCase();
+                const firstSegment = slug.split("/")[0];
 
-              // -------- block reserved / existing static routes --------
-              const firstSegment = slug.split("/")[0];
-              if (RESERVED_SLUGS.includes(firstSegment)) {
-                return `"${firstSegment}" is a reserved route and can't be used as a slug.`;
-              }
-
-              // -------- block duplicate slugs across other custom pages --------
-              try {
-                const result = await client.queries.sitePageConnection({
-                  filter: { slug: { eq: slug } },
-                });
-
-                const currentId = allValues?._sys?.filename;
-                const conflict = result.data.sitePageConnection.edges?.find(
-                  (edge) => edge?.node?._sys.filename !== currentId
-                );
-
-                if (conflict) {
-                  return `The slug "${slug}" is already used by another page.`;
+                if (RESERVED_SLUGS.includes(firstSegment)) {
+                  return `"${firstSegment}" is a reserved route and can't be used as a slug.`;
                 }
-              } catch {
-                // network/query failure shouldn't block editing entirely
-                return undefined;
-              }
 
-              return undefined;
+                return undefined;
+              },
             },
           },
           {
