@@ -15,10 +15,6 @@ export default async function NotFound() {
   ]);
 
   return (
-    <LayoutShell
-      layoutQuery={layoutQuery}
-      globalVariablesQuery={globalVariablesQuery}
-    >
       <main className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-stone-100 text-ink">
 
         {/* -------- 404 label -------- */}
@@ -86,6 +82,5 @@ export default async function NotFound() {
         </Link>
 
       </main>
-    </LayoutShell>
   );
 }
