@@ -22,6 +22,7 @@ export function ClientPage({ worshipQuery }: Props) {
       <WorshipHero hero={worship.hero!} />
       <WorshipTimesAndServices
         worshipTimes={worship.worshipTimes!}
+        graceNight={worship.graceNight!}
         specialServices={worship.specialServices!}
       />
       <LentSection lent={worship.lent!} />

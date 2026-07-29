@@ -9,19 +9,27 @@
     "backgroundImage": "/images/altar-easter-bw-2.webp"
   },
   "worshipTimes": {
-    "heading": "Regular Worship Times",
-    "sundayTimes": "8:00 & 10:30 AM",
+    "heading": "Sundays",
+    "sundayTimes": "8:00 AM & 10:30 AM",
     "sundaySchoolTime": "9:15 AM",
-    "wednesdayNote": "We also celebrate the Divine Service with Holy Communion on Wednesdays during the school year. See our upcoming services below for details each week.",
     "livestreamNote": "Grace's Worship Services are livestreamed whenever possible. Join us on Facebook",
     "facebookUrl": "https://www.facebook.com/GraceLutheranTulsa",
+    "image": ""
+  },
+  "graceNight": {
+    "heading": "Wednesdays / Grace Night",
+    "serviceTime": "6:15 PM",
+    "when": "September through May",
+    "body": "Every Wednesday during the school year, we celebrate the Divine Service with Holy Communion and hold Grace Night.\n\nMore details on Grace Night are coming soon.",
     "image": ""
   },
   "specialServices": {
     "heading": "Special Services",
     "body": "Grace celebrates many feasts and festivals falling outside Sundays. Check our upcoming services and events or the church calendar for times and dates.",
-    "linkLabel": "View Upcoming Services",
+    "linkLabel": "View Upcoming Services & Events",
     "linkHref": "/events",
+    "link2Label": "View Church Calendar",
+    "link2Href": "/calendar",
     "image": ""
   },
   "lent": {

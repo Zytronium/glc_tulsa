@@ -572,7 +572,7 @@ export default defineConfig({
               { type: "image", name: "backgroundImage", label: "Background Image" },
             ],
           },
-          // -------- worship times --------
+          // -------- sunday worship times --------
           {
             type: "object",
             name: "worshipTimes",
@@ -583,17 +583,30 @@ export default defineConfig({
               { type: "string", name: "sundaySchoolTime", label: "Sunday School & Bible Study Time", description: 'e.g. "9:15 AM"' },
               {
                 type: "string",
-                name: "wednesdayNote",
-                label: "Wednesday Note",
-                ui: { component: "textarea" },
-              },
-              {
-                type: "string",
                 name: "livestreamNote",
                 label: "Livestream Note",
                 ui: { component: "textarea" },
               },
               { type: "string", name: "facebookUrl", label: "Facebook Livestream URL" },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          // -------- wednesdays / grace night --------
+          {
+            type: "object",
+            name: "graceNight",
+            label: "Wednesday / Grace Night",
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              { type: "string", name: "serviceTime", label: "Service Time", description: 'e.g. "6:15 PM"' },
+              { type: "string", name: "when", label: "When", description: 'e.g. "September through May"' },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
               { type: "image", name: "image", label: "Image" },
             ],
           },
@@ -612,6 +625,8 @@ export default defineConfig({
               },
               { type: "string", name: "linkLabel", label: "Link Label", description: 'e.g. "View Upcoming Services"' },
               { type: "string", name: "linkHref", label: "Link URL" },
+              { type: "string", name: "link2Label", label: "Link 2 Label", description: 'e.g. "View Church Calendar"' },
+              { type: "string", name: "link2Href", label: "Link 2 URL" },
               { type: "image", name: "image", label: "Image" },
             ],
           },
