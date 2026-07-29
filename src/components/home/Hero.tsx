@@ -33,7 +33,7 @@ export function Hero({ hero }: Props) {
         >
           {hero.title}
         </p>
-        <p className="text-[14px] uppercase tracking-[0.22em] text-brass-400">
+        <p className="text-[20px] uppercase tracking-[0.22em] text-stone-50">
           LCMS
         </p>
         <h1
