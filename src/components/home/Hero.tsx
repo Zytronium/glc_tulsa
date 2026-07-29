@@ -18,7 +18,7 @@ export function Hero({ hero }: Props) {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-linear-to-b from-vestment-900/70 via-vestment-900/55 to-vestment-900"
+        className="absolute inset-0 bg-linear-to-b from-vestment-900/60 via-vestment-900/45 to-vestment-900"
       />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pb-28 text-center sm:pb-36">
         <Image
