@@ -16,7 +16,7 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
         <div className="flex items-center gap-2 text-stone-50/95">
           <IconSun className="h-5 w-5 text-brass-400" />
           <span className="text-md">
-            <span className="font-medium">Sundays</span> &middot;{" "}
+            <span className="font-medium">Sunday Mass</span> &middot;{" "}
             <span data-tina-field={tinaField(serviceBar, "sundayTimes")}>
               {serviceBar.sundayTimes}
             </span>
@@ -26,7 +26,7 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
         <div className="flex items-center gap-2 text-stone-50/95">
           <IconCalendar className="h-5 w-5 text-brass-400" />
           <span className="text-md">
-            <span className="font-medium">Wednesdays</span> &middot;{" "}
+            <span className="font-medium">Wednesday</span> &middot;{" "}
             <span data-tina-field={tinaField(serviceBar, "wednesdayTimes")}>
               {serviceBar.wednesdayTimes}
             </span>
