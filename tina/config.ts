@@ -1356,9 +1356,21 @@ export default defineConfig({
             const slug = (values.slug ?? "").toString().trim().toLowerCase();
             if (!slug) return values;
 
-            const result = await client.queries.sitePageConnection({
-              filter: { slug: { eq: slug } },
-            });
+            let result;
+            try {
+              result = await client.queries.sitePageConnection({
+                filter: { slug: { eq: slug } },
+              });
+            } catch (err) {
+              const message = err instanceof Error ? err.message : String(err);
+              console.error("[slug-check] query threw:", message);
+              throw new Error(`Slug check failed: ${message}`);
+            }
+
+            if (!result?.data?.sitePageConnection) {
+              console.error("[slug-check] no data returned.");
+              throw new Error("Slug check returned no data - please try again.");
+            }
 
             const currentId = form.id;
             const conflict = result.data.sitePageConnection.edges?.find(
