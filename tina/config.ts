@@ -636,6 +636,7 @@ export default defineConfig({
             name: "lent",
             label: "Preparing for Lent",
             fields: [
+              { type: "boolean", name: "visible", label: "Visible" },
               { type: "string", name: "eyebrow", label: "Eyebrow" },
               { type: "string", name: "heading", label: "Heading" },
               {
@@ -676,6 +677,7 @@ export default defineConfig({
             name: "holyWeek",
             label: "Holy Week",
             fields: [
+              { type: "boolean", name: "visible", label: "Visible" },
               { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",

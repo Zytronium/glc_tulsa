@@ -25,8 +25,9 @@ export function ClientPage({ worshipQuery }: Props) {
         graceNight={worship.graceNight!}
         specialServices={worship.specialServices!}
       />
-      <LentSection lent={worship.lent!} />
-      <HolyWeekSection holyWeek={worship.holyWeek!} />
+      {worship.lent!.visible && (<LentSection lent={worship.lent!} />)}
+      {worship.holyWeek!.visible && (<HolyWeekSection holyWeek={worship.holyWeek!} />)}
+
     </main>
   );
 }
