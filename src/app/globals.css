@@ -147,6 +147,81 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* -------- Tina Markdown -------- */
+.tina-markdown h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.tina-markdown h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 1.75rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.3;
+}
+
+.tina-markdown h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.tina-markdown h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-stone-700);
+  margin-top: 1.25rem;
+  margin-bottom: 0.625rem;
+  line-height: 1.4;
+}
+
+.tina-markdown h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-stone-700);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.tina-markdown h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-stone-700);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.tina-markdown a {
+  color: var(--color-garnet-600);
+  text-decoration: underline;
+  text-decoration-color: var(--color-garnet-200);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.tina-markdown a:hover {
+  color: var(--color-garnet-700);
+  text-decoration-color: var(--color-garnet-600);
+}
+
+.tina-markdown img {
+  max-width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  border-radius: var(--radius-card);
+}
+
 /* -------- infinite scrolling marquee -------- */
 @keyframes marquee-scroll {
   from {

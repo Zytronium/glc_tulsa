@@ -88,7 +88,9 @@ export default function PhotoGrid({
             data-tina-field={noteFieldTarget}
             className="mt-4 text-sm text-stone-700 [&_a]:text-garnet-700 [&_a]:underline [&_a]:decoration-garnet-600/40 [&_a]:underline-offset-2 [&_a]:transition hover:[&_a]:text-garnet-600 hover:[&_a]:decoration-garnet-600"
           >
-            <TinaMarkdown content={note} />
+            <div className="tina-markdown">
+              <TinaMarkdown content={note} />
+            </div>
           </div>
         )}
 

@@ -19,8 +19,8 @@ export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
       className="border-b border-stone-200 bg-white"
       style={{
         backgroundImage: "url('/images/paper.png')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: "repeat-y",
+        backgroundSize: "100% auto",
         backgroundPosition: "center",
       }}
     >
@@ -63,7 +63,9 @@ export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
             data-tina-field={tinaField(item, "content")}
             className="prose prose-stone mt-8 max-w-none text-[15px] leading-7 text-stone-700 prose-headings:font-display prose-headings:text-ink prose-strong:text-ink"
           >
-            <TinaMarkdown content={item.content} />
+            <div className="tina-markdown">
+              <TinaMarkdown content={item.content} />
+            </div>
           </div>
         )}
 

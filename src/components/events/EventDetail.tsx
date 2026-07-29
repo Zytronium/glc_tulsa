@@ -61,8 +61,8 @@ export function EventDetail({ event }: Props) {
         className="border-b border-stone-200 bg-white"
         style={{
           backgroundImage: "url('/images/paper.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundRepeat: "repeat-y",
+          backgroundSize: "100% auto",
           backgroundPosition: "center",
         }}
       >
@@ -132,7 +132,9 @@ export function EventDetail({ event }: Props) {
               <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
                 Description
               </p>
-              <TinaMarkdown content={event.content} />
+              <div className="tina-markdown">
+                <TinaMarkdown content={event.content} />
+              </div>
             </div>
           )}
 

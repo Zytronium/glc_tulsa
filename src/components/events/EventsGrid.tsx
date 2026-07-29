@@ -41,8 +41,8 @@ export function EventsGrid({ events }: Props) {
       className="bg-white"
       style={{
         backgroundImage: "url('/images/paper.png')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: "repeat-y",
+        backgroundSize: "100% auto",
         backgroundPosition: "center",
       }}
     >
