@@ -33,6 +33,7 @@
     "image": ""
   },
   "lent": {
+    "visible": false,
     "eyebrow": "A season of preparation",
     "heading": "Preparing for Lent",
     "intro": "Lent is the journey to Easter, and is a time to increase your devotion, to prioritize spiritual growth and living, and more. This is traditionally accomplished by focusing on three \"Lenten disciplines\": prayer, almsgiving, and fasting. If Lent is a journey, then every journey needs some time to prepare, and these weeks before we begin in March are perfect. Below are some resources to help you in your preparations.",
@@ -87,6 +88,7 @@
     ]
   },
   "holyWeek": {
+    "visible": false,
     "heading": "Holy Week Worship",
     "marqueeText": "Holy Week Worship",
     "image": "/images/holy-week.webp",
