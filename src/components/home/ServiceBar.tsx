@@ -36,18 +36,18 @@ export function ServiceBar({ serviceBar, globalVars }: Props) {
         {serviceBar.addressUrl && globalVars.addressLine1 && (
           <Link
             href={serviceBar.addressUrl}
-            className="flex items-center gap-1.5 text-stone-50/95 underline-offset-2 hover:underline"
+            className="flex items-center text-stone-50/95 underline-offset-2 hover:underline"
           >
-            <IconMapPin className="h-5 w-5 text-brass-400" />
+            <IconMapPin className="h-5 w-5 mr-1.5 text-brass-400" />
             <span className="text-md"
                   data-tina-field={tinaField(globalVars, "addressLine1")}
             >
-              {globalVars.addressLine1},
+              {globalVars.addressLine1}
             </span>
             <span className="text-md"
                   data-tina-field={tinaField(globalVars, "addressLine2")}
             >
-              {globalVars.addressLine2}
+              {", "}{globalVars.addressLine2}
             </span>
           </Link>
         )}
