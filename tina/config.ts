@@ -61,6 +61,13 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "image",
+            name: "favicon",
+            label: "Favicon",
+            description: "The icon that appears next to tab title and in bookmarks in the browser. Prefer square aspect ratio.",
+            required: true,
+          },
+          {
             type: "string",
             name: "donationUrl",
             label: "Donation URL",
