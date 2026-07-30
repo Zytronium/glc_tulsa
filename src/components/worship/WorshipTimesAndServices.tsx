@@ -22,7 +22,7 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
     >
       <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-20">
         <div className="grid gap-4 md:grid-cols-3">
-          {/* -------- sunday worship times / grace night -------- */}
+          {/* -------- sundays -------- */}
           <div className="flex flex-col rounded-sm border border-stone-200 bg-white px-6 py-9">
             <ArchTop className="h-6 w-10 text-garnet-200" />
             <IconSun className="h-7 w-7 ml-1.5 text-garnet-600" />
@@ -33,20 +33,20 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
               {worshipTimes.heading}
             </p>
 
-            <dl className="mt-4 space-y-2 text-[14px] text-stone-700">
-              <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-stone-500">Worship</dt>
-                <dd data-tina-field={tinaField(worshipTimes, "sundayTimes")} className="font-display text-ink">
-                  {worshipTimes.sundayTimes}
-                </dd>
-              </div>
-              <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-stone-500">Sunday School &amp; Bible Study</dt>
-                <dd data-tina-field={tinaField(worshipTimes, "sundaySchoolTime")} className="font-display text-ink">
-                  {worshipTimes.sundaySchoolTime}
-                </dd>
-              </div>
-            </dl>
+            {worshipTimes.times && worshipTimes.times.length > 0 && (
+              <dl className="mt-4 space-y-2 text-[14px] text-stone-700">
+                {worshipTimes.times.map((time, index) => (
+                  <div key={index} className="flex items-baseline justify-between gap-4">
+                    <dt data-tina-field={tinaField(time, "label")} className="text-stone-500">
+                      {time?.label}
+                    </dt>
+                    <dd data-tina-field={tinaField(time, "value")} className="font-display text-ink">
+                      {time?.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
 
             {worshipTimes.livestreamNote && (
               <p
@@ -56,13 +56,13 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
                 {worshipTimes.livestreamNote}
                 {worshipTimes.facebookUrl && (
                   <>
-                    {" "}
-                    <a
-                      href={worshipTimes.facebookUrl}
-                      className="text-garnet-700 underline decoration-garnet-600/40 underline-offset-2 hover:text-garnet-600"
-                    >
-                      @{worshipTimes.facebookUrl.split(".com/")[1]}
-                    </a>
+                  {" "}
+                  <a
+                    href={worshipTimes.facebookUrl}
+                    className="text-garnet-700 underline decoration-garnet-600/40 underline-offset-2 hover:text-garnet-600"
+                  >
+                    @{worshipTimes.facebookUrl.split(".com/")[1]}
+                  </a>
                     .
                   </>
                   )}
@@ -70,7 +70,7 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
             )}
           </div>
 
-          {/* -------- wednesday worship times (duplicated from sunday worship times, no changes so far except icon) -------- */}
+          {/* -------- wednesdays -------- */}
           <div className="flex flex-col rounded-sm border border-stone-200 bg-white px-6 py-9">
             <ArchTop className="h-6 w-10 text-garnet-200" />
             <IconClock className="h-7 w-7 ml-1.5 text-garnet-600" />
@@ -81,24 +81,20 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
               {graceNight.heading}
             </p>
 
-            <dl className="mt-4 space-y-2 text-[14px] text-stone-700">
-              {graceNight.serviceTime && (
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="text-stone-500">Service Time</dt>
-                  <dd data-tina-field={tinaField(graceNight, "serviceTime")} className="font-display text-ink">
-                    {graceNight.serviceTime}
-                  </dd>
-                </div>
-              )}
-              {graceNight.when && (
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="text-stone-500">When</dt>
-                  <dd data-tina-field={tinaField(graceNight, "when")} className="font-display text-ink">
-                    {graceNight.when}
-                  </dd>
-                </div>
-              )}
-            </dl>
+            {graceNight.times && graceNight.times.length > 0 && (
+              <dl className="mt-4 space-y-2 text-[14px] text-stone-700">
+                {graceNight.times.map((time, index) => (
+                  <div key={index} className="flex items-baseline justify-between gap-4">
+                    <dt data-tina-field={tinaField(time, "label")} className="text-stone-500">
+                      {time?.label}
+                    </dt>
+                    <dd data-tina-field={tinaField(time, "value")} className="font-display text-ink">
+                      {time?.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
 
             {graceNight.body && (
               <p
@@ -107,6 +103,16 @@ export function WorshipTimesAndServices({ worshipTimes, graceNight, specialServi
               >
                 {graceNight.body}
               </p>
+            )}
+
+            {graceNight.linkHref && (
+              <a
+                href={graceNight.linkHref}
+                data-tina-field={tinaField(graceNight, "linkLabel")}
+                className="mt-4 flex items-center gap-1 font-meta text-[11px] uppercase tracking-widest text-garnet-700"
+              >
+                {graceNight.linkLabel}
+              </a>
             )}
           </div>
 

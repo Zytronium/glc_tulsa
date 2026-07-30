@@ -583,8 +583,19 @@ export default defineConfig({
             label: "Worship Times",
             fields: [
               { type: "string", name: "heading", label: "Heading" },
-              { type: "string", name: "sundayTimes", label: "Sunday Service Times", description: 'e.g. "8:00 & 10:30 AM"' },
-              { type: "string", name: "sundaySchoolTime", label: "Sunday School & Bible Study Time", description: 'e.g. "9:15 AM"' },
+              {
+                type: "object",
+                name: "times",
+                label: "Times",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label || "Time" }),
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label", description: 'e.g. "Worship" or "Sunday School & Bible Study"' },
+                  { type: "string", name: "value", label: "Value", description: 'e.g. "8:00 & 10:30 AM"' },
+                ],
+              },
               {
                 type: "string",
                 name: "livestreamNote",
@@ -602,14 +613,35 @@ export default defineConfig({
             label: "Wednesday / Grace Night",
             fields: [
               { type: "string", name: "heading", label: "Heading" },
-              { type: "string", name: "serviceTime", label: "Service Time", description: 'e.g. "6:15 PM"' },
-              { type: "string", name: "when", label: "When", description: 'e.g. "September through May"' },
+              {
+                type: "object",
+                name: "times",
+                label: "Times",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label || "Time" }),
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label", description: 'e.g. "Service Time" or "When"' },
+                  { type: "string", name: "value", label: "Value", description: 'e.g. "6:15 PM" or "September through May"' },
+                ],
+              },
               {
                 type: "string",
                 name: "body",
                 label: "Body",
                 description: "Use a blank line between paragraphs.",
                 ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "linkLabel",
+                label: "Grace Night Link Label",
+              },
+              {
+                type: "string",
+                name: "linkHref",
+                label: "Grace Night Link URL",
               },
               { type: "image", name: "image", label: "Image" },
             ],
