@@ -56,26 +56,13 @@ export function Footer({ layout, globalVars }: Props) {
         <div>
           <p className="font-display text-[14px] text-stone-50">Connect</p>
           <div className="mt-3 flex flex-col gap-2.5">
-            {layout.email && (() => {
-              const query: string[] = [];
-              if (layout.emailSubject) {
-                query.push(`subject=${encodeURIComponent(layout.emailSubject)}`);
-              }
-              if (layout.emailCc) {
-                query.push(`cc=${encodeURIComponent(layout.emailCc)}`);
-              }
-              const href = `mailto:${layout.email}${query.length ? `?${query.join("&")}` : ""}`;
-              return (
-                <Link
-                  href={href}
-                  data-tina-field={tinaField(layout, "email")}
-                  className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
-                >
-                  <IconMail className="h-4 w-4" />
-                  {layout.email}
-                </Link>
-              );
-            })()}
+            <Link
+              href="/contact-us"
+              className="flex items-center gap-2 text-[13px] text-stone-300 hover:text-brass-400"
+            >
+              <IconMail className="h-4 w-4" />
+              Contact us
+            </Link>
             {layout.phone && (
               <p
                 data-tina-field={tinaField(layout, "phone")}

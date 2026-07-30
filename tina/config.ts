@@ -117,9 +117,6 @@ export default defineConfig({
           router: () => "/layout-preview",
         },
         fields: [
-          { type: "string", name: "email", label: "Email" },
-          { type: "string", name: "emailCc", label: "Email CC" },
-          { type: "string", name: "emailSubject", label: "Email Subject Autofill" },
           { type: "string", name: "phone", label: "Phone" },
           { type: "string", name: "churchName", label: "Church Name" },
           { type: "string", name: "copyright", label: "Copyright", description: "Note: copyright symbol and year automatically prefix this text. The year updates automatically." },
