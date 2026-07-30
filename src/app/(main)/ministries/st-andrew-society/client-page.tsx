@@ -7,6 +7,7 @@ import Link from "next/link";
 import type { StAndrewSocietyPageQuery } from "@/../tina/__generated__/types";
 import { IconArrowLeft } from "@/components/home/icons";
 import { StAndrewSocietyContent } from "@/components/ministries/StAndrewSocietyContent";
+import {BackLink} from "@/components/BackLink";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -37,13 +38,9 @@ export function ClientPage({ query }: Props) {
         )}
 
         <div className="relative mx-auto max-w-5xl">
-          <Link
-            href="/ministries"
-            className="inline-flex items-center gap-2 text-sm text-stone-700 transition hover:text-garnet-700"
-          >
-            <IconArrowLeft className="h-4 w-4" />
+          <BackLink fallbackHref={"/ministries"}>
             Back to Ministries
-          </Link>
+          </BackLink>
           <h1
             data-tina-field={tinaField(page, "pageTitle")}
             className="mt-4 font-display text-[30px] font-medium text-ink sm:text-[36px]"

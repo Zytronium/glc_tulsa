@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { IconArrowLeft, IconCalendar, IconMapPin, IconClock } from "@/components/home/icons";
+import { IconCalendar, IconMapPin, IconClock } from "@/components/home/icons";
 import type { EventQuery } from "@/../tina/__generated__/types";
+import {BackLink} from "@/components/BackLink";
 
 type Props = { event: EventQuery["event"] };
 
@@ -115,13 +115,9 @@ export function EventDetail({ event }: Props) {
               )}
             </div>
 
-            <Link
-              href="/events"
-              className="mt-6 flex items-center gap-1 text-[12.5px] text-stone-700 hover:text-garnet-700"
-            >
-              <IconArrowLeft className="h-3 w-3" />
+            <BackLink fallbackHref={"/events"}>
               Back to events
-            </Link>
+            </BackLink>
           </div>
 
           {/* rich text content */}

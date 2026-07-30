@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { IconArrowLeft, IconCalendar } from "@/components/home/icons";
+import { IconCalendar } from "@/components/home/icons";
 import type { NewsItemQuery } from "@/../tina/__generated__/types";
+import {BackLink} from "@/components/BackLink";
 
 export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
   const d = new Date(item.date);
@@ -11,7 +11,7 @@ export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
   const day = String(d.getUTCDate());
   const year = d.getUTCFullYear();
 
-  const backHref = "/news";
+  const backHrefFallback = "/news";
   const backLabel = "Back to news";
 
   return (
@@ -69,13 +69,9 @@ export function NewsDetail({ item }: { item: NewsItemQuery["newsItem"] }) {
           </div>
         )}
 
-        <Link
-          href={backHref}
-          className="mt-10 flex items-center gap-1 text-sm text-stone-700 hover:text-garnet-700"
-        >
-          <IconArrowLeft className="h-3 w-3" />
+        <BackLink fallbackHref={backHrefFallback}>
           {backLabel}
-        </Link>
+        </BackLink>
       </div>
     </section>
   );
