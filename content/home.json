@@ -6,7 +6,7 @@
     "backgroundImage": "/images/chancel.webp",
     "ctaPrimary": {
       "label": "Plan your visit",
-      "href": "/visit"
+      "href": "/worship"
     },
     "ctaSecondary": {
       "label": "Learn more",
