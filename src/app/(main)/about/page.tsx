@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { client } from "../../../../tina/__generated__/client";
-import type { AboutPageQuery, Global_VariablesQuery } from "../../../../tina/__generated__/types";
+import type { AboutPageQuery } from "../../../../tina/__generated__/types";
 import { ClientPage } from "./client-page";
 
 export const metadata: Metadata = {

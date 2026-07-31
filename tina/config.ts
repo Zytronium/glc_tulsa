@@ -555,7 +555,7 @@ export default defineConfig({
             name: "hero",
             label: "Hero",
             fields: [
-              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Worship at Grace"' },
+              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Worship"' },
               { type: "string", name: "headline", label: "Headline" },
               { type: "string", name: "subtitle", label: "Subtitle" },
               {
@@ -574,6 +574,18 @@ export default defineConfig({
               },
               { type: "string", name: "quoteCitation", label: "Quote Citation", description: 'e.g. "Hebrews 12:28-29 (ESV)"' },
               { type: "image", name: "backgroundImage", label: "Background Image" },
+            ],
+          },
+          // -------- directions --------
+          {
+            type: "object",
+            name: "directions",
+            label: "Directions",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Directions"' },
+              { type: "string", name: "serviceNote", label: "Service Note", description: 'e.g. "Check calendar for schedule in case a service has been canceled or rescheduled."' },
+              { type: "string", name: "linkLabel", label: "Link Label" },
+              { type: "string", name: "linkHref", label: "Link URL" },
             ],
           },
           // -------- sunday worship times --------

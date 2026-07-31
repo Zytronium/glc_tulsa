@@ -54,6 +54,12 @@
     "link2Href": "/calendar",
     "image": ""
   },
+  "directions": {
+    "eyebrow": "Directions",
+    "serviceNote": "Check the calendar for schedule in case a service has been canceled or rescheduled.",
+    "linkLabel": "View calendar",
+    "linkHref": "/calendar"
+  },
   "lent": {
     "visible": false,
     "eyebrow": "A season of preparation",
