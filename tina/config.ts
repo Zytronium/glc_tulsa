@@ -576,18 +576,6 @@ export default defineConfig({
               { type: "image", name: "backgroundImage", label: "Background Image" },
             ],
           },
-          // -------- directions --------
-          {
-            type: "object",
-            name: "directions",
-            label: "Directions",
-            fields: [
-              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Directions"' },
-              { type: "string", name: "serviceNote", label: "Service Note", description: 'e.g. "Check calendar for schedule in case a service has been canceled or rescheduled."' },
-              { type: "string", name: "linkLabel", label: "Link Label" },
-              { type: "string", name: "linkHref", label: "Link URL" },
-            ],
-          },
           // -------- sunday worship times --------
           {
             type: "object",
@@ -676,6 +664,18 @@ export default defineConfig({
               { type: "string", name: "link2Label", label: "Link 2 Label", description: 'e.g. "View Church Calendar"' },
               { type: "string", name: "link2Href", label: "Link 2 URL" },
               { type: "image", name: "image", label: "Image" },
+            ],
+          },
+          // -------- directions --------
+          {
+            type: "object",
+            name: "directions",
+            label: "Directions",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "Directions"' },
+              { type: "string", name: "serviceNote", label: "Service Note", description: 'e.g. "Check calendar for schedule in case a service has been canceled or rescheduled."' },
+              { type: "string", name: "linkLabel", label: "Link Label" },
+              { type: "string", name: "linkHref", label: "Link URL" },
             ],
           },
           // -------- preparing for lent --------
