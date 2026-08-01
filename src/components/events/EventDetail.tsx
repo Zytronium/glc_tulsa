@@ -4,11 +4,32 @@ import {TinaMarkdown} from "tinacms/dist/rich-text";
 import {IconCalendar, IconMapPin, IconClock} from "@/components/home/icons";
 import type {EventQuery} from "@/../tina/__generated__/types";
 import {BackLink} from "@/components/BackLink";
+import { getNextWeeklyOccurrence, getNextSeasonalOccurrence, isWithinSeason } from "@/lib/recurring-events";
 
 type Props = { event: EventQuery["event"] };
 
 export function EventDetail({event}: Props) {
-  const d = new Date(event.date);
+  const today = new Date();
+  let d = new Date(event.date);
+  let outOfSeason = false;
+
+  if (event.recurring) {
+    const anchor = new Date(event.date);
+    const plainNext = getNextWeeklyOccurrence(anchor, today);
+
+    if (event.seasonal && event.seasonStart && event.seasonEnd) {
+      outOfSeason = !isWithinSeason(plainNext, new Date(event.seasonStart), new Date(event.seasonEnd));
+    }
+
+    d = getNextSeasonalOccurrence(
+      anchor,
+      today,
+      !!event.seasonal,
+      event.seasonStart ? new Date(event.seasonStart) : null,
+      event.seasonEnd ? new Date(event.seasonEnd) : null
+    );
+  }
+
   const month = d.toLocaleString("en-US", {month: "long", timeZone: "UTC"});
   const day = String(d.getUTCDate());
   const year = d.getUTCFullYear();
@@ -55,6 +76,20 @@ export function EventDetail({event}: Props) {
           </p>
         </div>
       </section>
+
+      {outOfSeason && (
+        <div className="border-b border-stone-200 bg-brass-50">
+          <div className="mx-auto max-w-4xl px-5 py-4 sm:px-8">
+            <p className="text-[13px] leading-6 text-stone-700">
+              <strong className="text-ink">This event isn&apos;t currently being held.</strong>{" "}
+              It typically resumes{" "}
+              {event.seasonStart &&
+                new Date(event.seasonStart).toLocaleString("en-US", { month: "long", day: "numeric", timeZone: "UTC" })}
+              . The date shown below is when it will next occur once back in season.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* details & content */}
       <section

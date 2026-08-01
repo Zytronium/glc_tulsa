@@ -4,6 +4,8 @@ import { IconArrowRight, IconChevronRight } from "./icons";
 
 import type { EventNode } from "@/app/(main)/page";
 import {tinaField} from "tinacms/react";
+import { getNextWeeklyOccurrence, isWithinSeason } from "@/lib/recurring-events";
+
 type Props = { events: EventNode[] };
 
 function getFileName(id: string) {
@@ -16,10 +18,27 @@ export function UpcomingEvents({ events }: Props) {
   const startOfTodayUTC = new Date();
   startOfTodayUTC.setUTCHours(0, 0, 0, 0);
 
+  // -------- resolve recurring events to their next occurrence --------
+  const resolvedEvents = events
+    .map((e) => {
+      if (!e.recurring) return e;
+
+      const nextDate = getNextWeeklyOccurrence(new Date(e.date), startOfTodayUTC);
+
+      if (e.seasonal && e.seasonStart && e.seasonEnd) {
+        const inSeason = isWithinSeason(nextDate, new Date(e.seasonStart), new Date(e.seasonEnd));
+        if (!inSeason) return null; // hide entirely, out of season
+      }
+
+      return { ...e, date: nextDate.toISOString() };
+    })
+    .filter((e): e is NonNullable<typeof e> => e !== null);
+
   // filter out past events but keep today's events
-  events = events.filter((e) => new Date(e.date) >= startOfTodayUTC);
+  let visibleEvents = resolvedEvents.filter((e) => new Date(e.date) >= startOfTodayUTC);
   // only show featured events
-  events = events.filter((e) => e.featured)
+  visibleEvents = visibleEvents.filter((e) => e.featured);
+
   return (
     <section
       className="border-b border-stone-100 bg-white"
@@ -46,9 +65,9 @@ export function UpcomingEvents({ events }: Props) {
             <IconArrowRight className="h-3 w-3" />
           </Link>
         </div>
-        {events.length > 0 ? (
+        {visibleEvents.length > 0 ? (
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map((event, index) => {
+            {visibleEvents.map((event, index) => {
               // limit to 6 events
               if (index > 5)
                 return null;

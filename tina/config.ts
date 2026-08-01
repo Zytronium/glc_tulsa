@@ -774,7 +774,9 @@ export default defineConfig({
         path: "content/events",
         format: "json",
         defaultItem: () => ({
-          featured: false,
+          featured: true,
+          recurring: false,
+          seasonal: false,
           date: new Date().toISOString(),
         }),
         fields: [
@@ -870,6 +872,40 @@ export default defineConfig({
             name: "content",
             label: "Page Content",
             description: 'Formatted text to describe the event.',
+          },
+          {
+            type: "boolean",
+            name: "recurring",
+            label: "Recurring Weekly",
+            description:
+              "Turn on for events that repeat every week (e.g. Grace Night). The Date field becomes an anchor used only to determine the day of week; the site always shows just the next upcoming occurrence.",
+          },
+          {
+            type: "boolean",
+            name: "seasonal",
+            label: "Seasonal",
+            description:
+              "Turn on if this recurring event only happens part of the year (e.g. Sept-May). The Season Start/End dates repeat every year based on month and day only.",
+          },
+          {
+            type: "datetime",
+            name: "seasonStart",
+            label: "Season Start",
+            description: "Month and day only matter, e.g. September 1. The year is ignored and repeats annually.",
+            ui: {
+              dateFormat: "YYYY-MM-DD",
+              timeFormat: false,
+            },
+          },
+          {
+            type: "datetime",
+            name: "seasonEnd",
+            label: "Season End",
+            description: "Month and day only matter, e.g. May 31. The year is ignored and repeats annually.",
+            ui: {
+              dateFormat: "YYYY-MM-DD",
+              timeFormat: false,
+            },
           },
           {
             type: "boolean",

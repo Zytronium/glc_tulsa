@@ -1,0 +1,20 @@
+{
+  "title": "Grace Night",
+  "date": "2026-09-09T00:00:00.000Z",
+  "time": "See description",
+  "locationLabel": "Grace Evangelical Lutheran Church",
+  "location": "2331 East 5th Place, Tulsa, OK",
+  "detail": "Wednesday night worship service and other things",
+  "eventType": "Service",
+  "tags": [
+    "service",
+    "misc"
+  ],
+  "image": "/images/photos/exterior/SCP02864.webp",
+  "content": "Grace Night is a weekly event that occurs every Wednesday from September to May.\n\n### **Schedule**\n\n**5pm**: Cantate Choir\n\n**5:30pm**: Meal\n\n**6:15pm**: Worship\n\n**7pm**: Adult Choir\n\n \n\n*More details coming soon*\n",
+  "recurring": true,
+  "seasonal": true,
+  "seasonStart": "2026-09-09T21:14:38.076Z",
+  "seasonEnd": "2027-05-05T21:14:56.306Z",
+  "featured": true
+}

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
 import { IconMapPin, IconClock, IconChevronRight, IconSearch } from "@/components/home/icons";
 import type { EventConnectionQuery } from "@/../tina/__generated__/types";
+import { getNextWeeklyOccurrence, isWithinSeason } from "@/lib/recurring-events";
 
 type EventNode = NonNullable<NonNullable<EventConnectionQuery["eventConnection"]["edges"]>[number]>["node"];
 
@@ -92,22 +93,38 @@ export function EventsGrid({ events }: Props) {
 
   const today = startOfTodayUTC();
 
+// -------- resolve recurring events to their next occurrence --------
+  const resolvedEvents = events
+    .map((e) => {
+      if (!e.recurring) return e;
+
+      const nextDate = getNextWeeklyOccurrence(new Date(e.date), today);
+
+      if (e.seasonal && e.seasonStart && e.seasonEnd) {
+        const inSeason = isWithinSeason(nextDate, new Date(e.seasonStart), new Date(e.seasonEnd));
+        if (!inSeason) return null; // hide entirely, out of season
+      }
+
+      return { ...e, date: nextDate.toISOString() };
+    })
+    .filter((e): e is NonNullable<typeof e> => e !== null);
+
   // -------- derive available filter options --------
   const allTypes = useMemo(() => {
     const set = new Set<string>();
-    events.forEach((e) => e.eventType && set.add(e.eventType));
+    resolvedEvents.forEach((e) => e.eventType && set.add(e.eventType));
     return Array.from(set).sort();
-  }, [events]);
+  }, [resolvedEvents]);
 
   const allTags = useMemo(() => {
     const set = new Set<string>();
-    events.forEach((e) => {
+    resolvedEvents.forEach((e) => {
       if (Array.isArray(e.tags)) {
         e.tags.forEach((t) => t && set.add(t));
       }
     });
     return Array.from(set).sort();
-  }, [events]);
+  }, [resolvedEvents]);
 
   function toggleTag(tag: string) {
     setTagFilters((prev) =>
@@ -124,7 +141,7 @@ export function EventsGrid({ events }: Props) {
   const hasActiveFilters = query.trim() !== "" || typeFilter !== null || tagFilters.length > 0;
 
   // -------- filter pipeline --------
-  const filtered = events.filter((e) => {
+  const filtered = resolvedEvents.filter((e) => {
     if (query.trim() && !eventMatchesQuery(e, query)) return false;
     if (typeFilter && e.eventType !== typeFilter) return false;
     if (tagFilters.length > 0) {
