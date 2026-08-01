@@ -1,18 +1,18 @@
 import Image from "next/image";
-import { tinaField } from "tinacms/dist/react";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { IconCalendar, IconMapPin, IconClock } from "@/components/home/icons";
-import type { EventQuery } from "@/../tina/__generated__/types";
+import {tinaField} from "tinacms/dist/react";
+import {TinaMarkdown} from "tinacms/dist/rich-text";
+import {IconCalendar, IconMapPin, IconClock} from "@/components/home/icons";
+import type {EventQuery} from "@/../tina/__generated__/types";
 import {BackLink} from "@/components/BackLink";
 
 type Props = { event: EventQuery["event"] };
 
-export function EventDetail({ event }: Props) {
+export function EventDetail({event}: Props) {
   const d = new Date(event.date);
-  const month = d.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  const month = d.toLocaleString("en-US", {month: "long", timeZone: "UTC"});
   const day = String(d.getUTCDate());
   const year = d.getUTCFullYear();
-  const weekday = d.toLocaleString("en-US", { weekday: "long", timeZone: "UTC" });
+  const weekday = d.toLocaleString("en-US", {weekday: "long", timeZone: "UTC"});
 
   return (
     <>
@@ -30,7 +30,7 @@ export function EventDetail({ event }: Props) {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center opacity-20">
-            <span className="arch-top h-24 w-40 border border-brass-300" />
+            <span className="arch-top h-24 w-40 border border-brass-300"/>
           </div>
         )}
         <div
@@ -75,7 +75,7 @@ export function EventDetail({ event }: Props) {
 
             <div className="mt-4 flex flex-col gap-4">
               <div className="flex items-start gap-3">
-                <IconCalendar className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500" />
+                <IconCalendar className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500"/>
                 <p className="text-[14px] leading-6 text-stone-700">
                   {weekday}, {month} {day}, {year}
                 </p>
@@ -83,7 +83,7 @@ export function EventDetail({ event }: Props) {
 
               {event.time && (
                 <div className="flex items-start gap-3">
-                  <IconClock className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500" />
+                  <IconClock className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500"/>
                   <p
                     data-tina-field={tinaField(event, "time")}
                     className="text-[14px] leading-6 text-stone-700"
@@ -95,7 +95,7 @@ export function EventDetail({ event }: Props) {
 
               {(event.locationLabel || event.location) && (
                 <div className="flex items-start gap-3">
-                  <IconMapPin className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500" />
+                  <IconMapPin className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brass-500"/>
                   <div className="text-[14px] leading-6 text-stone-700">
                     {event.locationLabel && (
                       <p data-tina-field={tinaField(event, "locationLabel")}>
@@ -115,6 +115,24 @@ export function EventDetail({ event }: Props) {
               )}
             </div>
 
+            {Array.isArray(event.tags) && event.tags.length > 0 && (
+              <div
+                data-tina-field={tinaField(event, "tags")}
+                className="mt-5 flex flex-wrap gap-1.5 border-t border-stone-200 pt-4"
+              >
+                {event.tags.map((tag) =>
+                  tag ? (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-stone-300 bg-white px-2.5 py-1 text-[12px] text-stone-700"
+                    >
+                      {tag}
+                    </span>
+                  ) : null
+                )}
+              </div>
+            )}
+
             <BackLink fallbackHref={"/events"}>
               Back to events
             </BackLink>
@@ -129,7 +147,7 @@ export function EventDetail({ event }: Props) {
                 Description
               </p>
               <div className="tina-markdown">
-                <TinaMarkdown content={event.content} />
+                <TinaMarkdown content={event.content}/>
               </div>
             </div>
           )}
