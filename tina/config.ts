@@ -1,5 +1,6 @@
 import { defineConfig } from "tinacms";
 import client from "./__generated__/client";
+import { TagsAutocomplete } from "@/components/tina/TagsAutocomplete";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -843,6 +844,15 @@ export default defineConfig({
             },
             options: ["Service", "Event"],
             required: true,
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            ui: {
+              component: TagsAutocomplete,
+            },
           },
           {
             type: "image",
