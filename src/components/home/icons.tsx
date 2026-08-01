@@ -211,6 +211,20 @@ export function IconCoin({ className }: IconProps) {
     );
 }
 
+export function IconSearch({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M15.3 15.3L20 20"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function IconDownload({className}: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
