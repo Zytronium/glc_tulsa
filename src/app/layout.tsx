@@ -70,7 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const squaredFavicon = favicon ? await squareFaviconDataUrl(favicon) : undefined;
 
   return {
-    title: "Grace Evangelical Lutheran Church | Tulsa, OK",
+    title: "Grace Evangelical Lutheran Church",
     description:
       "A warm, welcoming Lutheran congregation in Tulsa, Oklahoma, rooted in nearly 2,000 years of historic Christian tradition. LCMS.",
     icons: squaredFavicon
