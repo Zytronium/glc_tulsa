@@ -17,9 +17,9 @@ type Props = {
 
 const SECTION_BACKGROUNDS = ["/images/paper.png", "/images/aged_paper.png"];
 
-export function YouthPage({ youthQuery, eventsQuery }: Props) {
-  const { data: youthData } = useTina(youthQuery);
-  const { data: eventsData } = useTina(eventsQuery);
+export function YouthPage({youthQuery, eventsQuery}: Props) {
+  const {data: youthData} = useTina(youthQuery);
+  const {data: eventsData} = useTina(eventsQuery);
 
   const youth = youthData.youthPage;
   const events = (eventsData.eventConnection.edges ?? [])
@@ -46,7 +46,8 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
 
   if (youth.summerGathering?.show) {
     sections.push(
-      <div key="summer-gathering" className="mx-auto grid max-w-5xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 md:items-center">
+      <div key="summer-gathering"
+           className="mx-auto grid max-w-5xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 md:items-center">
         {youth.summerGathering.image && (
           <div className="relative h-64 w-full overflow-hidden rounded-card sm:h-80">
             <Image
@@ -82,7 +83,7 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
               className="prose prose-stone mt-4 max-w-none text-[14px] leading-7 text-stone-700"
             >
               <div className="tina-markdown">
-                <TinaMarkdown content={youth.summerGathering.body} />
+                <TinaMarkdown content={youth.summerGathering.body}/>
               </div>
             </div>
           )}
@@ -98,7 +99,7 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
           Photos
         </p>
         <div data-tina-field={tinaField(youth, "gallery")}>
-          <PhotoCarousel photos={youth.gallery} />
+          <PhotoCarousel photos={youth.gallery}/>
         </div>
       </div>
     );
@@ -126,7 +127,7 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
                     className="prose prose-stone prose-sm mt-2 max-w-none text-stone-700"
                   >
                     <div className="tina-markdown">
-                      <TinaMarkdown content={section.body} />
+                      <TinaMarkdown content={section.body}/>
                     </div>
                   </div>
                 )}
@@ -141,23 +142,23 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
   return (
     <>
       {/* -------- hero -------- */}
-<section className="relative isolate overflow-hidden border-b border-stone-200 bg-vestment-900">
-  {youth.headerBackgroundImage && (
-    <Image
-      src={youth.headerBackgroundImage}
-      alt=""
-      fill
-      priority
-      sizes="100vw"
-      className="object-cover object-center opacity-40"
-      data-tina-field={tinaField(youth, "headerBackgroundImage")}
-    />
-  )}
-  <div
-    aria-hidden="true"
-    className="absolute inset-0 bg-linear-to-b from-vestment-900/60 via-vestment-900/50 to-vestment-900/90"
-  />
-  <div className="relative mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
+      <section className="relative isolate overflow-hidden border-b border-stone-200 bg-vestment-900">
+        {youth.headerBackgroundImage && (
+          <Image
+            src={youth.headerBackgroundImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-40"
+            data-tina-field={tinaField(youth, "headerBackgroundImage")}
+          />
+        )}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-linear-to-b from-vestment-900/60 via-vestment-900/50 to-vestment-900/90"
+        />
+        <div className="relative mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
           <h1
             data-tina-field={tinaField(youth, "heading")}
             className="font-display text-[clamp(1.75rem,4vw,3rem)] font-medium text-stone-50"
@@ -170,7 +171,7 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
               className="prose prose-invert prose-stone mx-auto mt-5 max-w-xl text-[15px] leading-7 text-stone-200/85"
             >
               <div className="tina-markdown">
-                <TinaMarkdown content={youth.intro} />
+                <TinaMarkdown content={youth.intro}/>
               </div>
             </div>
           )}
