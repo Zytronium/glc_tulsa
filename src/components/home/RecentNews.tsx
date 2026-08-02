@@ -77,11 +77,11 @@ export function RecentNews({ items }: Props) {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-5">
+        <div className="grid min-w-0 gap-6 md:grid-cols-5">
           {/* -------- featured item -------- */}
           <Link
             href={getHref(featured)}
-            className="group flex flex-col overflow-hidden rounded-sm border border-stone-200 bg-white transition hover:border-garnet-600/40 md:col-span-3"
+            className="group flex min-w-0 flex-col overflow-hidden rounded-sm border border-stone-200 bg-white transition hover:border-garnet-600/40 md:col-span-3"
           >
             {featured.image && (
               <div className="relative h-56 w-full overflow-hidden sm:h-64">
@@ -95,12 +95,12 @@ export function RecentNews({ items }: Props) {
               </div>
             )}
 
-            <div className="relative flex flex-1 flex-col justify-between p-6">
+            <div className="relative flex min-w-0 flex-1 flex-col justify-between p-6">
               {!featured.image && (
                 <span className="absolute inset-x-0 top-0 h-1 bg-garnet-600" />
               )}
-              <div>
-                <div className="flex items-center gap-2">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="font-meta text-[10px] uppercase tracking-[0.1em] text-garnet-700">
                     {featured.type === "announcement" ? "Announcement" : "News"}
                   </span>
@@ -130,20 +130,20 @@ export function RecentNews({ items }: Props) {
           </Link>
 
           {/* -------- secondary items -------- */}
-          <div className="flex flex-col gap-4 md:col-span-2">
+          <div className="flex min-w-0 flex-col gap-4 md:col-span-2">
             {secondary.map((item) => {
               const d = formatDate(item.date);
               return (
                 <Link
                   key={item.id}
                   href={getHref(item)}
-                  className="group flex flex-1 items-stretch overflow-hidden rounded-sm border border-stone-200 bg-white transition hover:border-garnet-600/40"
+                  className="group flex min-w-0 flex-1 items-stretch overflow-hidden rounded-sm border border-stone-200 bg-white transition hover:border-garnet-600/40"
                 >
                   <span className="w-1 shrink-0 bg-brass-400" />
 
-                  <div className="flex flex-1 items-center gap-4 p-4">
+                  <div className="flex min-w-0 flex-1 items-center gap-4 p-4">
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="font-meta text-[10px] uppercase tracking-[0.1em] text-garnet-700">
                           {item.type === "announcement" ? "Announcement" : "News"}
                         </span>
