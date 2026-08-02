@@ -1,6 +1,7 @@
-import { notFound } from "next/navigation";
-import { client } from "../../../../tina/__generated__/client";
+import { notFound, redirect } from "next/navigation";
+import { client } from "@/../tina/__generated__/client";
 import { ClientPage } from "./client-page";
+import { getRedirectTarget } from "@/lib/redirects";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -16,6 +17,10 @@ export default async function DynamicPage({ params }: Props) {
   const doc = result.data.sitePageConnection.edges?.[0]?.node;
 
   if (!doc) {
+    const redirectTarget = getRedirectTarget(slug);
+    if (redirectTarget) {
+      redirect(redirectTarget);
+    }
     notFound();
   }
 
