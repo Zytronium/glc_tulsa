@@ -59,7 +59,7 @@ export function RecentNews({ items }: Props) {
       }}
     >
       <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20">
-        <div className="mb-9 flex items-end justify-between border-b border-stone-300/70 pb-4">
+        <div className="mb-9 flex flex-col items-start gap-2 border-b border-stone-300/70 pb-4 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
           <div>
             <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
               Parish Life
@@ -72,7 +72,7 @@ export function RecentNews({ items }: Props) {
             href="/news"
             className="flex items-center gap-1 text-sm text-stone-700 transition hover:text-garnet-700"
           >
-            View all
+            View all
             <IconArrowRight className="h-3 w-3" />
           </Link>
         </div>
