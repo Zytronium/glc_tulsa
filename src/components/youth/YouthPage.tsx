@@ -141,8 +141,23 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
   return (
     <>
       {/* -------- hero -------- */}
-      <section className="border-b border-stone-200 bg-vestment-900">
-        <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
+<section className="relative isolate overflow-hidden border-b border-stone-200 bg-vestment-900">
+  {youth.headerBackgroundImage && (
+    <Image
+      src={youth.headerBackgroundImage}
+      alt=""
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover object-center opacity-40"
+      data-tina-field={tinaField(youth, "headerBackgroundImage")}
+    />
+  )}
+  <div
+    aria-hidden="true"
+    className="absolute inset-0 bg-linear-to-b from-vestment-900/60 via-vestment-900/50 to-vestment-900/90"
+  />
+  <div className="relative mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
           <h1
             data-tina-field={tinaField(youth, "heading")}
             className="font-display text-[clamp(1.75rem,4vw,3rem)] font-medium text-stone-50"

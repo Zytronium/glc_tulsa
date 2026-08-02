@@ -1456,6 +1456,11 @@ export default defineConfig({
             description: 'e.g. "Youth"',
           },
           {
+            type: "image",
+            name: "headerBackgroundImage",
+            label: "Header Background Image",
+          },
+          {
             type: "rich-text",
             name: "intro",
             label: "Intro",
