@@ -10,7 +10,10 @@ import { getNextWeeklyOccurrence, isWithinSeason } from "@/lib/recurring-events"
 
 type EventNode = NonNullable<NonNullable<EventConnectionQuery["eventConnection"]["edges"]>[number]>["node"];
 
-type Props = { events: NonNullable<EventNode>[] };
+type Props = {
+  events: NonNullable<EventNode>[];
+  minimal?: boolean;
+};
 
 function getFileName(id: string) {
   const lastSlash = id.lastIndexOf("/");
@@ -85,7 +88,7 @@ function eventMatchesQuery(event: NonNullable<EventNode>, query: string): boolea
   return fuzzyMatch(haystack, q) || dateMatches(event, q);
 }
 
-export function EventsGrid({ events }: Props) {
+export function EventsGrid({ events, minimal = false }: Props) {
   const [showPast, setShowPast] = useState(false);
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<string | null>(null);
@@ -138,13 +141,13 @@ export function EventsGrid({ events }: Props) {
     setQuery("");
   }
 
-  const hasActiveFilters = query.trim() !== "" || typeFilter !== null || tagFilters.length > 0;
+  const hasActiveFilters = !minimal && (query.trim() !== "" || typeFilter !== null || tagFilters.length > 0);
 
-  // -------- filter pipeline --------
+  // -------- filter pipeline (search/type/tag filters are no-ops in minimal mode) --------
   const filtered = resolvedEvents.filter((e) => {
-    if (query.trim() && !eventMatchesQuery(e, query)) return false;
-    if (typeFilter && e.eventType !== typeFilter) return false;
-    if (tagFilters.length > 0) {
+    if (!minimal && query.trim() && !eventMatchesQuery(e, query)) return false;
+    if (!minimal && typeFilter && e.eventType !== typeFilter) return false;
+    if (!minimal && tagFilters.length > 0) {
       const eventTags = Array.isArray(e.tags) ? e.tags : [];
       if (!tagFilters.every((t) => eventTags.includes(t))) return false;
     }
@@ -158,6 +161,44 @@ export function EventsGrid({ events }: Props) {
   const past = filtered
     .filter((e) => new Date(e.date) < today)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const showPastSection = !minimal && showPast;
+
+  const gridContent = (
+    <>
+      {upcoming.length === 0 ? (
+        <p className="text-[14px] text-stone-700">
+          {hasActiveFilters
+            ? "No events match your search or filters."
+            : "No upcoming events are scheduled at this time."}
+        </p>
+      ) : (
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {upcoming.map((event, index) => (
+            <EventCard key={event.date + event.title} event={event} highlighted={index === 0 && !hasActiveFilters} />
+          ))}
+        </ul>
+      )}
+
+      {showPastSection && past.length > 0 && (
+        <div className="mt-16">
+          <h2 className="mb-6 font-display text-[20px] font-medium text-stone-700">
+            Past events
+          </h2>
+          <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {past.map((event) => (
+              <EventCard key={event.date + event.title} event={event} isPast />
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  );
+
+  // -------- minimal mode: just the grid, no wrapper, header, or controls --------
+  if (minimal) {
+    return gridContent;
+  }
 
   return (
     <section
@@ -263,32 +304,7 @@ export function EventsGrid({ events }: Props) {
           </div>
         </div>
 
-        {upcoming.length === 0 ? (
-          <p className="text-[14px] text-stone-700">
-            {hasActiveFilters
-              ? "No events match your search or filters."
-              : "No upcoming events are scheduled at this time."}
-          </p>
-        ) : (
-          <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {upcoming.map((event, index) => (
-              <EventCard key={event.date + event.title} event={event} highlighted={index === 0 && !hasActiveFilters} />
-            ))}
-          </ul>
-        )}
-
-        {showPast && past.length > 0 && (
-          <div className="mt-16">
-            <h2 className="mb-6 font-display text-[20px] font-medium text-stone-700">
-              Past events
-            </h2>
-            <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {past.map((event) => (
-                <EventCard key={event.date + event.title} event={event} isPast />
-              ))}
-            </ul>
-          </div>
-        )}
+        {gridContent}
       </div>
     </section>
   );

@@ -203,16 +203,16 @@ button:focus-visible {
 }
 
 .tina-markdown a {
-  color: var(--color-garnet-600);
+  color: #0ea5e9;
   text-decoration: underline;
-  text-decoration-color: var(--color-garnet-200);
+  text-decoration-color: #bae6fd;
   text-underline-offset: 2px;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .tina-markdown a:hover {
-  color: var(--color-garnet-700);
-  text-decoration-color: var(--color-garnet-600);
+  color: #0284c7;
+  text-decoration-color: #0ea5e9;
 }
 
 .tina-markdown img {

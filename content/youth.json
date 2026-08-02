@@ -1,0 +1,47 @@
+{
+  "heading": "Youth Life",
+  "intro": "Questions about Grace Lutheran Youth (GLY)? Please contact our Youth Director, Josh Craig, at [youth@glctulsa.org](mailto:youth@glctulsa.org).\n",
+  "eventsTag": "youth",
+  "summerGathering": {
+    "show": false,
+    "heading": "",
+    "subheading": "",
+    "body": "",
+    "image": ""
+  },
+  "gallery": [
+    {
+      "image": "/images/photos/youth_life/e1047c95f7e04d36aef2af3e7257b3a9+(1).webp"
+    },
+    {
+      "image": "/images/photos/youth_life/fd440735a932433cb6d173ea2822df71.webp"
+    },
+    {
+      "image": "/images/photos/youth_life/75c5b09bd6b346ba9ba703e651293c4f.webp"
+    },
+    {
+      "image": "/images/photos/youth_life/1f846079c65d40b5b6a709f01d79253f.webp"
+    },
+    {
+      "image": "/images/photos/youth_life/176f4e82463242fd861f46cd5fb1065c.webp"
+    }
+  ],
+  "programs": [
+    {
+      "title": "Sunday School",
+      "body": "Youth Sunday School is offered to our 6th through 12th grade members. Junior youth (6th-8th grade) and senior youth (9th-12th grade) meet in separate classes from 9:15 to 10:00 AM. The Youth classes use the Enduring Faith curriculum from Concordia Publishing House to study the Bible while always taking time to answer questions raised by the youth themselves. All Youth are expected to bring their Bibles to class.\n"
+    },
+    {
+      "title": "Youth Events",
+      "body": "The Oklahoma District and/or the Youth Director of Grace Lutheran Church organize Youth Events such as the Christmas Party or the President’s Day Lock-in. The purpose of these youth events is to provide an opportunity for faith, fun, and fellowship as a group with both Senior and Junior youth. These events take various forms and are scattered throughout the year.\n"
+    },
+    {
+      "title": "Youth Gatherings & Fundraisers",
+      "body": "Grace Lutheran Church offers the opportunity and partially offsets the costs for all GLY members and their friends to attend several retreats, conferences, and gatherings including the District and Synod Gatherings as well as Higher Things Conferences. In order to help offset the costs, there are several fundraisers throughout each year including, Trivia Night in October, the Sweetheart Dinner in February, Flower Sales in Spring, Bob Ross Painting in April, and a Car Wash in June.\n"
+    },
+    {
+      "title": "Confirmation",
+      "body": "If your family is interested in Confirmation or becoming a member of Grace Lutheran Church, please contact our Senior Pastor, Pastor Christopher Hall, who runs our Confirmation program.\n\nSubmit a contact form [here](/contact-us).\n"
+    }
+  ]
+}

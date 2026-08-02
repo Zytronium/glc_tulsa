@@ -1439,6 +1439,87 @@ export default defineConfig({
           },
         ],
       },
+      // -------- youth page --------
+      {
+        name: "youthPage",
+        label: "Youth Page",
+        path: "content",
+        format: "json",
+        match: { include: "youth" },
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+            description: 'e.g. "Youth"',
+          },
+          {
+            type: "rich-text",
+            name: "intro",
+            label: "Intro",
+            description: "Short intro paragraph, e.g. contact info for the Youth Director.",
+          },
+          {
+            type: "string",
+            name: "eventsTag",
+            label: "Events Tag",
+            description: 'The tag used to filter events shown in the upcoming events section, e.g. "youth"',
+          },
+
+          // -------- summer gathering --------
+          {
+            type: "object",
+            name: "summerGathering",
+            label: "Summer Gathering",
+            description: "Editable section for the current year's big summer trip (Higher Things, National Youth Gathering, etc).",
+            fields: [
+              { type: "boolean", name: "show", label: "Show this section" },
+              { type: "string", name: "heading", label: "Heading", description: 'e.g. "2027 Higher Things Conference"' },
+              { type: "string", name: "subheading", label: "Subheading", description: "Location/date line" },
+              {
+                type: "rich-text",
+                name: "body",
+                label: "Body",
+              },
+              { type: "image", name: "image", label: "Image" },
+            ],
+          },
+
+          // -------- photo gallery --------
+          {
+            type: "object",
+            name: "gallery",
+            label: "Photo Gallery",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.caption || "Photo" }),
+            },
+            fields: [
+              { type: "image", name: "image", label: "Image", required: true },
+              { type: "string", name: "caption", label: "Caption (optional)" },
+            ],
+          },
+
+          // -------- program sections --------
+          {
+            type: "object",
+            name: "programs",
+            label: "Youth Program Sections",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.title || "Section" }),
+            },
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "rich-text", name: "body", label: "Body" },
+            ],
+          },
+        ],
+      },
       // -------- Custom Page Builder --------
       {
         name: "sitePage",
