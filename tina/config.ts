@@ -1352,8 +1352,6 @@ export default defineConfig({
           },
         ],
       },
-      // -------- youth life page --------
-      // [todo]
       // -------- fasting page --------
       {
         name: "fastingPage",
@@ -1439,7 +1437,7 @@ export default defineConfig({
           },
         ],
       },
-      // -------- youth page --------
+      // -------- youth life page --------
       {
         name: "youthPage",
         label: "Youth Page",
@@ -1447,8 +1445,8 @@ export default defineConfig({
         format: "json",
         match: { include: "youth" },
         ui: {
-          global: true,
           allowedActions: { create: false, delete: false },
+          router: () => "/youth",
         },
         fields: [
           {
