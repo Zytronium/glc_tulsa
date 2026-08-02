@@ -6,6 +6,7 @@ import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { EventsGrid } from "@/components/events/EventsGrid";
 import type { YouthPageQuery, EventConnectionQuery } from "@/../tina/__generated__/types";
+import { PhotoCarousel } from "@/components/youth/PhotoCarousel";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -92,29 +93,12 @@ export function YouthPage({ youthQuery, eventsQuery }: Props) {
 
   if (youth.gallery && youth.gallery.length > 0) {
     sections.push(
-      <div key="gallery" className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      <div key="gallery" className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <p className="mb-6 font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
           Photos
         </p>
-        <div
-          data-tina-field={tinaField(youth, "gallery")}
-          className="flex gap-4 overflow-x-auto pb-2"
-        >
-          {youth.gallery.map((photo, index) =>
-            photo?.image ? (
-              <div
-                key={index}
-                className="relative h-56 w-72 shrink-0 overflow-hidden rounded-card bg-stone-100"
-              >
-                <Image
-                  fill
-                  src={photo.image}
-                  alt={photo.caption ?? ""}
-                  className="object-cover"
-                />
-              </div>
-            ) : null
-          )}
+        <div data-tina-field={tinaField(youth, "gallery")}>
+          <PhotoCarousel photos={youth.gallery} />
         </div>
       </div>
     );
