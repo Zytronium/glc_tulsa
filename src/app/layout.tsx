@@ -72,7 +72,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Grace Evangelical Lutheran Church",
     description:
-      "A warm, welcoming Lutheran congregation in Tulsa, Oklahoma, rooted in nearly 2,000 years of historic Christian tradition. LCMS.",
+      "A warm, welcoming Lutheran congregation in Tulsa, Oklahoma, rooted in 2,000 years of historic Christian tradition. LCMS.",
     icons: squaredFavicon
       ? {
         icon: squaredFavicon,
