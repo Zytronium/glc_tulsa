@@ -10,6 +10,7 @@ import { WhoWeAre } from "@/components/home/WhoWeAre";
 import { UpcomingEvents } from "@/components/home/UpcomingEvents";
 import { Mission } from "@/components/home/Mission";
 import { RecentNews } from "@/components/home/RecentNews";
+import { NewsletterSignup } from "@/components/home/NewsletterSignup";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -38,6 +39,7 @@ export function ClientPage({ homeQuery, globalVariablesQuery, events, newsItems 
       <Mission mission={home.mission!} />
       <UpcomingEvents events={events} />
       <RecentNews items={newsItems} />
+      <NewsletterSignup />
     </main>
   );
 }
