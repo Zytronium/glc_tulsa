@@ -16,13 +16,13 @@ const RESERVED_SLUGS = [
   "about",
   "announcements",
   "calendar",
-  "contact-us",
   "events",
   "fasting",
   "ministries",
   "news",
   "photos",
-  "worship"
+  "worship",
+  "youth"
   // IMPORTANT: add new slugs here as new pages are added to the codebase
 ];
 
@@ -1766,6 +1766,84 @@ export default defineConfig({
                     name: "style",
                     label: "Style",
                     options: ["garnetSolid", "brassSolid", "outlineOnDark"],
+                  },
+                  {
+                    type: "string",
+                    name: "background",
+                    label: "Background",
+                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
+                  },
+                ],
+              },
+              {
+                name: "imageBlock",
+                label: "Image Only",
+                fields: [
+                  { type: "image", name: "image", label: "Image" },
+                  { type: "string", name: "alt", label: "Alt Text", description: "Describe the image for accessibility." },
+                  {
+                    type: "string",
+                    name: "maxWidth",
+                    label: "Max Width",
+                    options: [
+                      { value: "sm", label: "Small" },
+                      { value: "md", label: "Medium" },
+                      { value: "lg", label: "Large" },
+                      { value: "full", label: "Full Width" },
+                    ],
+                  },
+                  {
+                    type: "string",
+                    name: "rounding",
+                    label: "Image Roundedness",
+                    options: [
+                      { value: "none", label: "None" },
+                      { value: "sm", label: "Slight" },
+                      { value: "lg", label: "Medium" },
+                      { value: "2xl", label: "Large" },
+                      { value: "4xl", label: "Extra Large" },
+                      { value: "full", label: "Circle Crop" },
+                    ],
+                  },
+                  {
+                    type: "string",
+                    name: "background",
+                    label: "Background",
+                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
+                  },
+                ],
+              },
+              {
+                name: "embedBlock",
+                label: "Embedded Form",
+                fields: [
+                  { type: "string", name: "heading", label: "Heading (optional)" },
+                  {
+                    type: "rich-text",
+                    name: "bodyRichText",
+                    label: "Paragraph (optional)",
+                    description: "Optional text shown above the embedded form.",
+                  },
+                  {
+                    type: "string",
+                    name: "embedCode",
+                    label: "Embed Code",
+                    description:
+                      "Paste either an &lt;iframe&gt; embed or a &lt;script&gt; embed (e.g. Cognito Forms' seamless.js snippet). Paste it exactly as given.",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "string",
+                    name: "maxWidth",
+                    label: "Max Width",
+                    options: [
+                      { value: "sm", label: "Small" },
+                      { value: "md", label: "Medium" },
+                      { value: "lg", label: "Large" },
+                      { value: "full", label: "Full Width" },
+                    ],
                   },
                   {
                     type: "string",

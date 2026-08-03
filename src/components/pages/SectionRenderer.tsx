@@ -4,6 +4,8 @@ import { CardsBlock } from "./blocks/CardsBlock";
 import { CtaBlock } from "./blocks/CtaBlock";
 import { HeroBlock } from "./blocks/HeroBlock";
 import { PageHeroBlock } from "./blocks/PageHeroBlock";
+import { ImageBlock } from "./blocks/ImageBlock";
+import { EmbedBlock } from "./blocks/EmbedBlock";
 
 // -------- maps each template's Tina discriminator to its component --------
 const BLOCK_COMPONENTS: Record<string, React.ComponentType<{ section: any }>> = {
@@ -13,6 +15,8 @@ const BLOCK_COMPONENTS: Record<string, React.ComponentType<{ section: any }>> = 
   ctaBlock: CtaBlock,
   heroBlock: HeroBlock,
   pageHeroBlock: PageHeroBlock,
+  imageBlock: ImageBlock,
+  embedBlock: EmbedBlock,
 };
 
 type Props = {

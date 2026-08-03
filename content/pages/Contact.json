@@ -1,0 +1,15 @@
+{
+  "title": "Contact",
+  "slug": "contact-us",
+  "status": "published",
+  "sections": [
+    {
+      "heading": "Contact Us",
+      "bodyRichText": "Please contact us by the phone number, email address, or form below.\n\nTo get weekly emails of news and events, [click here to sign up](https://mailchi.mp/b6c27c32e1ce/sign-up-for-eblasts).\n",
+      "embedCode": "<script src=\"https://www.cognitoforms.com/f/seamless.js\" data-key=\"xP2D0sCmwECD3gT3Q5Tfdw\" data-form=\"119\"></script>",
+      "maxWidth": "lg",
+      "background": "paper",
+      "_template": "embedBlock"
+    }
+  ]
+}
