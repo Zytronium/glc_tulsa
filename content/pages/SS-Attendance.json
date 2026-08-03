@@ -1,0 +1,14 @@
+{
+  "title": "SS Attendance",
+  "slug": "ss-attendance",
+  "status": "published",
+  "sections": [
+    {
+      "bodyRichText": "",
+      "embedCode": "<iframe src=\"https://www.cognitoforms.com/f/xP2D0sCmwECD3gT3Q5Tfdw/20\" style=\"border:0;width:90%;\" height=\"324\"></iframe>",
+      "maxWidth": "full",
+      "background": "paper",
+      "_template": "embedBlock"
+    }
+  ]
+}
