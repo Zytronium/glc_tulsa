@@ -64,7 +64,7 @@ export function RecentNews({ items }: Props) {
             <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
               Parish Life
             </p>
-            <h2 className="mt-1 font-display text-[26px] font-medium text-ink">
+            <h2 className="mt-1 font-display text-2xl sm:text-3xl font-medium text-ink">
               News &amp; Announcements
             </h2>
           </div>

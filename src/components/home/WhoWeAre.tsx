@@ -37,7 +37,7 @@ export function WhoWeAre({ whoWeAre }: Props) {
           </p>
           <h2
             data-tina-field={tinaField(whoWeAre, "heading")}
-            className="mt-3 max-w-md font-display text-[28px] font-medium leading-tight text-ink sm:text-[32px]"
+            className="mt-3 max-w-md font-display text-2xl font-medium leading-tight text-ink sm:text-3xl"
           >
             {whoWeAre.heading}
           </h2>

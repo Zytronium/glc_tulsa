@@ -29,6 +29,9 @@ export function Mission({ mission }: Props) {
         <p className="font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
           Our mission
         </p>
+        <h2 className="mt-2 font-display text-2xl sm:text-3xl font-medium text-ink">
+          Gather, Grow, Go
+        </h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {items.map(({ label, description }, i) => {
             const Icon = ICONS[i];

@@ -54,7 +54,7 @@ export function UpcomingEvents({ events }: Props) {
           Events & Services
         </p>
         <div className="mb-7 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-baseline sm:gap-4">
-          <h2 className="font-display text-[22px] font-medium text-ink">
+          <h2 className="font-display text-2xl sm:text-3xl font-medium text-ink">
             Featured Upcoming Services &amp; Events
           </h2>
           <Link

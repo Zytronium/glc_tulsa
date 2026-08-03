@@ -42,7 +42,10 @@ export function QuickLinks({ quickLinks }: Props) {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto flex max-w-8xl flex-wrap justify-center gap-3 px-5 py-10 sm:gap-4 sm:px-8 sm:py-14">
+      <p className="w-full text-center pt-4 font-meta text-[11px] uppercase tracking-[0.18em] text-garnet-600">
+        Quick links
+      </p>
+      <div className="mx-auto flex max-w-8xl flex-wrap justify-center gap-3 px-5 pb-10 pt-4 sm:gap-4 sm:px-8 sm:pb-14 sm:pt-8">
         {(quickLinks ?? []).filter((link) => link !== null).map((link, i) => {
           const Icon = link.icon ? CARD_ICONS[link.icon] : undefined;
 
