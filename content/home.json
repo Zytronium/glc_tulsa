@@ -61,22 +61,16 @@
   },
   "quickLinks": [
     {
-      "label": "Worship",
-      "icon": "book",
-      "description": "Services, liturgy, and sacraments",
-      "href": "/worship"
-    },
-    {
       "label": "Events",
       "icon": "calendar",
       "description": "Calendar, Grace Night, VBS",
       "href": "/events"
     },
     {
-      "label": "Ministries",
-      "icon": "heart",
-      "description": "Youth, music, missions, community",
-      "href": "/ministries"
+      "label": "Youth Life",
+      "icon": "users",
+      "description": "Sunday school, Grace Night, Higher Things",
+      "href": "/youth-life"
     },
     {
       "label": "Staff",
@@ -89,6 +83,12 @@
       "icon": "mapPin",
       "description": "Directions, hours, contact",
       "href": "/about#find-us"
+    },
+    {
+      "label": "Contact Us",
+      "icon": "mail",
+      "description": "Reach the church office",
+      "href": "/contact-us"
     }
   ]
 }

@@ -295,6 +295,7 @@ export default defineConfig({
                   { value: "clock", label: "Clock" },
                   { value: "coin", label: "Coin" },
                   { value: "heart", label: "Heart" },
+                  { value: "mail", label: "Mail" },
                   { value: "mapPin", label: "Map Pin" },
                   { value: "sun", label: "Sun" },
                   { value: "users", label: "Users" },
