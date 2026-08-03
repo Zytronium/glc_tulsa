@@ -202,6 +202,11 @@ button:focus-visible {
   line-height: 1.5;
 }
 
+.tina-markdown p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .tina-markdown a {
   color: #0ea5e9;
   text-decoration: underline;
