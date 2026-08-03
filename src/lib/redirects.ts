@@ -13,6 +13,7 @@ export const redirects: Record<string, string> = {
   "standrewsociety": "/ministries/st-andrew-society",
   "contactus": "/contact-us",
   "general-1": "/about",
+  "ssattendance": "/ss-attendance"
 };
 
 export function getRedirectTarget(slug: string): string | null {
