@@ -1524,6 +1524,72 @@ export default defineConfig({
           },
         ],
       },
+      // -------- sign-up page --------
+      {
+        name: "signUpPage",
+        label: "Sign-Up Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "sign-up",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/sign-up",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "pageTitle",
+            label: "Page Title",
+            description: 'e.g. "Sign Up"',
+            required: true,
+          },
+          {
+            type: "string",
+            name: "intro",
+            label: "Intro",
+            description: "Optional short intro shown above the list of sign-ups.",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "emptyMessage",
+            label: "Empty State Message",
+            description: "Shown when there are no sign-up links.",
+          },
+          {
+            type: "object",
+            name: "signUps",
+            label: "Sign-Ups",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.label }),
+            },
+            fields: [
+              { type: "string", name: "label", label: "Label", required: true },
+              {
+                type: "string",
+                name: "summary",
+                label: "Summary",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "linkLabel", label: "Link Label", description: 'e.g. "Sign Up"' },
+              { type: "string", name: "linkHref", label: "Link URL" },
+              {
+                type: "boolean",
+                name: "isExternal",
+                label: "External Link",
+                description: "Turn on if this opens an outside site (e.g. SignUpGenius) rather than a page on our own site.",
+              },
+            ],
+          },
+        ],
+      },
       // -------- Custom Page Builder --------
       {
         name: "sitePage",
