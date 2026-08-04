@@ -22,7 +22,8 @@ const RESERVED_SLUGS = [
   "news",
   "photos",
   "worship",
-  "youth"
+  "youth",
+  "glcdeposits"
   // IMPORTANT: add new slugs here as new pages are added to the codebase
 ];
 
@@ -1658,6 +1659,13 @@ export default defineConfig({
             label: "Status",
             options: ["draft", "published"],
             required: true,
+          },
+          {
+            type: "boolean",
+            name: "passwordProtected",
+            label: "Password Protected",
+            description:
+              "⚠️ Do NOT include sensitive information (including sensitive form embed code) anywhere on this page even while this is enabled. This page's content is stored in a public GitHub repository and is visible to anyone on the internet, password protection only hides it from site visitors, not from the CMS/GitHub itself. For content that must stay fully private, contact the developer, Daniel Stelljes, instead.",
           },
           {
             type: "object",

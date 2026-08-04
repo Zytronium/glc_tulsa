@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { client } from "@/../tina/__generated__/client";
 import { ClientPage } from "./client-page";
+import { PasswordGate } from "@/components/pages/PasswordGate";
 import { getRedirectTarget } from "@/lib/redirects";
 
 type Props = {
@@ -34,6 +35,11 @@ export default async function DynamicPage({ params }: Props) {
 
   if (!isPublished || !afterStart || !beforeEnd) {
     notFound();
+  }
+
+  // password-protected pages: only pass the slug, never the content
+  if (doc.passwordProtected) {
+    return <PasswordGate slug={slug} />;
   }
 
   return <ClientPage query={result} relativePath={doc._sys.relativePath} />;

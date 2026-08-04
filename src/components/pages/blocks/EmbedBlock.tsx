@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { backgroundStyleFor } from "./backgroundStyles";
+import { EmbedRenderer } from "@/components/EmbedRenderer";
 
 type Props = {
   section: {
@@ -23,40 +23,6 @@ const MAX_WIDTH_CLASSES: Record<string, string> = {
 };
 
 export function EmbedBlock({ section }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const raw = section.embedCode;
-    const code = typeof raw === "string" ? raw.trim() : "";
-    if (!container || !code) return;
-
-    container.innerHTML = "";
-
-    // -------- parse the pasted markup --------
-    const temp = document.createElement("div");
-    temp.innerHTML = code;
-
-    const scriptEl = temp.querySelector("script");
-
-    if (scriptEl) {
-      // recreate the script tag so the browser actually executes it
-      const script = document.createElement("script");
-      Array.from(scriptEl.attributes).forEach((attr) => {
-        script.setAttribute(attr.name, attr.value);
-      });
-      script.textContent = scriptEl.textContent;
-      container.appendChild(script);
-    } else {
-      // iframe or other static markup, safe to insert directly
-      container.innerHTML = code;
-    }
-
-    return () => {
-      container.innerHTML = "";
-    };
-  }, [section.embedCode]);
-
   if (typeof section.embedCode !== "string" || !section.embedCode.trim()) return null;
 
   const bg = backgroundStyleFor(section.background);
@@ -85,7 +51,9 @@ export function EmbedBlock({ section }: Props) {
             <TinaMarkdown content={section.bodyRichText} />
           </div>
         )}
-        <div data-tina-field={tinaField(section, "embedCode")} ref={containerRef} />
+        <div data-tina-field={tinaField(section, "embedCode")}>
+          <EmbedRenderer code={section.embedCode} />
+        </div>
       </div>
     </section>
   );
