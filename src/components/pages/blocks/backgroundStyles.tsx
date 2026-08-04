@@ -4,6 +4,7 @@ export const BACKGROUND_STYLES: Record<string, string> = {
   solidStone: "bg-stone-100",
   solidWhite: "bg-white",
   vestmentDark: "bg-vestment-900",
+  transparent: "bg-transparent",
 };
 
 export const BACKGROUND_IMAGE: Record<string, string | undefined> = {
@@ -15,8 +16,8 @@ export const BACKGROUND_IMAGE: Record<string, string | undefined> = {
 };
 
 export function backgroundStyleFor(background?: string | null) {
-  const key = background ?? "solidWhite";
-  const bgClass = BACKGROUND_STYLES[key] ?? "bg-white";
+  const key = background ?? "transparent";
+  const bgClass = BACKGROUND_STYLES[key] ?? "bg-transparent";
   const image = BACKGROUND_IMAGE[key];
   return {
     className: bgClass,

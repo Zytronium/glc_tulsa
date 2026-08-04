@@ -1,6 +1,7 @@
 import { defineConfig } from "tinacms";
 import client from "./__generated__/client";
 import { TagsAutocomplete } from "@/components/tina/TagsAutocomplete";
+import type { Template } from "tinacms";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -26,6 +27,302 @@ const RESERVED_SLUGS = [
   "glcdeposits"
   // IMPORTANT: add new slugs here as new pages are added to the codebase
 ];
+
+// shared block templates, reused at top level and inside section groups
+function createBlockTemplates(): Template[] {
+  return [
+    {
+      name: "heroBlock",
+      label: "Hero (Home)",
+      fields: [
+        {type: "image", name: "backgroundImage", label: "Background Image"},
+        {type: "string", name: "title", label: "Title"},
+        {
+          type: "string",
+          name: "headline",
+          label: "Headline",
+          description: "Use \"|\" to break into separate lines",
+        },
+        {type: "string", name: "subtext", label: "Subtext", ui: {component: "textarea"}},
+        {
+          type: "object",
+          name: "ctas",
+          label: "Buttons",
+          list: true,
+          fields: [
+            {type: "string", name: "label", label: "Label"},
+            {type: "string", name: "href", label: "URL"},
+            {
+              type: "string",
+              name: "style",
+              label: "Style",
+              options: ["garnetSolid", "brassSolid", "outlineOnDark"],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "pageHeroBlock",
+      label: "Hero (Page)",
+      fields: [
+        {type: "image", name: "backgroundImage", label: "Background Image"},
+        {type: "string", name: "eyebrow", label: "Eyebrow"},
+        {type: "string", name: "headline", label: "Headline"},
+        {type: "string", name: "intro", label: "Intro", ui: {component: "textarea"}},
+      ],
+    },
+    {
+      name: "textImageBlock",
+      label: "Text + Image",
+      fields: [
+        {type: "string", name: "heading", label: "Heading"},
+        {type: "rich-text", name: "body", label: "Body"},
+        {type: "image", name: "image", label: "Image"},
+        // -------- image rounding field --------
+        {
+          type: "string",
+          name: "imageRounding",
+          label: "Image Roundedness",
+          options: [
+            {value: "none", label: "None"},
+            {value: "sm", label: "Slight"},
+            {value: "lg", label: "Medium"},
+            {value: "2xl", label: "Large"},
+            {value: "4xl", label: "Extra Large"},
+            {value: "full", label: "Circle Crop"},
+          ],
+        },
+        {
+          type: "string",
+          name: "layout",
+          label: "Layout",
+          options: ["imageLeft", "imageRight", "textOnly"],
+        },
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+        {
+          type: "object",
+          name: "cta",
+          label: "Button (optional)",
+          fields: [
+            {type: "string", name: "label", label: "Label"},
+            {type: "string", name: "href", label: "URL"},
+            {
+              type: "string",
+              name: "style",
+              label: "Style",
+              options: ["garnetSolid", "brassSolid", "outlineOnDark"],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "quoteBlock",
+      label: "Quote",
+      fields: [
+        {type: "string", name: "quote", label: "Quote", ui: {component: "textarea"}},
+        {type: "string", name: "citation", label: "Citation"},
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+      ],
+    },
+    {
+      name: "cardsBlock",
+      label: "Card Grid",
+      fields: [
+        {type: "string", name: "heading", label: "Heading"},
+        {
+          type: "object",
+          name: "cards",
+          label: "Cards",
+          list: true,
+          fields: [
+            {type: "string", name: "label", label: "Label"},
+            {type: "string", name: "body", label: "Body"},
+            {
+              type: "string",
+              name: "icon",
+              label: "Icon",
+              required: true,
+              options: [
+                {value: "book", label: "Book"},
+                {value: "bookOpen", label: "Open Book"},
+                {value: "calendar", label: "Calendar"},
+                {value: "clock", label: "Clock"},
+                {value: "coin", label: "Coin"},
+                {value: "heart", label: "Heart"},
+                {value: "mapPin", label: "Map Pin"},
+                {value: "sun", label: "Sun"},
+                {value: "users", label: "Users"},
+                {value: "world", label: "World"},
+              ],
+            },
+            {type: "image", name: "image", label: "Image"},
+          ],
+        },
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+      ],
+    },
+    {
+      name: "ctaBlock",
+      label: "Call to Action",
+      fields: [
+        {type: "string", name: "heading", label: "Heading"},
+        {type: "string", name: "linkLabel", label: "Button Label"},
+        {type: "string", name: "linkHref", label: "Button URL"},
+        {
+          type: "string",
+          name: "style",
+          label: "Style",
+          options: ["garnetSolid", "brassSolid", "outlineOnDark"],
+        },
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+      ],
+    },
+    {
+      name: "imageBlock",
+      label: "Image Only",
+      fields: [
+        {type: "image", name: "image", label: "Image"},
+        {type: "string", name: "alt", label: "Alt Text", description: "Describe the image for accessibility."},
+        {
+          type: "string",
+          name: "maxWidth",
+          label: "Max Width",
+          options: [
+            {value: "sm", label: "Small"},
+            {value: "md", label: "Medium"},
+            {value: "lg", label: "Large"},
+            {value: "full", label: "Full Width"},
+          ],
+        },
+        {
+          type: "string",
+          name: "rounding",
+          label: "Image Roundedness",
+          options: [
+            {value: "none", label: "None"},
+            {value: "sm", label: "Slight"},
+            {value: "lg", label: "Medium"},
+            {value: "2xl", label: "Large"},
+            {value: "4xl", label: "Extra Large"},
+            {value: "full", label: "Circle Crop"},
+          ],
+        },
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+      ],
+    },
+    {
+      name: "embedBlock",
+      label: "Embedded Form",
+      fields: [
+        {type: "string", name: "heading", label: "Heading (optional)"},
+        {
+          type: "rich-text",
+          name: "bodyRichText",
+          label: "Paragraph (optional)",
+          description: "Optional text shown above the embedded form.",
+        },
+        {
+          type: "string",
+          name: "embedCode",
+          label: "Embed Code",
+          description:
+            "Paste either an &lt;iframe&gt; embed or a &lt;script&gt; embed (e.g. Cognito Forms' seamless.js snippet). Paste it exactly as given.",
+          ui: {
+            component: "textarea",
+          },
+        },
+        {
+          type: "string",
+          name: "maxWidth",
+          label: "Max Width",
+          options: [
+            {value: "sm", label: "Small"},
+            {value: "md", label: "Medium"},
+            {value: "lg", label: "Large"},
+            {value: "full", label: "Full Width"},
+          ],
+        },
+        {
+          type: "string",
+          name: "background",
+          label: "Background",
+          options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+        },
+      ],
+    },
+  ];
+}
+
+// section group block, wraps a layout preset around N nested slots
+const sectionGroupBlock: Template = {
+  name: "sectionGroupBlock",
+  label: "Section Group",
+  fields: [
+    {
+      type: "string",
+      name: "groupLayout",
+      label: "Layout",
+      required: true,
+      options: [
+        { value: "sidebarLeft", label: "Sidebar Left (narrow left, wide right)" },
+        { value: "sidebarRight", label: "Sidebar Right (wide left, narrow right)" },
+        { value: "twoColEven", label: "Two Columns (even)" },
+        { value: "threeTopBottomSplit", label: "Three: One on Top, Two Below" },
+        { value: "threeLeftRightSplit", label: "Three: One on Left, Two Stacked Right" },
+      ],
+    },
+    {
+      type: "string",
+      name: "background",
+      label: "Background",
+      options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark", "transparent"],
+    },
+    {
+      type: "object",
+      name: "slots",
+      label: "Slots",
+      list: true,
+      description:
+        "Add one slot per area in the chosen layout (e.g. 2 slots for Sidebar Left, 3 for the three-part layouts). Order matters, top-left slot first.",
+      fields: [
+        {
+          type: "object",
+          name: "sections",
+          label: "Sections in this Slot",
+          list: true,
+          templates: createBlockTemplates(),
+        },
+      ],
+    },
+  ],
+};
 
 export default defineConfig({
   branch,
@@ -1681,254 +1978,7 @@ export default defineConfig({
             name: "sections",
             label: "Page Sections",
             list: true,
-            templates: [
-              {
-                name: "heroBlock",
-                label: "Hero (Home)",
-                fields: [
-                  { type: "image", name: "backgroundImage", label: "Background Image" },
-                  { type: "string", name: "title", label: "Title" },
-                  {
-                    type: "string",
-                    name: "headline",
-                    label: "Headline",
-                    description: "Use \"|\" to break into separate lines",
-                  },
-                  { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
-                  {
-                    type: "object",
-                    name: "ctas",
-                    label: "Buttons",
-                    list: true,
-                    fields: [
-                      { type: "string", name: "label", label: "Label" },
-                      { type: "string", name: "href", label: "URL" },
-                      {
-                        type: "string",
-                        name: "style",
-                        label: "Style",
-                        options: ["garnetSolid", "brassSolid", "outlineOnDark"],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "pageHeroBlock",
-                label: "Hero (Page)",
-                fields: [
-                  { type: "image", name: "backgroundImage", label: "Background Image" },
-                  { type: "string", name: "eyebrow", label: "Eyebrow" },
-                  { type: "string", name: "headline", label: "Headline" },
-                  { type: "string", name: "intro", label: "Intro", ui: { component: "textarea" } },
-                ],
-              },
-              {
-                name: "textImageBlock",
-                label: "Text + Image",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "rich-text", name: "body", label: "Body" },
-                  { type: "image", name: "image", label: "Image" },
-                  // -------- image rounding field --------
-                  {
-                    type: "string",
-                    name: "imageRounding",
-                    label: "Image Roundedness",
-                    options: [
-                      { value: "none", label: "None" },
-                      { value: "sm", label: "Slight" },
-                      { value: "lg", label: "Medium" },
-                      { value: "2xl", label: "Large" },
-                      { value: "4xl", label: "Extra Large" },
-                      { value: "full", label: "Circle Crop" },
-                    ],
-                  },
-                  {
-                    type: "string",
-                    name: "layout",
-                    label: "Layout",
-                    options: ["imageLeft", "imageRight", "textOnly"],
-                  },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                  {
-                    type: "object",
-                    name: "cta",
-                    label: "Button (optional)",
-                    fields: [
-                      { type: "string", name: "label", label: "Label" },
-                      { type: "string", name: "href", label: "URL" },
-                      {
-                        type: "string",
-                        name: "style",
-                        label: "Style",
-                        options: ["garnetSolid", "brassSolid", "outlineOnDark"],
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                name: "quoteBlock",
-                label: "Quote",
-                fields: [
-                  { type: "string", name: "quote", label: "Quote", ui: { component: "textarea" } },
-                  { type: "string", name: "citation", label: "Citation" },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                ],
-              },
-              {
-                name: "cardsBlock",
-                label: "Card Grid",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  {
-                    type: "object",
-                    name: "cards",
-                    label: "Cards",
-                    list: true,
-                    fields: [
-                      { type: "string", name: "label", label: "Label" },
-                      { type: "string", name: "body", label: "Body" },
-                      {
-                        type: "string",
-                        name: "icon",
-                        label: "Icon",
-                        required: true,
-                        options: [
-                          { value: "book", label: "Book" },
-                          { value: "bookOpen", label: "Open Book" },
-                          { value: "calendar", label: "Calendar" },
-                          { value: "clock", label: "Clock" },
-                          { value: "coin", label: "Coin" },
-                          { value: "heart", label: "Heart" },
-                          { value: "mapPin", label: "Map Pin" },
-                          { value: "sun", label: "Sun" },
-                          { value: "users", label: "Users" },
-                          { value: "world", label: "World" },
-                        ],
-                      },
-                      { type: "image", name: "image", label: "Image" },
-                    ],
-                  },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                ],
-              },
-              {
-                name: "ctaBlock",
-                label: "Call to Action",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "linkLabel", label: "Button Label" },
-                  { type: "string", name: "linkHref", label: "Button URL" },
-                  {
-                    type: "string",
-                    name: "style",
-                    label: "Style",
-                    options: ["garnetSolid", "brassSolid", "outlineOnDark"],
-                  },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                ],
-              },
-              {
-                name: "imageBlock",
-                label: "Image Only",
-                fields: [
-                  { type: "image", name: "image", label: "Image" },
-                  { type: "string", name: "alt", label: "Alt Text", description: "Describe the image for accessibility." },
-                  {
-                    type: "string",
-                    name: "maxWidth",
-                    label: "Max Width",
-                    options: [
-                      { value: "sm", label: "Small" },
-                      { value: "md", label: "Medium" },
-                      { value: "lg", label: "Large" },
-                      { value: "full", label: "Full Width" },
-                    ],
-                  },
-                  {
-                    type: "string",
-                    name: "rounding",
-                    label: "Image Roundedness",
-                    options: [
-                      { value: "none", label: "None" },
-                      { value: "sm", label: "Slight" },
-                      { value: "lg", label: "Medium" },
-                      { value: "2xl", label: "Large" },
-                      { value: "4xl", label: "Extra Large" },
-                      { value: "full", label: "Circle Crop" },
-                    ],
-                  },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                ],
-              },
-              {
-                name: "embedBlock",
-                label: "Embedded Form",
-                fields: [
-                  { type: "string", name: "heading", label: "Heading (optional)" },
-                  {
-                    type: "rich-text",
-                    name: "bodyRichText",
-                    label: "Paragraph (optional)",
-                    description: "Optional text shown above the embedded form.",
-                  },
-                  {
-                    type: "string",
-                    name: "embedCode",
-                    label: "Embed Code",
-                    description:
-                      "Paste either an &lt;iframe&gt; embed or a &lt;script&gt; embed (e.g. Cognito Forms' seamless.js snippet). Paste it exactly as given.",
-                    ui: {
-                      component: "textarea",
-                    },
-                  },
-                  {
-                    type: "string",
-                    name: "maxWidth",
-                    label: "Max Width",
-                    options: [
-                      { value: "sm", label: "Small" },
-                      { value: "md", label: "Medium" },
-                      { value: "lg", label: "Large" },
-                      { value: "full", label: "Full Width" },
-                    ],
-                  },
-                  {
-                    type: "string",
-                    name: "background",
-                    label: "Background",
-                    options: ["agedPaper", "paper", "solidStone", "solidWhite", "vestmentDark"],
-                  },
-                ],
-              },
-            ],
+            templates: [...createBlockTemplates(), sectionGroupBlock],
           },
         ],
       }
