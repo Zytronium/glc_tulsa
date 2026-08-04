@@ -832,6 +832,111 @@ export default defineConfig({
           },
         ],
       },
+      // -------- history page --------
+      {
+        name: "historyPage",
+        label: "History Page",
+        path: "content",
+        format: "json",
+        match: {
+          include: "history",
+        },
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/history",
+        },
+        fields: [
+          { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "History"' },
+          { type: "string", name: "headline", label: "Headline", required: true },
+          { type: "image", name: "headerBackgroundImage", label: "Header Background Image" },
+          {
+            type: "object",
+            name: "sections",
+            label: "Sections",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.heading || item?.layout }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+                description: "Leave blank to continue the previous section visually with no new heading.",
+              },
+              {
+                type: "string",
+                name: "headingSize",
+                label: "Heading Size",
+                options: ["large", "medium", "small"],
+              },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Use a blank line between paragraphs.",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "layout",
+                label: "Layout",
+                options: [
+                  "textOnly",
+                  "textWithSidebarImages",
+                  "textWithSideImage",
+                  "imageRow",
+                  "timeline",
+                ],
+                required: true,
+              },
+              {
+                type: "object",
+                name: "sideImages",
+                label: "Images",
+                description: "Used by \"Text with Sidebar Images\", \"Text with Side Image\" (first image only), and \"Image Row\".",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.caption }),
+                },
+                fields: [
+                  { type: "image", name: "image", label: "Image" },
+                  { type: "string", name: "caption", label: "Caption" },
+                  {
+                    type: "string",
+                    name: "width",
+                    label: "Width (Image Row only)",
+                    options: ["half", "full"],
+                    description: "How wide this image is within its row.",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "timelineItems",
+                label: "Timeline Items",
+                description: "Only used by the \"Timeline\" layout.",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.year }),
+                },
+                fields: [
+                  { type: "string", name: "year", label: "Year", description: 'e.g. "1906" or "1968 - January 18"' },
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Text",
+                    ui: { component: "textarea" },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
       // -------- worship page --------
       {
         name: "worshipPage",
