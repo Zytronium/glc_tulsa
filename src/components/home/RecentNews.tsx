@@ -6,7 +6,12 @@ import type { NewsItemConnectionQuery } from "@/../tina/__generated__/types";
 
 type NewsNode = NonNullable<NonNullable<NewsItemConnectionQuery["newsItemConnection"]["edges"]>[number]>["node"];
 
-type Props = { items: NonNullable<NewsNode>[] };
+type Props = {
+  items: NonNullable<NewsNode>[];
+  // true when the section before this one in the DOM was skipped, so this section
+  // should take on the background that section would have had, to keep alternation intact
+  useAltBackground?: boolean;
+};
 
 function getFileName(id: string) {
   const lastSlash = id.lastIndexOf("/");
@@ -34,7 +39,7 @@ function formatDate(dateStr: string) {
   };
 }
 
-export function RecentNews({ items }: Props) {
+export function RecentNews({ items, useAltBackground }: Props) {
   const cutoff = oneYearAgo();
 
   const recent = [...items]
@@ -48,11 +53,15 @@ export function RecentNews({ items }: Props) {
   const [featured, ...secondary] = recent;
   const featuredDate = formatDate(featured.date);
 
+  const bgImage = useAltBackground ? "/images/paper.png" : "/images/aged_paper.png";
+  const borderClass = useAltBackground ? "border-stone-100" : "border-stone-200";
+  const bgClass = useAltBackground ? "bg-white" : "bg-stone-100";
+
   return (
     <section
-      className="border-b border-stone-200 bg-stone-100"
+      className={`border-b ${borderClass} ${bgClass}`}
       style={{
-        backgroundImage: "url('/images/aged_paper.png')",
+        backgroundImage: `url('${bgImage}')`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",

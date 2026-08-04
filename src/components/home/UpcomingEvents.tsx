@@ -14,7 +14,9 @@ function getFileName(id: string) {
   return id.substring(lastSlash + 1, lastDot);
 }
 
-export function UpcomingEvents({ events }: Props) {
+// -------- resolves recurring/seasonal events and filters to visible, featured, upcoming ones --------
+// exported so callers (like ClientPage) can know ahead of time whether this section will render
+export function getVisibleEvents(events: EventNode[]) {
   const startOfTodayUTC = new Date();
   startOfTodayUTC.setUTCHours(0, 0, 0, 0);
 
@@ -38,6 +40,15 @@ export function UpcomingEvents({ events }: Props) {
   let visibleEvents = resolvedEvents.filter((e) => new Date(e.date) >= startOfTodayUTC);
   // only show featured events
   visibleEvents = visibleEvents.filter((e) => e.featured);
+
+  return visibleEvents;
+}
+
+export function UpcomingEvents({ events }: Props) {
+  const visibleEvents = getVisibleEvents(events);
+
+  if (visibleEvents.length === 0)
+    return null;
 
   return (
     <section

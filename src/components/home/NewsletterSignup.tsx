@@ -3,12 +3,20 @@ import { IconMail } from "@/components/home/icons";
 
 const NEWSLETTER_SIGNUP_URL = "https://mailchi.mp/b6c27c32e1ce/sign-up-for-eblasts";
 
-export function NewsletterSignup() {
+type Props = {
+  useAltBackground?: boolean;
+};
+
+export function NewsletterSignup({ useAltBackground }: Props) {
+  const bgImage = useAltBackground ? "/images/aged_paper.png" : "/images/paper.png";
+  const borderClass = useAltBackground ? "border-stone-200" : "border-stone-100";
+  const bgClass = useAltBackground ? "bg-stone-100" : "bg-white";
+
   return (
     <section
-      className="border-b border-stone-100 bg-white"
+      className={`border-b ${borderClass} ${bgClass}`}
       style={{
-        backgroundImage: "url('/images/paper.png')",
+        backgroundImage: `url('${bgImage}')`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",

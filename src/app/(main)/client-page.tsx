@@ -7,7 +7,7 @@ import { Hero } from "@/components/home/Hero";
 import { ServiceBar } from "@/components/home/ServiceBar";
 import { QuickLinks } from "@/components/home/QuickLinks";
 import { WhoWeAre } from "@/components/home/WhoWeAre";
-import { UpcomingEvents } from "@/components/home/UpcomingEvents";
+import { UpcomingEvents, getVisibleEvents } from "@/components/home/UpcomingEvents";
 import { Mission } from "@/components/home/Mission";
 import { RecentNews } from "@/components/home/RecentNews";
 import { NewsletterSignup } from "@/components/home/NewsletterSignup";
@@ -30,6 +30,10 @@ export function ClientPage({ homeQuery, globalVariablesQuery, events, newsItems 
   const home = homeData.homePage;
   const globalVariables = globalVariablesData.global_variables!;
 
+  // UpcomingEvents renders null when there are no visible featured events;
+  // when that happens, every section after it needs to shift one step in the alternation
+  const eventsWillRender = getVisibleEvents(events).length > 0;
+
   return (
     <main>
       <Hero hero={home.hero!} />
@@ -38,8 +42,8 @@ export function ClientPage({ homeQuery, globalVariablesQuery, events, newsItems 
       <WhoWeAre whoWeAre={home.whoWeAre!} />
       <Mission mission={home.mission!} />
       <UpcomingEvents events={events} />
-      <RecentNews items={newsItems} />
-      <NewsletterSignup />
+      <RecentNews items={newsItems} useAltBackground={!eventsWillRender} />
+      <NewsletterSignup useAltBackground={!eventsWillRender} />
     </main>
   );
 }
