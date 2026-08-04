@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import type { TinaMarkdownContent } from "tinacms/dist/rich-text";
 import { IconArrowRight } from "@/components/home/icons";
 import { backgroundStyleFor } from "./backgroundStyles";
 
@@ -32,7 +34,7 @@ type Cta = {
 type Props = {
   section: {
     heading?: string | null;
-    body?: string | null;
+    body?: TinaMarkdownContent | null;
     image?: string | null;
     layout?: string | null;
     background?: string | null;
@@ -43,7 +45,6 @@ type Props = {
 
 export function TextImageBlock({ section }: Props) {
   const bg = backgroundStyleFor(section.background);
-  const paragraphs = (section.body ?? "").split("\n\n").filter(Boolean);
   const layout = section.layout ?? "imageRight";
   const textOnly = layout === "textOnly" || !section.image;
   const imageOnLeft = layout === "imageLeft";
@@ -57,7 +58,9 @@ export function TextImageBlock({ section }: Props) {
     <section className={`border-b border-stone-200 ${bg.className}`} style={bg.style}>
       <div
         className={`mx-auto max-w-5xl gap-10 px-5 py-14 sm:px-8 sm:py-20 ${
-          textOnly ? "max-w-3xl" : "grid lg:grid-cols-2 lg:items-center"
+          textOnly
+            ? "max-w-3xl"
+            : "grid lg:grid-cols-2 lg:items-center"
         }`}
       >
         <div className={imageOnLeft && !textOnly ? "lg:order-2" : ""}>
@@ -71,24 +74,27 @@ export function TextImageBlock({ section }: Props) {
               {section.heading}
             </h2>
           )}
-          {paragraphs.length > 0 && (
+
+          {section.body && (
             <div
               data-tina-field={tinaField(section, "body")}
-              className={`mt-4 space-y-4 text-[15px] leading-7 ${
-                bg.isDark ? "text-stone-200/90" : "text-stone-700"
+              className={`tina-markdown prose mt-4 max-w-none ${
+                bg.isDark
+                  ? "prose-invert text-stone-200/90"
+                  : "text-stone-700"
               }`}
             >
-              {paragraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+              <TinaMarkdown content={section.body} />
             </div>
           )}
+
           {section.cta?.href && (
             <Link
               href={section.cta.href}
               data-tina-field={tinaField(section.cta, "label")}
               className={`mt-6 inline-flex items-center gap-1.5 rounded-sm px-6 py-3 text-sm font-semibold tracking-wide transition ${
-                BUTTON_STYLES[section.cta.style ?? "garnetSolid"] ?? BUTTON_STYLES.garnetSolid
+                BUTTON_STYLES[section.cta.style ?? "garnetSolid"] ??
+                BUTTON_STYLES.garnetSolid
               }`}
             >
               {section.cta.label}
@@ -100,7 +106,11 @@ export function TextImageBlock({ section }: Props) {
         {!textOnly && section.image && (
           <div className={imageOnLeft ? "lg:order-1" : ""}>
             <div
-              className={`relative overflow-hidden ${roundingClass} ${isCircle ? "mx-auto aspect-square w-full max-w-sm" : ""}`}
+              className={`relative overflow-hidden ${roundingClass} ${
+                isCircle
+                  ? "mx-auto aspect-square w-full max-w-sm"
+                  : ""
+              }`}
               style={isCircle ? undefined : { aspectRatio }}
             >
               <Image
@@ -113,7 +123,9 @@ export function TextImageBlock({ section }: Props) {
                 onLoad={(e) => {
                   const img = e.currentTarget;
                   if (img.naturalWidth && img.naturalHeight) {
-                    setAspectRatio(img.naturalWidth / img.naturalHeight);
+                    setAspectRatio(
+                      img.naturalWidth / img.naturalHeight
+                    );
                   }
                 }}
               />

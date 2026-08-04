@@ -1728,7 +1728,7 @@ export default defineConfig({
                 label: "Text + Image",
                 fields: [
                   { type: "string", name: "heading", label: "Heading" },
-                  { type: "string", name: "body", label: "Body", ui: { component: "textarea" } },
+                  { type: "rich-text", name: "body", label: "Body" },
                   { type: "image", name: "image", label: "Image" },
                   // -------- image rounding field --------
                   {
