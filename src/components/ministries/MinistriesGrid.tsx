@@ -20,7 +20,7 @@ export function MinistriesGrid({ ministries }: Props) {
       }}
     >
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-6">
           {items.map((ministry) => {
             const external = !!ministry?.isExternal;
             const href = ministry?.linkHref ?? "#";
@@ -28,7 +28,7 @@ export function MinistriesGrid({ ministries }: Props) {
             return (
               <div
                 key={ministry?.label}
-                className="flex flex-col overflow-hidden rounded-sm border border-stone-200 bg-white"
+                className="flex w-full flex-col overflow-hidden rounded-sm border border-stone-200 bg-white sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 {ministry?.image && (
                   <div className="relative h-40 w-full">
