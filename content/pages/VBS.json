@@ -1,0 +1,14 @@
+{
+  "title": "VBS",
+  "slug": "vbs",
+  "status": "published",
+  "sections": [
+    {
+      "backgroundImage": "/images/bible.webp",
+      "eyebrow": "VBS",
+      "headline": "Vacation Bible School 2027",
+      "intro": "More info coming soon!",
+      "_template": "pageHeroBlock"
+    }
+  ]
+}
