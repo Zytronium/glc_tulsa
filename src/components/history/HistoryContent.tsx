@@ -15,7 +15,7 @@ export function HistoryContent({ sections }: Props) {
         if (section?.heading) {
           bgToggle += 1;
         }
-        const isAged = bgToggle % 2 === 0;
+        const isAged = bgToggle % 2 === 1;
 
         return (
         <section
