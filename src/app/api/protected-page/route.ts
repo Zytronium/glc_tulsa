@@ -55,9 +55,6 @@ export async function POST(req: NextRequest) {
   }
 
   if (!valid) {
-    console.log(JSON.stringify(hash));
-    console.log(hash?.charCodeAt(0));
-    console.log(hash?.startsWith("$"));
     return NextResponse.json({ error: "Incorrect password" }, { status: 401 });
   }
 
