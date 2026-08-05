@@ -1,5 +1,4 @@
 import { defineConfig } from "tinacms";
-import client from "./__generated__/client";
 import { TagsAutocomplete } from "@/components/tina/TagsAutocomplete";
 import type { Template } from "tinacms";
 
@@ -2004,6 +2003,8 @@ export default defineConfig({
             const slug = (values.slug ?? "").toString().trim().toLowerCase();
             if (!slug) return values;
 
+            const { default: client } = await import("./__generated__/client");
+
             let result;
             try {
               result = await client.queries.sitePageConnection({
@@ -2011,12 +2012,12 @@ export default defineConfig({
               });
             } catch (err) {
               const message = err instanceof Error ? err.message : String(err);
-              console.error("[slug-check] query threw:", message);
+              console.error("[slug-check] query threw:", message, err);
               throw new Error(`Slug check failed: ${message}`);
             }
 
             if (!result?.data?.sitePageConnection) {
-              console.error("[slug-check] no data returned.");
+              console.error("[slug-check] no data returned:", result);
               throw new Error("Slug check returned no data - please try again.");
             }
 
