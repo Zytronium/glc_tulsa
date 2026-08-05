@@ -1,0 +1,14 @@
+{
+  "title": "Bingo Night Fundraiser",
+  "slug": "bingonight",
+  "status": "draft",
+  "sections": [
+    {
+      "bodyRichText": "",
+      "embedCode": "<script src=\"https://www.cognitoforms.com/f/seamless.js\" data-key=\"xP2D0sCmwECD3gT3Q5Tfdw\" data-form=\"73\"></script>",
+      "maxWidth": "lg",
+      "background": "paper",
+      "_template": "embedBlock"
+    }
+  ]
+}
