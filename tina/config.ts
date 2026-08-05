@@ -2000,7 +2000,6 @@ export default defineConfig({
         format: "json",
         ui: {
           beforeSubmit: async ({ form, values }) => {
-            console.log("SLUG_CHECK_V3_MARKER");
             const slug = (values.slug ?? "").toString().trim().toLowerCase();
             if (!slug) return values;
 
