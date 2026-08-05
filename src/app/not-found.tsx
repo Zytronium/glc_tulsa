@@ -50,7 +50,7 @@ export default async function NotFound() {
 
       {/* -------- body copy -------- */}
       <p className="font-body text-base text-stone-700 text-center max-w-md leading-relaxed mb-2">
-        The page you&apos;re looking for either doesn&apos;t exist or hasn&apos;t been created yet.
+        The page you&apos;re looking for either doesn&apos;t exist or has moved.
       </p>
 
       {/* -------- joke -------- */}
