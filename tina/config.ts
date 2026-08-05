@@ -78,7 +78,12 @@ function createBlockTemplates(): Template[] {
         {type: "string", name: "heading", label: "Heading"},
         {type: "rich-text", name: "body", label: "Body"},
         {type: "image", name: "image", label: "Image"},
-        // -------- image rounding field --------
+        {
+          type: "string",
+          name: "imageLinkHref",
+          label: "Image Link URL (optional)",
+          description: "If set, the image becomes clickable and links here.",
+        },
         {
           type: "string",
           name: "imageRounding",
@@ -204,6 +209,12 @@ function createBlockTemplates(): Template[] {
       fields: [
         {type: "image", name: "image", label: "Image"},
         {type: "string", name: "alt", label: "Alt Text", description: "Describe the image for accessibility."},
+        {
+          type: "string",
+          name: "linkHref",
+          label: "Link URL (optional)",
+          description: "If set, the image becomes clickable and links here.",
+        },
         {
           type: "string",
           name: "maxWidth",

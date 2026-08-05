@@ -1,0 +1,46 @@
+{
+  "title": "Wreaths Fundraiser",
+  "slug": "wreaths",
+  "status": "published",
+  "sections": [
+    {
+      "groupLayout": "threeTopBottomSplit",
+      "background": "paper",
+      "slots": [
+        {
+          "sections": [
+            {
+              "heading": "",
+              "body": "# Order your beautiful greenery [HERE](https://sherwoodfundraiser.com/gly/products)!\n",
+              "layout": "textOnly",
+              "_template": "textImageBlock"
+            }
+          ]
+        },
+        {
+          "sections": [
+            {
+              "image": "/images/2.webp",
+              "linkHref": "https://sherwoodfundraiser.com/gly",
+              "rounding": "lg",
+              "background": "transparent",
+              "_template": "imageBlock"
+            }
+          ]
+        },
+        {
+          "sections": [
+            {
+              "image": "/images/Product+Page.webp",
+              "linkHref": "https://sherwoodfundraiser.com/gly",
+              "rounding": "lg",
+              "background": "transparent",
+              "_template": "imageBlock"
+            }
+          ]
+        }
+      ],
+      "_template": "sectionGroupBlock"
+    }
+  ]
+}

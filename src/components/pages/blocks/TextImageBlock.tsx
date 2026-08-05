@@ -36,6 +36,7 @@ type Props = {
     heading?: string | null;
     body?: TinaMarkdownContent | null;
     image?: string | null;
+    imageLinkHref?: string | null;
     layout?: string | null;
     background?: string | null;
     imageRounding?: string | null;
@@ -54,13 +55,35 @@ export function TextImageBlock({ section }: Props) {
   // -------- track the image's natural aspect ratio once it loads --------
   const [aspectRatio, setAspectRatio] = useState<number>(4 / 3);
 
+  const imageElement = section.image && (
+    <div
+      className={`relative overflow-hidden ${roundingClass} ${
+        isCircle ? "mx-auto aspect-square w-full max-w-sm" : ""
+      } ${section.imageLinkHref ? "transition duration-300 group-hover:opacity-90" : ""}`}
+      style={isCircle ? undefined : { aspectRatio }}
+    >
+      <Image
+        fill
+        src={section.image}
+        alt=""
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="object-cover"
+        data-tina-field={tinaField(section, "image")}
+        onLoad={(e) => {
+          const img = e.currentTarget;
+          if (img.naturalWidth && img.naturalHeight) {
+            setAspectRatio(img.naturalWidth / img.naturalHeight);
+          }
+        }}
+      />
+    </div>
+  );
+
   return (
     <section className={`border-b border-stone-200 ${bg.className}`} style={bg.style}>
       <div
         className={`mx-auto max-w-5xl gap-10 px-5 py-14 sm:px-8 sm:py-20 ${
-          textOnly
-            ? "max-w-3xl"
-            : "grid lg:grid-cols-2 lg:items-center"
+          textOnly ? "max-w-3xl" : "grid lg:grid-cols-2 lg:items-center"
         }`}
       >
         <div className={imageOnLeft && !textOnly ? "lg:order-2" : ""}>
@@ -79,9 +102,7 @@ export function TextImageBlock({ section }: Props) {
             <div
               data-tina-field={tinaField(section, "body")}
               className={`tina-markdown prose mt-4 max-w-none ${
-                bg.isDark
-                  ? "prose-invert text-stone-200/90"
-                  : "text-stone-700"
+                bg.isDark ? "prose-invert text-stone-200/90" : "text-stone-700"
               }`}
             >
               <TinaMarkdown content={section.body} />
@@ -93,8 +114,7 @@ export function TextImageBlock({ section }: Props) {
               href={section.cta.href}
               data-tina-field={tinaField(section.cta, "label")}
               className={`mt-6 inline-flex items-center gap-1.5 rounded-sm px-6 py-3 text-sm font-semibold tracking-wide transition ${
-                BUTTON_STYLES[section.cta.style ?? "garnetSolid"] ??
-                BUTTON_STYLES.garnetSolid
+                BUTTON_STYLES[section.cta.style ?? "garnetSolid"] ?? BUTTON_STYLES.garnetSolid
               }`}
             >
               {section.cta.label}
@@ -103,33 +123,19 @@ export function TextImageBlock({ section }: Props) {
           )}
         </div>
 
-        {!textOnly && section.image && (
+        {!textOnly && imageElement && (
           <div className={imageOnLeft ? "lg:order-1" : ""}>
-            <div
-              className={`relative overflow-hidden ${roundingClass} ${
-                isCircle
-                  ? "mx-auto aspect-square w-full max-w-sm"
-                  : ""
-              }`}
-              style={isCircle ? undefined : { aspectRatio }}
+            {section.imageLinkHref ? (
+              <Link
+                href={section.imageLinkHref}
+                data-tina-field={tinaField(section, "imageLinkHref")}
+                className="group block"
             >
-              <Image
-                fill
-                src={section.image}
-                alt=""
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-                data-tina-field={tinaField(section, "image")}
-                onLoad={(e) => {
-                  const img = e.currentTarget;
-                  if (img.naturalWidth && img.naturalHeight) {
-                    setAspectRatio(
-                      img.naturalWidth / img.naturalHeight
-                    );
-                  }
-                }}
-              />
-            </div>
+                {imageElement}
+              </Link>
+            ) : (
+              imageElement
+            )}
           </div>
         )}
       </div>
