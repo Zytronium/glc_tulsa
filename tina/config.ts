@@ -1992,6 +1992,73 @@ export default defineConfig({
           },
         ],
       },
+      // -------- pastor's blog --------
+      {
+        name: "pastorBlogPost",
+        label: "Pastor's Blog Posts",
+        path: "content/pastors-blog",
+        format: "json",
+        defaultItem: () => ({
+          date: new Date().toISOString(),
+          author: "Christopher Hall",
+        }),
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            ui: {
+              dateFormat: "YYYY-MM-DD",
+              timeFormat: false,
+              parse: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                const utcMidnight = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+                return utcMidnight.toISOString();
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+              format: ((value: string) => {
+                if (!value) return value;
+                const d = new Date(value);
+                if (isNaN(d.getTime())) return value;
+                return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              }) as any,
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "summary",
+            label: "Summary",
+            description: "Short teaser shown on the blog listing page.",
+            ui: { component: "textarea" },
+          },
+          { type: "image", name: "coverImage", label: "Cover Image" },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            description: "Full content of the blog post.",
+            isBody: true,
+            required: true,
+          },
+        ],
+      },
       // -------- Custom Page Builder --------
       {
         name: "sitePage",
