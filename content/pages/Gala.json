@@ -1,11 +1,11 @@
 {
   "title": "Gala",
   "slug": "gala",
-  "status": "published",
+  "status": "draft",
   "sections": [
     {
       "heading": "Gala",
-      "body": "Gala is full! \n\nPlease email youth\\@glctulsa.org to inquire about cancellations and potential open spots.  \n\nThanks for your support!\n",
+      "body": "Gala is full!\n\nPlease email [youth@glctulsa.org](mailto:youth@glctulsa.org) to inquire about cancellations and potential open spots.\n\nThanks for your support!\n",
       "layout": "textOnly",
       "background": "paper",
       "_template": "textImageBlock"

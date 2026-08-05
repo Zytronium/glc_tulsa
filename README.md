@@ -16,6 +16,7 @@ This website is hosted with Vercel free tier, a much cheaper option than Squares
 This website is a gift to the church, and I will never require payment in return.
 
 ### Screenshots
+(as of early in development)
 **Home Page Hero Section**
 ![Home Page Hero](/readme_assets/home_hero.png)
 
