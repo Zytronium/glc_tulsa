@@ -15,6 +15,7 @@ export const redirects: Record<string, string> = {
   "general-1": "/about",
   "ssattendance": "/ss-attendance",
   "pastorsblog": "/pastors-blog",
+  "facilityuseagreement": "/facility-use-agreement",
 };
 
 export function getRedirectTarget(slug: string): string | null {
