@@ -2066,31 +2066,47 @@ export default defineConfig({
         path: "content/pages",
         format: "json",
         ui: {
-          beforeSubmit: async ({ form, values }) => {
+          beforeSubmit: async ({ form, values, cms }) => {
             const slug = (values.slug ?? "").toString().trim().toLowerCase();
             if (!slug) return values;
 
-            const { default: client } = await import("./__generated__/client");
+            const tinaAPI = (
+              cms as {
+                api: { tina?: { request: (...args: any[]) => Promise<any> } }
+              }
+            ).api?.tina;
 
-            let result;
+            let data;
             try {
-              result = await client.queries.sitePageConnection({
-                filter: { slug: { eq: slug } },
-              });
+              data = await tinaAPI?.request(
+                `#graphql
+                query ($filter: SitePageFilter) {
+                  sitePageConnection(filter: $filter) {
+                    edges {
+                      node {
+                        ... on Document {
+                          _sys { path }
+                        }
+                      }
+                    }
+                  }
+                }`,
+                { variables: { filter: { slug: { eq: slug } } } },
+              );
             } catch (err) {
               const message = err instanceof Error ? err.message : String(err);
               console.error("[slug-check] query threw:", message, err);
               throw new Error(`Slug check failed: ${message}`);
             }
 
-            if (!result?.data?.sitePageConnection) {
-              console.error("[slug-check] no data returned:", result);
+            if (!data?.sitePageConnection?.edges) {
+              console.error("[slug-check] no data returned:", data);
               throw new Error("Slug check returned no data - please try again.");
             }
 
             const currentId = form.id;
-            const conflict = result.data.sitePageConnection.edges?.find(
-              (edge) => edge?.node?._sys.path !== currentId
+            const conflict = data.sitePageConnection.edges.find(
+              (edge: any) => edge?.node?._sys?.path !== currentId
             );
 
             if (conflict) {
