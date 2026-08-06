@@ -1,8 +1,0 @@
-{
-  "title": "This is a test",
-  "type": "news",
-  "date": "2026-07-10T17:40:06.353Z",
-  "summary": "This is a test article for website development testing.",
-  "image": "/images/church-aerial-view.webp",
-  "content": "This article is a test for website development testing designed to test news articles and article formatting.\n\nHere is a cool picture:\n\n![](/images/chancel.webp)\n\nHere's another cool picture:\n\n![](/images/art002e009288orig.jpg)\n\nAnd here's one of the variants of the curch website logo:\n\n![](/images/grace-logo-long.webp)\n\nThis article will be deleted before the website goes live.\n"
-}
