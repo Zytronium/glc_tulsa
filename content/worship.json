@@ -54,6 +54,33 @@
     "link2Href": "/calendar",
     "image": ""
   },
+  "churchMap": {
+    "heading": "Finding Your Way",
+    "body": "Not sure where to park or which door to use? Here's a look at our property from above.",
+    "image": "/images/grace_map.webp",
+    "legend": [
+      {
+        "marker": "A",
+        "label": "Main Entrance"
+      },
+      {
+        "marker": "B",
+        "label": "Secondary Entrance"
+      },
+      {
+        "marker": "C",
+        "label": "Sanctuary"
+      },
+      {
+        "marker": "D",
+        "label": "Sanctuary Entrance"
+      },
+      {
+        "marker": ":)",
+        "label": "Playground"
+      }
+    ]
+  },
   "directions": {
     "eyebrow": "Directions",
     "serviceNote": "Check the calendar for schedule in case a service has been canceled or rescheduled.",

@@ -4,7 +4,7 @@ import {IconArrowRight} from "@/components/home/icons";
 import type {GlobalVariablesData} from "@/app/(main)/layout";
 import {WorshipData} from "@/app/(main)/worship/page";
 
-export function MapSection({globalVars, worshipData}: { globalVars: GlobalVariablesData, worshipData: WorshipData }) {
+export function DirectionsSection({globalVars, worshipData}: { globalVars: GlobalVariablesData, worshipData: WorshipData }) {
   const worshipDirections = worshipData.directions!;
 
   // Construct Maps URLs from address fields so there's one source of truth

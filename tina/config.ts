@@ -1081,6 +1081,37 @@ export default defineConfig({
               { type: "image", name: "image", label: "Image" },
             ],
           },
+          // -------- church map --------
+          {
+            type: "object",
+            name: "churchMap",
+            label: "Church Map",
+            fields: [
+              { type: "string", name: "heading", label: "Heading", description: 'e.g. "Finding Your Way"' },
+              {
+                type: "string",
+                name: "body",
+                label: "Body",
+                description: "Optional short intro above the map image.",
+                ui: { component: "textarea" },
+              },
+              { type: "image", name: "image", label: "Map Image", description: "Bird's-eye view of the church property, parking lots, and entrances." },
+              {
+                type: "object",
+                name: "legend",
+                label: "Legend",
+                list: true,
+                description: "Optional. e.g. 'A' -> 'West Parking'",
+                ui: {
+                  itemProps: (item) => ({ label: item?.label }),
+                },
+                fields: [
+                  { type: "string", name: "marker", label: "Marker", description: 'e.g. "A", "1", or a color name' },
+                  { type: "string", name: "label", label: "Label", description: 'e.g. "Visitor Parking"' },
+                ],
+              },
+            ],
+          },
           // -------- directions --------
           {
             type: "object",
