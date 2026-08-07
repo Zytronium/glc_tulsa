@@ -1,27 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useTina } from "tinacms/dist/react";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { EventsGrid } from "@/components/events/EventsGrid";
 import type { YouthPageQuery, EventConnectionQuery } from "@/../tina/__generated__/types";
 import { PhotoCarousel } from "@/components/youth/PhotoCarousel";
 
-type TinaQuery<T> = { query: string; variables: object; data: T };
-
 type Props = {
-  youthQuery: TinaQuery<YouthPageQuery>;
-  eventsQuery: TinaQuery<EventConnectionQuery>;
+  youth: YouthPageQuery["youthPage"];
+  eventsData: EventConnectionQuery;
 };
 
 const SECTION_BACKGROUNDS = ["/images/paper.png", "/images/aged_paper.png"];
 
-export function YouthPage({youthQuery, eventsQuery}: Props) {
-  const {data: youthData} = useTina(youthQuery);
-  const {data: eventsData} = useTina(eventsQuery);
-
-  const youth = youthData.youthPage;
+export function YouthPage({ youth, eventsData }: Props) {
   const events = (eventsData.eventConnection.edges ?? [])
     .map((e) => e?.node)
     .filter((e): e is NonNullable<typeof e> => e !== null && e !== undefined);

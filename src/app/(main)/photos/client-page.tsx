@@ -5,6 +5,8 @@ import type { PhotosPageQuery } from "@/../tina/__generated__/types";
 import type { PhotoCategory } from "@/lib/photos-server";
 import PhotosHero from "@/components/photos/PhotosHero";
 import PhotoCategories from "@/components/photos/PhotoCategories";
+import { isPageVisible } from "@/lib/publish-status";
+import { PublishGuard } from "@/components/system/PublishGuard";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -33,9 +35,11 @@ export function ClientPage({ photosQuery, photoCategories }: Props) {
   });
 
   return (
-    <main>
-      <PhotosHero hero={photos.hero!} />
-      <PhotoCategories categories={categories} />
-    </main>
+    <PublishGuard isVisible={isPageVisible(photos)}>
+      <main>
+        <PhotosHero hero={photos.hero!}/>
+        <PhotoCategories categories={categories}/>
+      </main>
+    </PublishGuard>
   );
 }

@@ -25,19 +25,15 @@ export default async function DynamicPage({ params }: Props) {
     notFound();
   }
 
-  const now = new Date();
-  const publishAt = doc.schedule?.publishAt ? new Date(doc.schedule.publishAt) : null;
-  const unpublishAt = doc.schedule?.unpublishAt ? new Date(doc.schedule.unpublishAt) : null;
+  // Publish/schedule visibility is handled client-side by PublishGuard.
+  // This lets editors still load the page while it's unpublished.
+  // Unfortunately, it also sometimes causes a content flash and may allow crawlers to see the
+  // content of an unpublished page.
 
-  const isPublished = doc.status === "published";
-  const afterStart = !publishAt || publishAt <= now;
-  const beforeEnd = !unpublishAt || unpublishAt >= now;
-
-  if (!isPublished || !afterStart || !beforeEnd) {
-    notFound();
-  }
-
-  // password-protected pages: only pass the slug, never the content
+  // password-protected pages: only pass the slug, never the content (this IS protected from
+  // crawlers and content flashes).
+  // /api/protected-page enforces both doc.status === "published" and the schedule window before
+  // returning content, so you don't need to worry about visibility checks here.
   if (doc.passwordProtected) {
     return <PasswordGate slug={slug} />;
   }

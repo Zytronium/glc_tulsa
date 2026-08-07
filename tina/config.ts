@@ -633,6 +633,12 @@ export default defineConfig({
           router: () => "/about",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           // -------- hero --------
           {
             type: "object",
@@ -779,6 +785,12 @@ export default defineConfig({
           router: () => "/photos",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           // hero
           {
             type: "object",
@@ -859,6 +871,12 @@ export default defineConfig({
           router: () => "/history",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           { type: "string", name: "eyebrow", label: "Eyebrow", description: 'e.g. "History"' },
           { type: "string", name: "headline", label: "Headline", required: true },
           { type: "image", name: "headerBackgroundImage", label: "Header Background Image" },
@@ -964,6 +982,12 @@ export default defineConfig({
           router: () => "/worship",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           // -------- hero --------
           {
             type: "object",
@@ -1454,6 +1478,12 @@ export default defineConfig({
           router: () => "/ministries",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           // -------- hero --------
           {
             type: "object",
@@ -1531,6 +1561,12 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
+          {
             type: "string",
             name: "pageTitle",
             label: "Page Title",
@@ -1588,6 +1624,12 @@ export default defineConfig({
           router: () => "/ministries/missions",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           {
             type: "string",
             name: "pageTitle",
@@ -1670,6 +1712,12 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
+          {
             type: "string",
             name: "pageTitle",
             label: "Page Title",
@@ -1735,6 +1783,12 @@ export default defineConfig({
           router: () => "/ministries/st-andrew-society",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           {
             type: "string",
             name: "pageTitle",
@@ -1815,6 +1869,12 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
+          {
             type: "string",
             name: "pageTitle",
             label: "Page Title",
@@ -1894,6 +1954,12 @@ export default defineConfig({
           router: () => "/youth",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           {
             type: "string",
             name: "heading",
@@ -1985,6 +2051,12 @@ export default defineConfig({
           router: () => "/sign-up",
         },
         fields: [
+          {
+            type: "boolean",
+            name: "isPublished",
+            label: "Published",
+            description: "Turn off to make this page inaccessible to visitors (returns a 404). Editing still works normally either way.",
+          },
           {
             type: "string",
             name: "pageTitle",

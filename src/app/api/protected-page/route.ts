@@ -28,6 +28,18 @@ async function getContentForSlug(slug: string) {
     throw new Error("Page not found or not password protected");
   }
 
+  // -------- also enforce the publish schedule window, same as isSitePageVisible --------
+  const now = new Date();
+  const publishAt = doc.schedule?.publishAt ? new Date(doc.schedule.publishAt) : null;
+  const unpublishAt = doc.schedule?.unpublishAt ? new Date(doc.schedule.unpublishAt) : null;
+
+  const afterStart = !publishAt || publishAt <= now;
+  const beforeEnd = !unpublishAt || unpublishAt >= now;
+
+  if (!afterStart || !beforeEnd) {
+    throw new Error("Page not found or not password protected");
+  }
+
   return {
     type: "sections" as const,
     title: doc.title,

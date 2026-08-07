@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { client } from "@/../tina/__generated__/client";
-import { YouthPage } from "@/components/youth/YouthPage";
+import { ClientPage } from "./client-page";
 
 export const metadata: Metadata = {
   title: "Youth | Grace Evangelical Lutheran Church",
@@ -14,5 +14,5 @@ export default async function Youth() {
     client.queries.eventConnection(),
   ]);
 
-  return <YouthPage youthQuery={youthQuery} eventsQuery={eventsQuery} />;
+  return <ClientPage youthQuery={youthQuery} eventsQuery={eventsQuery} />;
 }

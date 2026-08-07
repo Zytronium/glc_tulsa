@@ -3,6 +3,8 @@
 import { useTina } from "tinacms/dist/react";
 import type { SitePageConnectionQuery } from "../../../../tina/__generated__/types";
 import { SectionRenderer } from "@/components/pages/SectionRenderer";
+import { isSitePageVisible } from "@/lib/publish-status";
+import { PublishGuard } from "@/components/system/PublishGuard";
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -23,8 +25,10 @@ export function ClientPage({ query, relativePath }: Props) {
   const sections = (doc.sections ?? []).filter((s): s is NonNullable<typeof s> => s !== null);
 
   return (
-    <main>
-      <SectionRenderer sections={sections} />
-    </main>
+    <PublishGuard isVisible={isSitePageVisible(doc)}>
+      <main>
+        <SectionRenderer sections={sections}/>
+      </main>
+    </PublishGuard>
   );
 }
