@@ -66,8 +66,8 @@ export default function PhotoGrid({
       className="px-5 py-14 sm:px-8 sm:py-20"
       style={{
         backgroundImage: "url('/images/paper.png')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: "repeat-y",
+        backgroundSize: "100%",
         backgroundPosition: "center",
       }}
     >
