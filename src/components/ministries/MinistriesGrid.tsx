@@ -26,9 +26,12 @@ export function MinistriesGrid({ ministries }: Props) {
             const href = ministry?.linkHref ?? "#";
 
             return (
-              <div
+              <Link
                 key={ministry?.label}
-                className="flex w-full flex-col overflow-hidden rounded-sm border border-stone-200 bg-white sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className="flex w-full flex-col overflow-hidden rounded-sm border border-stone-200 bg-white transition-all hover:shadow-lg hover:border-garnet-200 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 {ministry?.image && (
                   <div className="relative h-40 w-full">
@@ -44,7 +47,7 @@ export function MinistriesGrid({ ministries }: Props) {
                 )}
 
                 <div className="flex flex-1 flex-col px-6 py-7">
-                  <ArchTop className="h-5 w-9 text-garnet-200" />
+                  <ArchTop className="h-5 w-9 text-garnet-200"/>
                   <p
                     data-tina-field={tinaField(ministry, "label")}
                     className="mt-2 font-display text-[18px] text-ink"
@@ -59,19 +62,16 @@ export function MinistriesGrid({ ministries }: Props) {
                   </p>
 
                   {ministry?.linkHref && (
-                    <Link
-                      href={href}
+                    <div
                       data-tina-field={tinaField(ministry, "linkLabel")}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
                       className="mt-5 flex items-center gap-1 font-meta text-[11px] uppercase tracking-widest text-garnet-700"
                     >
                       {ministry.linkLabel}
-                      <IconArrowRight className="h-3 w-3" />
-                    </Link>
+                      <IconArrowRight className="h-3 w-3"/>
+                    </div>
                   )}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
