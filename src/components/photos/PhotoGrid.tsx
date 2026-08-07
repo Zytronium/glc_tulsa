@@ -146,7 +146,7 @@ export default function PhotoGrid({
                   navigateToPrevious();
                 }}
                 aria-label="Previous photo"
-                className="fixed left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/70 text-stone-50 transition hover:bg-garnet-700 sm:left-6"
+                className="fixed left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/55 smd:bg-ink/70 text-white md:text-stone-50 transition hover:bg-garnet-700/70 md:hover:bg-garnet-700 sm:left-6"
               >
                 <IconArrowLeft className="h-6 w-6"/>
               </button>
@@ -159,7 +159,7 @@ export default function PhotoGrid({
                   navigateToNext();
                 }}
                 aria-label="Next photo"
-                className="fixed right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/70 text-stone-50 transition hover:bg-garnet-700 sm:right-6"
+                className="fixed right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/55 md:bg-ink/70 text-white md:text-stone-50 transition hover:bg-garnet-700/70 md:hover:bg-garnet-700 sm:right-6"
               >
                 <IconArrowRight className="h-6 w-6"/>
               </button>
