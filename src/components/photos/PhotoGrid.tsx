@@ -103,7 +103,7 @@ export default function PhotoGrid({
             >
               <Image
                 fill
-                unoptimized
+                unoptimized /* unoptimized because before, these photos were using a ton of free tier Vercel image transformations, approaching free monthly limits in just 2 days */
                 src={photo.src}
                 alt={photo.filename}
                 sizes="(min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
