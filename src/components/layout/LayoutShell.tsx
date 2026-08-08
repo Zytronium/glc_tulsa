@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react";
 import type { Global_VariablesQuery, LayoutQuery } from "@/../tina/__generated__/types";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 type TinaQuery<T> = { query: string; variables: object; data: T };
 
@@ -25,6 +26,7 @@ export function LayoutShell({ layoutQuery, globalVariablesQuery, children }: Pro
       <Navbar globalVars={globalVars} />
       {children}
       <Footer layout={layout!} globalVars={globalVars} />
+      <Analytics /> {/* tracks page views and whatnot */}
     </>
   );
 }
