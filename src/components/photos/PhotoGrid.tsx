@@ -103,6 +103,7 @@ export default function PhotoGrid({
             >
               <Image
                 fill
+                unoptimized
                 src={photo.src}
                 alt={photo.filename}
                 sizes="(min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
@@ -118,7 +119,7 @@ export default function PhotoGrid({
             onClick={() => setSelected(null)}
           >
             <div className="relative h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-              <Image fill src={selected.src} alt={metadata.filename} className="object-contain"/>
+              <Image fill unoptimized src={selected.src} alt={metadata.filename} className="object-contain"/>
             </div>
 
             <button
