@@ -20,10 +20,10 @@ export default async function NotFound() {
       {/* -------- stained glass window image -------- */}
       <div className="relative w-75 h-117 mb-10">
         <Image
-          src="/images/window.webp"
+          src="/images/altar_window.webp"
           alt="Stained glass window"
           fill
-          className="object-contain border-stone-900 border-6"
+          className="object-contain"
           priority
         />
       </div>
