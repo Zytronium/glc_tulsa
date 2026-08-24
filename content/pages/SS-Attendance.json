@@ -2,7 +2,7 @@
   "title": "SS Attendance",
   "slug": "ss-attendance",
   "status": "published",
-  "passwordProtected": true,
+  "passwordProtected": false,
   "sections": [
     {
       "bodyRichText": "",
