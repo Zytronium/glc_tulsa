@@ -15,7 +15,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sharp": "^0.35.3",
-    "tinacms": "^3.11.0"
+    "tinacms": "^3.12.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
