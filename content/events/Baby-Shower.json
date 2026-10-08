@@ -1,0 +1,14 @@
+{
+  "title": "Baby Shower",
+  "date": "2026-10-11T00:00:00.000Z",
+  "time": "12:00PM",
+  "locationLabel": "Grace Evangelical Lutheran Church",
+  "location": "2331 East 5th Place, Tulsa, OK",
+  "detail": "Celebrating three new moms!",
+  "eventType": "Event",
+  "image": "/images/Fall-baby-shower-invitation-(3).png",
+  "content": "Join us in celebrating 3 new moms! \n",
+  "recurring": false,
+  "seasonal": false,
+  "featured": true
+}
