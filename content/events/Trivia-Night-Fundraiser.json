@@ -1,0 +1,14 @@
+{
+  "title": "Trivia Night Fundraiser",
+  "date": "2026-10-09T00:00:00.000Z",
+  "time": "6:00PM",
+  "locationLabel": "Grace Evangelical Lutheran Church",
+  "location": "2331 East 5th Place, Tulsa, OK",
+  "detail": "This Fundraiser is for the Jeremiah Tiews family as they manage critical medical treatments for their young daughter. Jeremiah has deep roots at Grace, growing up in our congregation while his father, Christian Tiews, served as associate pastor. ",
+  "eventType": "Event",
+  "image": "/images/Trivia-Night-reminder-flyer.png",
+  "content": "Just a reminder if you have signed up for the Trivia Night Fundraiser the event is this Friday at 6:00PM!\n",
+  "recurring": false,
+  "seasonal": false,
+  "featured": true
+}
