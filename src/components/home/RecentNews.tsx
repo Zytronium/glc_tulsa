@@ -139,7 +139,11 @@ export function RecentNews({ items, useAltBackground }: Props) {
           </Link>
 
           {/* -------- secondary items -------- */}
-          <div className="flex min-w-0 flex-col gap-4 md:col-span-2">
+          <div
+            className={`flex min-w-0 flex-col gap-4 md:col-span-2 ${
+              secondary.length <= 2 ? "md:self-start" : ""
+            }`}
+          >
             {secondary.map((item) => {
               const d = formatDate(item.date);
               return (
